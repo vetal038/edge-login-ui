@@ -1,5 +1,7 @@
 import { connect } from 'react-redux'
+
 import LoadingScreenComponent from '../../components/screens/LoadingScreenComponent'
+
 // import * as loginAction from '../../common/actions/'
 
 export const mapStateToProps = (state, ownProps) => {
@@ -15,4 +17,6 @@ export const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoadingScreenComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(
+  LoadingScreenComponent
+)

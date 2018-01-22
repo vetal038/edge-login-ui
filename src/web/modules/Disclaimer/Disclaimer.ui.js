@@ -1,13 +1,13 @@
+import { Button } from 'native-base'
 import React, { Component } from 'react'
+import { Image, Platform, StyleSheet, Text, View, WebView } from 'react-native'
 import { connect } from 'react-redux'
 
+import appTheme from '../../../Themes/appTheme'
+import abcctx from '../../lib/abcContext'
+import t from '../../lib/LocaleStrings'
 import { acceptDisclaimer } from './Disclaimer.action'
 
-import appTheme from '../../../Themes/appTheme'
-import { Platform, View, Text, StyleSheet, WebView, Image } from 'react-native'
-import abcctx from '../../lib/abcContext'
-import { Button } from 'native-base'
-import t from '../../lib/LocaleStrings'
 class Disclaimer extends Component {
   accept = () => {
     abcctx(ctx => {

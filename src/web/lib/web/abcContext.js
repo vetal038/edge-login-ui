@@ -1,4 +1,5 @@
 const abc = require('airbitz-core-js')
+
 import 'whatwg-fetch'
 
 const context = {

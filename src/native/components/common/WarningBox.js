@@ -1,7 +1,9 @@
 import React from 'react'
-import { View, Text } from 'react-native'
-import { Icon } from './'
+import { Text, View } from 'react-native'
+
 import * as Constants from '../../../common/constants'
+import { Icon } from './'
+
 // <Icon style={styles.iconStyle} icon={Constants.CLOSE_ICON} size={styles.iconSize} type={Constants.MATERIAL_ICONS} />
 const WarningBox = ({ style, message }) => {
   const renderGradient = (styles, icon, iconType) => {
@@ -24,10 +26,7 @@ const WarningBox = ({ style, message }) => {
       <View style={style.bottom}>
         <Text style={style.text}>{message}</Text>
       </View>
-      <View style={style.top}>
-        {renderGradient(style)}
-      </View>
-
+      <View style={style.top}>{renderGradient(style)}</View>
     </View>
   )
 }

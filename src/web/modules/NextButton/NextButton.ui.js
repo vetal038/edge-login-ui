@@ -1,9 +1,10 @@
-import { connect } from 'react-redux'
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import t from '../../lib/LocaleStrings'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { connect } from 'react-redux'
 
 import appTheme from '../../../Themes/appTheme'
+import t from '../../lib/LocaleStrings'
+
 class NextButton extends Component {
   checkScene = () => {
     switch (this.props.scene) {

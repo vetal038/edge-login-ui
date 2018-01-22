@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { BackAndroid, View, StyleSheet } from 'react-native'
-import { connect } from 'react-redux'
-import ErrorModal from './ErrorModal/ErrorModal.ui'
-import Loader from './Loader/Loader.ui'
-
+import { BackAndroid, StyleSheet, View } from 'react-native'
 import { Actions } from 'react-native-router-flux'
+import { connect } from 'react-redux'
+
+import ErrorModal from './ErrorModal/ErrorModal.ui'
 import { fadeWhiteOverlay } from './Landing.action'
+import Loader from './Loader/Loader.ui'
 
 class SignUpContainer extends Component {
   componentDidMount = () => {

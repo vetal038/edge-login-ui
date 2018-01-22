@@ -1,8 +1,8 @@
-import { openErrorModal } from '../ErrorModal/ErrorModal.action'
-import { openLoading, closeLoading } from '../Loader/Loader.action'
-import { userLogin, requestEdgeLogin, enablePinTimeout, disablePinTimeout, refreshPinTimeout, enablePasswordTimeout, disablePasswordTimeout, refreshPasswordTimeout } from './Login.action'
-import { showContainerNotification } from '../Container.action.js'
 import { selectUserToLogin } from '../CachedUsers/CachedUsers.action'
+import { showContainerNotification } from '../Container.action.js'
+import { openErrorModal } from '../ErrorModal/ErrorModal.action'
+import { closeLoading, openLoading } from '../Loader/Loader.action'
+import { disablePasswordTimeout, disablePinTimeout, enablePasswordTimeout, enablePinTimeout, refreshPasswordTimeout, refreshPinTimeout, requestEdgeLogin, userLogin } from './Login.action'
 
 export const loginWithPassword = (username, password, callback) => {
   return (dispatch, getState, imports) => {

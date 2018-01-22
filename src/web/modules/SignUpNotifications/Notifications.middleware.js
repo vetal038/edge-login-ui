@@ -1,7 +1,7 @@
 import asyncAuto from 'async/auto'
 import { Actions } from 'react-native-router-flux'
 
-import { requestCameraPermission, checkReadContactPermission, requestReadContactPermission } from '../../lib/permissions'
+import { checkReadContactPermission, requestCameraPermission, requestReadContactPermission } from '../../lib/permissions'
 
 export const cameraPermissions = () => {
   return dispatch => {

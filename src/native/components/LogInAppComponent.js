@@ -1,35 +1,22 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
+
 import * as Constants from '../../common/constants'
-import LoadingScreenConnector
-  from '../connectors/screens/LoadingScreenConnector'
-import LandingScreenConnector
-  from '../connectors/screens/LandingScreenConnector'
-import NewAccountWelcomeScreenConnector
-  from '../connectors/screens/newAccount/NewAccountWelcomeScreenConnector'
-import NewAccountUsernameScreenConnector
-  from '../connectors/screens/newAccount/NewAccountUsernameScreenConnector'
-import NewAccountPasswordScreenConnector
-  from '../connectors/screens/newAccount/NewAccountPasswordScreenConnector'
-import NewAccountPinScreenConnector
-  from '../connectors/screens/newAccount/SetAccountPinScreenConnector'
-import CreatingAccountWaitScreenConnector
-  from '../connectors/screens/newAccount/CreatingAccountWaitScreenConnector'
-import NewAccountReviewScreenConnector
-  from '../connectors/screens/newAccount/NewAccountReviewScreenConnector'
-import TermsAndConditionsScreenConnector
-  from '../connectors/screens/newAccount/TermsAndConditionsScreenConnector'
-import LoginUsernamePasswordScreenConnector
-  from '../connectors/screens/LogInUsernamePasswordScreenConnector'
-import PinLoginScreenConnector
-  from '../connectors/screens/PinLoginScreenConnector'
-import LoginWithRecoveryQuestionsSceenConnector
-  from '../connectors/screens/existingAccount/LoginWithRecoveryQuestionsSceenConnector'
-import ForgotPasswordChangePasswordConnector
-  from '../connectors/screens/existingAccount/ForgotPasswordChangePasswordConnector'
-import ForgotPinChangePinConnector
-  from '../connectors/screens/existingAccount/ForgotPinChangePinConnector'
+import ForgotPasswordChangePasswordConnector from '../connectors/screens/existingAccount/ForgotPasswordChangePasswordConnector'
+import ForgotPinChangePinConnector from '../connectors/screens/existingAccount/ForgotPinChangePinConnector'
+import LoginWithRecoveryQuestionsSceenConnector from '../connectors/screens/existingAccount/LoginWithRecoveryQuestionsSceenConnector'
 import OtpErrorScreenConnector from '../connectors/screens/existingAccount/OtpErrorScreenConnector'
+import LandingScreenConnector from '../connectors/screens/LandingScreenConnector'
+import LoadingScreenConnector from '../connectors/screens/LoadingScreenConnector'
+import LoginUsernamePasswordScreenConnector from '../connectors/screens/LogInUsernamePasswordScreenConnector'
+import CreatingAccountWaitScreenConnector from '../connectors/screens/newAccount/CreatingAccountWaitScreenConnector'
+import NewAccountPasswordScreenConnector from '../connectors/screens/newAccount/NewAccountPasswordScreenConnector'
+import NewAccountReviewScreenConnector from '../connectors/screens/newAccount/NewAccountReviewScreenConnector'
+import NewAccountUsernameScreenConnector from '../connectors/screens/newAccount/NewAccountUsernameScreenConnector'
+import NewAccountWelcomeScreenConnector from '../connectors/screens/newAccount/NewAccountWelcomeScreenConnector'
+import NewAccountPinScreenConnector from '../connectors/screens/newAccount/SetAccountPinScreenConnector'
+import TermsAndConditionsScreenConnector from '../connectors/screens/newAccount/TermsAndConditionsScreenConnector'
+import PinLoginScreenConnector from '../connectors/screens/PinLoginScreenConnector'
 
 export default class LoginAppComponent extends Component {
   componentWillMount () {
@@ -123,9 +110,15 @@ export default class LoginAppComponent extends Component {
   getRecoveryLoginScreen () {
     switch (this.props.workflow.currentSceneIndex) {
       case 0:
-        return <LoginWithRecoveryQuestionsSceenConnector styles={this.props.styles} />
+        return (
+          <LoginWithRecoveryQuestionsSceenConnector
+            styles={this.props.styles}
+          />
+        )
       case 1:
-        return <ForgotPasswordChangePasswordConnector styles={this.props.styles} />
+        return (
+          <ForgotPasswordChangePasswordConnector styles={this.props.styles} />
+        )
       case 2:
         return <ForgotPinChangePinConnector styles={this.props.styles} />
     }

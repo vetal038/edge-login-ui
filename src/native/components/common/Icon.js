@@ -1,11 +1,12 @@
 import React from 'react'
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
+import Entypo from 'react-native-vector-icons/Entypo'
+import EvilIcons from 'react-native-vector-icons/EvilIcons'
 import FAIcon from 'react-native-vector-icons/FontAwesome'
 import IonIcon from 'react-native-vector-icons/Ionicons'
-import SimpleIcon from 'react-native-vector-icons/SimpleLineIcons'
-import Entypo from 'react-native-vector-icons/Entypo'
 import MaterialCommunity from 'react-native-vector-icons/MaterialCommunityIcons'
-import EvilIcons from 'react-native-vector-icons/EvilIcons'
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
+import SimpleIcon from 'react-native-vector-icons/SimpleLineIcons'
+
 import * as Constants from '../../../common/constants'
 
 /* type Props= {
@@ -32,7 +33,9 @@ const Icon = ({ style, name, size, type }) => {
     case Constants.SIMPLE_ICONS:
       return <SimpleIcon style={style} name={name} size={size} />
   }
-  console.warn('No icon: Probably forgot the type ' + type + 'or ' + name + 'doesnt exist')
+  console.warn(
+    'No icon: Probably forgot the type ' + type + 'or ' + name + 'doesnt exist'
+  )
   return null
 }
 

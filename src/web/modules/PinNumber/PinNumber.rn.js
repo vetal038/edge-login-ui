@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { View, Text, TextInput } from 'react-native'
-
-import { changePinNumberValue } from './PinNumber.action'
-import { checkPIN } from './PinNumber.middleware'
-
+import { Text, TextInput, View } from 'react-native'
 import { MKTextField } from 'react-native-material-kit'
-import Container from '../SignUp.ui'
-import style from './PinNumber.style'
+import { connect } from 'react-redux'
+
 import t from '../../lib/LocaleStrings'
 import NextButton from '../NextButton/NextButton.ui'
+import Container from '../SignUp.ui'
+import { changePinNumberValue } from './PinNumber.action'
+import { checkPIN } from './PinNumber.middleware'
+import style from './PinNumber.style'
 
 class PinComponent extends Component {
   handleSubmit = () => {

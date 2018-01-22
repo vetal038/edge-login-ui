@@ -1,5 +1,5 @@
-import * as Styles from '../'
 import * as Constants from '../../../common/constants/'
+import * as Styles from '../'
 
 const NewAccountWelcomeScreenStyle = {
   screen: { ...Styles.ScreenStyle },

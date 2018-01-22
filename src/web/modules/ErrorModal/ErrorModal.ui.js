@@ -3,9 +3,9 @@ import { Text, TouchableHighlight } from 'react-native'
 import Modal from 'react-native-modalbox'
 import { connect } from 'react-redux'
 
+import t from '../../lib/LocaleStrings'
 import { closeErrorModal } from './ErrorModal.action'
 import style from './ErrorModal.style'
-import t from '../../lib/LocaleStrings'
 
 class ErrorModal extends Component {
   handleClose = () => {

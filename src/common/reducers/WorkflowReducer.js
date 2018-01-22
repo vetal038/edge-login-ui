@@ -71,7 +71,14 @@ const initialState = {
   },
   otpWF: {
     scenes: 1,
-    details: [{ back: true, skip: false, title: 'Two Factor Authentication', subTitle: '' }]
+    details: [
+      {
+        back: true,
+        skip: false,
+        title: 'Two Factor Authentication',
+        subTitle: ''
+      }
+    ]
   },
   recoveryLoginWF: {
     scenes: 3,
@@ -131,9 +138,17 @@ export default function (state = initialState, action) {
     case Constants.WORKFLOW_CANCEL_BETA_MODAL:
       return { ...state, betaModal: false }
     case Constants.ON_RECOVERY_LOGIN_IS_ENABLED:
-      return { ...state, currentKey: Constants.WORKFLOW_RECOVERY_LOGIN, currentSceneIndex: 0 }
+      return {
+        ...state,
+        currentKey: Constants.WORKFLOW_RECOVERY_LOGIN,
+        currentSceneIndex: 0
+      }
     case Constants.LOGIN_RECOVERY_SUCCEESS:
-      return { ...state, currentKey: Constants.WORKFLOW_RECOVERY_LOGIN, currentSceneIndex: 1 }
+      return {
+        ...state,
+        currentKey: Constants.WORKFLOW_RECOVERY_LOGIN,
+        currentSceneIndex: 1
+      }
     case Constants.RESET_APP:
       return initialState
     default:

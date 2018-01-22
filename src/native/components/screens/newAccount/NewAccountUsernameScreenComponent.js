@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { Text, View } from 'react-native'
+
+import HeaderConnector from '../../../connectors/componentConnectors/HeaderConnector'
+import UsernameConnector from '../../../connectors/componentConnectors/UsernameConnector'
 import { Button } from '../../common'
-import UsernameConnector
-  from '../../../connectors/componentConnectors/UsernameConnector'
-import HeaderConnector
-  from '../../../connectors/componentConnectors/HeaderConnector'
 
 // import * as Constants from '../../../common/constants'
 
@@ -30,7 +29,8 @@ export default class LandingScreenComponent extends Component {
         <View style={NewAccountUsernameScreenStyle.pageContainer}>
           <View style={NewAccountUsernameScreenStyle.instructions}>
             <Text style={NewAccountUsernameScreenStyle.instructionsText}>
-              Your username will be required to sign in to your Edge account on this and other devices.
+              Your username will be required to sign in to your Edge account on
+              this and other devices.
             </Text>
           </View>
           <UsernameConnector

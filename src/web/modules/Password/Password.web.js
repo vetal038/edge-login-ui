@@ -2,25 +2,22 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import Button from 'react-toolbox/lib/button'
-import Input from 'react-toolbox/lib/input'
 import FontIcon from 'react-toolbox/lib/font_icon'
-import t from '../../lib/web/LocaleStrings'
-
-import { validate } from './PasswordValidation/PasswordValidation.middleware'
-import { checkPassword, skipPassword } from './Password.middleware'
-import { changeSignupPage } from '../Signup/Signup.action'
-
+import Input from 'react-toolbox/lib/input'
 import neutralButtonWithBlueText from 'theme/neutralButtonWithBlueText.scss'
 
+import t from '../../lib/web/LocaleStrings'
+import { changeSignupPage } from '../Signup/Signup.action'
 import {
-  passwordNotificationShow,
-  showPassword,
-  hidePassword,
+  changePasswordRepeatValue,
   changePasswordValue,
-  changePasswordRepeatValue
+  hidePassword,
+  passwordNotificationShow,
+  showPassword
 } from './Password.action'
-
+import { checkPassword, skipPassword } from './Password.middleware'
 import styles from './Password.webStyle'
+import { validate } from './PasswordValidation/PasswordValidation.middleware'
 
 class Password extends Component {
   _handleSubmit = () => {

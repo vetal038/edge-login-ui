@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableHighlight, StyleSheet } from 'react-native'
+import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
 import Modal from 'react-native-modalbox'
 import { connect } from 'react-redux'
+
+import appTheme from '../../../Themes/appTheme'
 import t from '../../lib/LocaleStrings'
 import { passwordNotificationHide } from './Password.action'
 
-import appTheme from '../../../Themes/appTheme'
 class ErrorModal extends Component {
   handleClose = () => {
     this.props.dispatch(passwordNotificationHide())

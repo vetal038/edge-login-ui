@@ -1,5 +1,5 @@
-import * as ACTION from './ReviewDetails.action'
 import { HIDE_PASSWORD_RECOVERY_VIEW, SHOW_PASSWORD_RECOVERY_VIEW } from '../PasswordRecovery/PasswordRecovery.action'
+import * as ACTION from './ReviewDetails.action'
 
 const defaultDetails = {
   username: '',

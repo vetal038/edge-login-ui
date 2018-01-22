@@ -1,9 +1,12 @@
-import * as Styles from '../'
 import * as Constants from '../../../common/constants/'
+import * as Styles from '../'
 
 const SetAccountPinScreenStyle = {
   screen: { ...Styles.ScreenStyle },
-  header: { ...Styles.HeaderContainerStyle, backgroundColor: Constants.PRIMARY },
+  header: {
+    ...Styles.HeaderContainerStyle,
+    backgroundColor: Constants.PRIMARY
+  },
   pageContainer: Styles.PageContainerWithHeaderStyle,
   row1: {
     ...Styles.ScreenRow,

@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import t from '../../lib/web/LocaleStrings'
-import Snackbar from 'react-toolbox/lib/snackbar'
 import Dialog from 'react-toolbox/lib/dialog'
 import Input from 'react-toolbox/lib/input'
-
-import { hidePinView, changePinPasswordValue, changePinValue, hidePinChangedNotification, showPinChangedNotification } from './ChangePin.action'
-import { checkPin } from './ChangePin.middleware'
-
+import Snackbar from 'react-toolbox/lib/snackbar'
 import neutralButtons from 'theme/neutralButtons.scss'
 import primaryButtons from 'theme/primaryButtons.scss'
+
+import t from '../../lib/web/LocaleStrings'
+import { changePinPasswordValue, changePinValue, hidePinChangedNotification, hidePinView, showPinChangedNotification } from './ChangePin.action'
+import { checkPin } from './ChangePin.middleware'
 
 class ChangePin extends Component {
   _handleSubmit = () => {

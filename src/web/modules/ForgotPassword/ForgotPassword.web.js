@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import t from '../../lib/web/LocaleStrings'
 import Button from 'react-toolbox/lib/button'
 import Dialog from 'react-toolbox/lib/dialog'
+
+import t from '../../lib/web/LocaleStrings'
 import { closeForgotPasswordModal } from './ForgotPassword.action'
 import styles from './ForgotPassword.webStyle'
 

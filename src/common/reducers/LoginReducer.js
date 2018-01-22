@@ -53,7 +53,7 @@ export default function (state = initialState, action) {
     case Constants.AUTH_UPDATE_OTP_BACKUP_KEY:
       return { ...state, otpUserBackupKey: action.data }
     case Constants.AUTH_UPDATE_LOGIN_PASSWORD:
-      return {...state, password: action.data}
+      return { ...state, password: action.data }
     case Constants.OTP_ERROR:
       return {
         ...state,
@@ -80,13 +80,21 @@ export default function (state = initialState, action) {
       }
     case Constants.RESET_APP:
       const username = state.username
-      return {...initialState, username: username}
+      return { ...initialState, username: username }
     case Constants.LOGIN_RECOVERY_SUCCEESS:
-      return {...state, account: action.data.account, touchIdInformation: action.data.touchIdInformation}
+      return {
+        ...state,
+        account: action.data.account,
+        touchIdInformation: action.data.touchIdInformation
+      }
     case Constants.ON_RECOVERY_LOGIN_ERROR:
-      return {...state, errorMessage: action.data}
+      return { ...state, errorMessage: action.data }
     case Constants.PASSWORD_RECOVERY_INITIALIZED:
-      return {...state, account: action.data.account, username: action.data.username}
+      return {
+        ...state,
+        account: action.data.account,
+        username: action.data.username
+      }
     default:
       return state
   }

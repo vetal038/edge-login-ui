@@ -1,16 +1,15 @@
+import t from 'lib/web/LocaleStrings'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import Button from 'react-toolbox/lib/button'
 import Input from 'react-toolbox/lib/input'
-import t from 'lib/web/LocaleStrings'
-
-import { checkUsername } from './Username.middleware'
-import { changeUsernameValue } from './Username.action'
-import { changeSignupPage } from '../Signup/Signup.action'
-import { openErrorModal } from '../ErrorModal/ErrorModal.action'
 import neutralButtonWithBlueTextTheme from 'theme/neutralButtonWithBlueText.scss'
 
+import { openErrorModal } from '../ErrorModal/ErrorModal.action'
+import { changeSignupPage } from '../Signup/Signup.action'
+import { changeUsernameValue } from './Username.action'
+import { checkUsername } from './Username.middleware'
 import styles from './Username.webStyle'
 
 class UsernameComponent extends Component {

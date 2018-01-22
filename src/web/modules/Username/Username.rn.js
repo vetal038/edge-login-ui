@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { View, Text } from 'react-native'
+import { Text, View } from 'react-native'
 import { MKTextField } from 'react-native-material-kit'
+import { Actions } from 'react-native-router-flux'
+import { connect } from 'react-redux'
+
+import t from '../../lib/native/LocaleStrings'
+import { openErrorModal } from '../ErrorModal/ErrorModal.action'
+import { fadeWhiteOverlay } from '../Landing.action'
+import NextButton from '../NextButton/NextButton.ui'
+import Container from '../SignUp.ui'
 import { changeUsernameValue } from './Username.action'
 import { checkUsername } from './Username.middleware'
-import { Actions } from 'react-native-router-flux'
-import { fadeWhiteOverlay } from '../Landing.action'
-import Container from '../SignUp.ui'
 import style from './Username.style'
-import t from '../../lib/native/LocaleStrings'
-import NextButton from '../NextButton/NextButton.ui'
-import { openErrorModal } from '../ErrorModal/ErrorModal.action'
 
 class UsernameComponent extends Component {
   handleSubmit = () => {

@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 
-import { View, ScrollView, Text, StyleSheet, TouchableOpacity } from 'react-native'
-
-import { selectUserToLogin, selectUserToDeleteFromUserCache } from './CachedUsers.action'
-import { openWarningModal } from '../WarningModal/WarningModal.action'
-
 import appTheme from '../../../Themes/appTheme'
-
 import t from '../../lib/LocaleStrings'
+import { openWarningModal } from '../WarningModal/WarningModal.action'
+import { selectUserToDeleteFromUserCache, selectUserToLogin } from './CachedUsers.action'
 
 class UserList extends Component {
   handleLoginUserPin = (user) => {

@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import t from '../../lib/web/LocaleStrings'
-
 import Button from 'react-toolbox/lib/button'
 import Dialog from 'react-toolbox/lib/dialog'
 
-import { hidePasswordRecoveryFinishModal } from './PasswordRecovery.action'
-
+import t from '../../lib/web/LocaleStrings'
 import styles from '../ErrorModal/ErrorModal.webStyle'
+import { hidePasswordRecoveryFinishModal } from './PasswordRecovery.action'
 
 class PasswordRecoverySuccess extends Component {
   _handleFinish = () => {

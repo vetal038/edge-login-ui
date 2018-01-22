@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import FontIcon from 'react-toolbox/lib/font_icon'
-import t from '../../lib/web/LocaleStrings'
-
-import { validate } from '../Password/PasswordValidation/PasswordValidation.middleware'
-import { hidePasswordView, showPasswordView, changePasswordHidePassword, changePasswordShowPassword, changeOldPasswordValue, changeNewPasswordValue, changeNewPasswordRepeatValue, hidePasswordChangedNotification, showPasswordChangedNotification } from './ChangePassword.action'
-import { checkPassword } from './ChangePassword.middleware'
-import Snackbar from 'react-toolbox/lib/snackbar'
-import Input from 'react-toolbox/lib/input'
 import Dialog from 'react-toolbox/lib/dialog'
-
+import FontIcon from 'react-toolbox/lib/font_icon'
+import Input from 'react-toolbox/lib/input'
+import Snackbar from 'react-toolbox/lib/snackbar'
 import neutralButtons from 'theme/neutralButtons.scss'
 import primaryButtons from 'theme/primaryButtons.scss'
+
+import t from '../../lib/web/LocaleStrings'
+import { validate } from '../Password/PasswordValidation/PasswordValidation.middleware'
+import { changeNewPasswordRepeatValue, changeNewPasswordValue, changeOldPasswordValue, changePasswordHidePassword, changePasswordShowPassword, hidePasswordChangedNotification, hidePasswordView, showPasswordChangedNotification, showPasswordView } from './ChangePassword.action'
+import { checkPassword } from './ChangePassword.middleware'
 import styles from './ChangePassword.webstyle'
 
 class ChangePassword extends Component {

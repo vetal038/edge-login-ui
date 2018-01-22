@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Image, TouchableWithoutFeedback } from 'react-native'
+import { Image, Text, TouchableWithoutFeedback, View } from 'react-native'
 
 /* type Props = {
   style: any,
@@ -57,7 +57,7 @@ class Checkbox extends Component {
     )
   }
   onPress () {
-    let onOff = this.state.onOff
+    const onOff = this.state.onOff
     let newOnOff = false
     if (!onOff) {
       newOnOff = true

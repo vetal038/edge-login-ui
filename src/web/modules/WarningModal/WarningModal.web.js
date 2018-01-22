@@ -1,14 +1,12 @@
+import t from 'lib/web/LocaleStrings'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import t from 'lib/web/LocaleStrings'
 import Dialog from 'react-toolbox/lib/dialog'
-
-import { closeWarningModal } from './WarningModal.action'
-import { deleteUserToCache } from '../CachedUsers/CachedUsers.middleware'
-
 import neutralButtons from 'theme/neutralButtons.scss'
 import warningButtons from 'theme/warningButtons.scss'
 
+import { deleteUserToCache } from '../CachedUsers/CachedUsers.middleware'
+import { closeWarningModal } from './WarningModal.action'
 import styles from './WarningModal.webStyle'
 
 class WarningModal extends Component {

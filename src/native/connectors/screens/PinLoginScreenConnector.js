@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
-import LinkedComponent from '../../components/screens/PinLogInScreenComponent'
+
 import * as actions from '../../../common/actions'
 import * as Constants from '../../../common/constants'
+import LinkedComponent from '../../components/screens/PinLogInScreenComponent'
 
 export const mapStateToProps = (state, ownProps) => {
   return {
@@ -17,12 +18,13 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    changeUser: (data) =>
+    changeUser: data =>
       dispatch(
         actions.dispatchActionWithData(Constants.AUTH_UPDATE_USERNAME, data)
       ),
     userLogin: data => dispatch(actions.userLoginWithPin(data)),
-    launchUserLoginWithTouchId: (data) => dispatch(actions.userLoginWithTouchId(data)),
+    launchUserLoginWithTouchId: data =>
+      dispatch(actions.userLoginWithTouchId(data)),
     deleteUserFromDevice: data => dispatch(actions.deleteUserFromDevice(data)),
     launchDeleteModal: () =>
       dispatch(actions.dispatchAction(Constants.WORKFLOW_LAUNCH_MODAL)),

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { Text, View } from 'react-native'
+
+import AccountInfoContainer from '../../../connectors/abSpecific/AccountInfoConnector'
+import HeaderConnector from '../../../connectors/componentConnectors/HeaderConnector'
 import { Button, WarningBox } from '../../common'
-import AccountInfoContainer
-  from '../../../connectors/abSpecific/AccountInfoConnector'
-import HeaderConnector
-  from '../../../connectors/componentConnectors/HeaderConnector'
+
 // import * as Constants from '../../../common/constants'
 
 export default class NewAccountReviewScreenComponent extends Component {
@@ -16,7 +16,7 @@ export default class NewAccountReviewScreenComponent extends Component {
         <View style={NewAccountReviewScreenStyle.pageContainer}>
           <View style={NewAccountReviewScreenStyle.instructionsContainer}>
             <Text style={NewAccountReviewScreenStyle.instructionsText}>
-              Almost done! Let's write down your account information
+              {"Almost done! Let's write down your account information"}
             </Text>
           </View>
           <View style={NewAccountReviewScreenStyle.warningBoxContainer}>

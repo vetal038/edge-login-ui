@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Modal from 'react-native-modalbox'
 import { connect } from 'react-redux'
-import { closeWarningModal } from './WarningModal.action'
-import { deleteUserToCache } from '../CachedUsers/CachedUsers.middleware'
-import appTheme from '../../../Themes/appTheme'
 
+import appTheme from '../../../Themes/appTheme'
 import t from '../../lib/LocaleStrings'
+import { deleteUserToCache } from '../CachedUsers/CachedUsers.middleware'
+import { closeWarningModal } from './WarningModal.action'
 
 class WarningModal extends Component {
   handleDeleteUsersFromCache = () => {

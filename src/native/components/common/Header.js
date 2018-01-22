@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
-import { Button, HeaderBackButton } from '../common'
-import * as Colors from '../../../common/constants/Colors'
 import LinearGradient from 'react-native-linear-gradient'
+
+import * as Colors from '../../../common/constants/Colors'
+import { Button, HeaderBackButton } from '../common'
 
 // Make a component
 class Header extends Component {
@@ -15,13 +16,9 @@ class Header extends Component {
         end={{ x: 1, y: 0 }}
         colors={Colors.GRADIENT}
       >
-        <View style={Style.left}>
-          {this.renderBack(Style)}
-        </View>
+        <View style={Style.left}>{this.renderBack(Style)}</View>
         {this.renderText(Style)}
-        <View style={Style.right}>
-          {this.renderSkip(Style)}
-        </View>
+        <View style={Style.right}>{this.renderSkip(Style)}</View>
       </LinearGradient>
     )
   }

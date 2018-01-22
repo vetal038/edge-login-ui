@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { Text, View } from 'react-native'
+
+import CreateFourDigitPinConnector from '../../../connectors/abSpecific/CreateFourDigitPinConnector.js'
+import HeaderConnector from '../../../connectors/componentConnectors/HeaderConnector'
 import { Button } from '../../common'
-import HeaderConnector
-  from '../../../connectors/componentConnectors/HeaderConnector'
-import CreateFourDigitPinConnector
-  from '../../../connectors/abSpecific/CreateFourDigitPinConnector.js'
+
 // import * as Constants from '../../../common/constants'
 
 export default class SetAccountPinScreenComponent extends Component {
@@ -24,7 +24,8 @@ export default class SetAccountPinScreenComponent extends Component {
         <View style={SetAccountPinScreenStyle.pageContainer}>
           <View style={SetAccountPinScreenStyle.row1}>
             <Text style={SetAccountPinScreenStyle.instructions}>
-              Your PIN is a 4 digit code used to do quick re-logins into your account
+              Your PIN is a 4 digit code used to do quick re-logins into your
+              account
             </Text>
           </View>
           <View style={SetAccountPinScreenStyle.row2}>
@@ -44,7 +45,6 @@ export default class SetAccountPinScreenComponent extends Component {
               doesThink
             />
           </View>
-
         </View>
       </View>
     )

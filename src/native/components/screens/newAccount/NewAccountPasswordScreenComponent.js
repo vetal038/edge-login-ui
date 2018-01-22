@@ -1,20 +1,15 @@
 import React, { Component } from 'react'
-import { View, KeyboardAvoidingView } from 'react-native'
-import { Button } from '../../common'
-import HeaderConnector
-  from '../../../connectors/componentConnectors/HeaderConnector'
-import PasswordConnector
-  from '../../../connectors/componentConnectors/PasswordConnector.js'
-import PasswordConfirmConnector
-  from '../../../connectors/componentConnectors/PasswordConfirmConnector'
-import PasswordStatusConnector
-  from '../../../connectors/abSpecific/PasswordStatusConnector'
-import SkipModalConnector
-  from '../../../connectors/abSpecific/SkipModalConnector'
+import { KeyboardAvoidingView, View } from 'react-native'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import * as Constants from '../../../../common/constants'
-import {
-  KeyboardAwareScrollView
-} from 'react-native-keyboard-aware-scroll-view'
+import PasswordStatusConnector from '../../../connectors/abSpecific/PasswordStatusConnector'
+import SkipModalConnector from '../../../connectors/abSpecific/SkipModalConnector'
+import HeaderConnector from '../../../connectors/componentConnectors/HeaderConnector'
+import PasswordConfirmConnector from '../../../connectors/componentConnectors/PasswordConfirmConnector'
+import PasswordConnector from '../../../connectors/componentConnectors/PasswordConnector.js'
+import { Button } from '../../common'
+
 /* type Props = {
   styles: any,
   confirmPasswordErrorMessage: string,
@@ -59,9 +54,7 @@ export default class NewAccountPasswordScreenComponent extends Component {
       )
     }
     return (
-      <View style={styles.pageContainer}>
-        {this.renderInterior(styles)}
-      </View>
+      <View style={styles.pageContainer}>{this.renderInterior(styles)}</View>
     )
   }
   renderInterior (styles) {
@@ -122,7 +115,10 @@ export default class NewAccountPasswordScreenComponent extends Component {
       })
       return
     }
-    if (this.props.password && this.props.password !== this.props.confirmPassword) {
+    if (
+      this.props.password &&
+      this.props.password !== this.props.confirmPassword
+    ) {
       this.setState({
         isProcessing: false
       })

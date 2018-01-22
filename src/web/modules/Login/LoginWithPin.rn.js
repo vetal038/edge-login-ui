@@ -1,15 +1,15 @@
+import { Input, InputGroup } from 'native-base'
 import React, { Component } from 'react'
+import { Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { connect } from 'react-redux'
 
-import { openLogin, loginPIN, openUserList, closeUserList } from './Login.action'
-import { loginWithPin } from './Login.middleware'
-import CachedUsers from '../CachedUsers/CachedUsers.ui'
-import { removeUserToLogin } from '../CachedUsers/CachedUsers.action'
-
-import { View, Text, TextInput, TouchableOpacity, Keyboard } from 'react-native'
-import { InputGroup, Input } from 'native-base'
 import t from '../../lib/LocaleStrings'
+import { removeUserToLogin } from '../CachedUsers/CachedUsers.action'
+import CachedUsers from '../CachedUsers/CachedUsers.ui'
 import style from '../Style'
+import { closeUserList, loginPIN, openLogin, openUserList } from './Login.action'
+import { loginWithPin } from './Login.middleware'
+
 class Login extends Component {
   submit = () => {
     this.refs.pinInput.blur()

@@ -1,25 +1,23 @@
+import t from 'lib/web/LocaleStrings'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import Input from 'react-toolbox/lib/input'
 import Button from 'react-toolbox/lib/button'
-import t from 'lib/web/LocaleStrings'
-import { sprintf } from 'sprintf-js'
-
-import { openLogin, loginUsername, loginPassword, openUserList, closeUserList, hideLoginNotification } from './Login.action'
-import { loginWithPassword } from './Login.middleware'
-import { openForgotPasswordModal } from '../ForgotPassword/ForgotPassword.action'
-import { closeLoading } from '../Loader/Loader.action'
-
-import LoginWithPin from './LoginWithPin.web'
-import LoginEdge from './LoginEdge.web'
-import ForgotPassword from '../ForgotPassword/ForgotPassword.web'
-import CachedUsers from '../CachedUsers/CachedUsers.web'
+import Input from 'react-toolbox/lib/input'
 import Snackbar from 'react-toolbox/lib/snackbar'
-
-import signinButton from 'theme/signinButton.scss'
+import { sprintf } from 'sprintf-js'
 import neutral from 'theme/neutralButtonWithBlueText.scss'
+import signinButton from 'theme/signinButton.scss'
+
+import CachedUsers from '../CachedUsers/CachedUsers.web'
+import { openForgotPasswordModal } from '../ForgotPassword/ForgotPassword.action'
+import ForgotPassword from '../ForgotPassword/ForgotPassword.web'
+import { closeLoading } from '../Loader/Loader.action'
+import { closeUserList, hideLoginNotification, loginPassword, loginUsername, openLogin, openUserList } from './Login.action'
+import { loginWithPassword } from './Login.middleware'
 import styles from './Login.style.scss'
+import LoginEdge from './LoginEdge.web'
+import LoginWithPin from './LoginWithPin.web'
 
 class Login extends Component {
   constructor (props) {

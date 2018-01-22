@@ -1,6 +1,6 @@
-import { passwordChanged, hidePasswordView, showPasswordChangedNotification } from './ChangePassword.action'
 import { openErrorModal } from '../ErrorModal/ErrorModal.action'
-import { openLoading, closeLoading } from '../Loader/Loader.action'
+import { closeLoading, openLoading } from '../Loader/Loader.action'
+import { hidePasswordView, passwordChanged, showPasswordChangedNotification } from './ChangePassword.action'
 
 export const checkPassword = (oldPassword, newPassword, newPasswordRepeat, validation, account, callback) => {
   return (dispatch, getState, imports) => {

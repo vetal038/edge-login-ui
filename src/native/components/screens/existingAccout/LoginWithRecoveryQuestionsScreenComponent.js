@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
-import {
-  Button,
-  FormField,
-  StaticModal
-} from '../../common/'
-import HeaderConnector
-  from '../../../connectors/componentConnectors/HeaderRecoverPasswordLogin.js'
+import { Text, View } from 'react-native'
+
+import HeaderConnector from '../../../connectors/componentConnectors/HeaderRecoverPasswordLogin.js'
+import { Button, FormField, StaticModal } from '../../common/'
 
 export default class PasswordRecovery extends Component {
   componentWillMount () {
@@ -26,7 +22,7 @@ export default class PasswordRecovery extends Component {
       errorQuestionTwo: false,
       disableConfirmationModal: false
     })
-    this.renderHeader = (style) => {
+    this.renderHeader = style => {
       if (this.props.showHeader) {
         return <HeaderConnector style={style.header} />
       }
@@ -42,8 +38,8 @@ export default class PasswordRecovery extends Component {
       this.props.cancel()
     }
     this.onSubmit = () => {
-      let errorOne = this.state.answer1.length < 1 || false
-      let errorTwo = this.state.answer2.length < 1 || false
+      const errorOne = this.state.answer1.length < 1 || false
+      const errorTwo = this.state.answer2.length < 1 || false
 
       this.setState({
         errorOne,
@@ -68,21 +64,31 @@ export default class PasswordRecovery extends Component {
   }
   renderDisableModal (styles) {
     if (this.state.disableConfirmationModal) {
-      const body = <Text style={styles.staticModalText}>Password Recovery has been disabled. You can enable it again by going into Password Recovery anytime</Text>
-      return <StaticModal
-        cancel={this.onDisableModalClose.bind(this)}
-        body={body}
-        modalDismissTimerSeconds={5} />
+      const body = (
+        <Text style={styles.staticModalText}>
+          Password Recovery has been disabled. You can enable it again by going
+          into Password Recovery anytime
+        </Text>
+      )
+      return (
+        <StaticModal
+          cancel={this.onDisableModalClose.bind(this)}
+          body={body}
+          modalDismissTimerSeconds={5}
+        />
+      )
     }
     return null
   }
   renderError (styles) {
     if (this.props.loginError) {
-      return <View>
-        <View style={styles.shim} />
-        <Text style={styles.errorText}>{this.props.loginError}</Text>
-        <View style={styles.shim} />
-      </View>
+      return (
+        <View>
+          <View style={styles.shim} />
+          <Text style={styles.errorText}>{this.props.loginError}</Text>
+          <View style={styles.shim} />
+        </View>
+      )
     }
     return <View style={styles.shim} />
   }

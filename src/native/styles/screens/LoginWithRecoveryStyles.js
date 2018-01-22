@@ -1,10 +1,13 @@
-import * as Styles from '../'
 import * as Constants from '../../../common/constants'
+import * as Styles from '../'
 // import {Image} from 'react-native'
 
 const LoginWithRecoveryStyles = {
   screen: { ...Styles.ScreenStyle },
-  header: { ...Styles.HeaderContainerStyle, backgroundColor: Constants.PRIMARY },
+  header: {
+    ...Styles.HeaderContainerStyle,
+    backgroundColor: Constants.PRIMARY
+  },
   /* gradient: {
     height: THEME.HEADER
   }, */
@@ -30,7 +33,8 @@ const LoginWithRecoveryStyles = {
     alignItems: 'center'
     // height: THEME.BUTTONS.HEIGHT
   },
-  input: {...Styles.MaterialInputOnWhite,
+  input: {
+    ...Styles.MaterialInputOnWhite,
     errorColor: Constants.GRAY_2,
     baseColor: Constants.GRAY_2,
     textColor: Constants.GRAY_2,
@@ -40,9 +44,10 @@ const LoginWithRecoveryStyles = {
     affixTextStyle: {
       color: Constants.GRAY_2
     },
-    container: {...Styles.MaterialInputOnWhite.container, width: '100%'}
+    container: { ...Styles.MaterialInputOnWhite.container, width: '100%' }
   },
-  inputUsername: {...Styles.MaterialInputOnWhite,
+  inputUsername: {
+    ...Styles.MaterialInputOnWhite,
     errorColor: Constants.ACCENT_RED,
     baseColor: Constants.GRAY_2,
     textColor: Constants.GRAY_2,
@@ -52,9 +57,10 @@ const LoginWithRecoveryStyles = {
     affixTextStyle: {
       color: Constants.GRAY_2
     },
-    container: {...Styles.MaterialInputOnWhite.container, width: '100%'}
+    container: { ...Styles.MaterialInputOnWhite.container, width: '100%' }
   },
-  inputError: {...Styles.MaterialInputOnWhite,
+  inputError: {
+    ...Styles.MaterialInputOnWhite,
     errorColor: Constants.ACCENT_RED,
     baseColor: Constants.ACCENT_RED,
     textColor: Constants.ACCENT_RED,
@@ -64,15 +70,22 @@ const LoginWithRecoveryStyles = {
     affixTextStyle: {
       color: Constants.ACCENT_RED
     },
-    container: {...Styles.MaterialInputOnWhite.container, width: '100%'}
+    container: { ...Styles.MaterialInputOnWhite.container, width: '100%' }
   },
   shim: {
     height: 20
   },
   textIconButton: Styles.TextAndIconButtonAlignEdgesStyle,
-  textIconButtonErrorError: {...Styles.TextAndIconButtonAlignEdgesStyle,
-    text: {...Styles.TextAndIconButtonAlignEdgesStyle.text, color: Constants.ACCENT_RED},
-    icon: {...Styles.TextAndIconButtonAlignEdgesStyle.icon, color: Constants.ACCENT_RED}
+  textIconButtonErrorError: {
+    ...Styles.TextAndIconButtonAlignEdgesStyle,
+    text: {
+      ...Styles.TextAndIconButtonAlignEdgesStyle.text,
+      color: Constants.ACCENT_RED
+    },
+    icon: {
+      ...Styles.TextAndIconButtonAlignEdgesStyle.icon,
+      color: Constants.ACCENT_RED
+    }
   },
   submitButton: {
     upStyle: Styles.PrimaryButtonUpStyle,
@@ -108,4 +121,4 @@ const LoginWithRecoveryStyles = {
   listItem: Styles.ListItemTextOnly
 }
 
-export {LoginWithRecoveryStyles}
+export { LoginWithRecoveryStyles }

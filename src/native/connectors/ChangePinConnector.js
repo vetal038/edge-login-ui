@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
-import ChangePinAppComponent from '../components/ChangePinAppComponent'
+
 import * as actions from '../../common/actions/'
 import * as Constants from '../../common/constants'
+import ChangePinAppComponent from '../components/ChangePinAppComponent'
 
 export const mapStateToProps = (state, ownProps) => {
   return {
@@ -16,4 +17,6 @@ export const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChangePinAppComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(
+  ChangePinAppComponent
+)

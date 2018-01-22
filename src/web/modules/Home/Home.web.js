@@ -1,19 +1,17 @@
+import t from 'lib/web/LocaleStrings'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Button from 'react-toolbox/lib/button'
-import t from 'lib/web/LocaleStrings'
 import { withRouter } from 'react-router'
+import Button from 'react-toolbox/lib/button'
 
-import ChangePin from '../ChangePin/ChangePin.web'
+import { showPasswordView } from '../ChangePassword/ChangePassword.action'
 import ChangePassword from '../ChangePassword/ChangePassword.web'
+import { showPinView } from '../ChangePin/ChangePin.action'
+import ChangePin from '../ChangePin/ChangePin.web'
+import { userLogin } from '../Login/Login.action'
+import { showPasswordRecoveryView } from '../PasswordRecovery/PasswordRecovery.action'
 import PasswordRecovery from '../PasswordRecovery/PasswordRecovery.web'
 import PasswordRecoverySuccess from '../PasswordRecovery/PasswordRecoverySuccess.web'
-
-import { showPinView } from '../ChangePin/ChangePin.action'
-import { showPasswordView } from '../ChangePassword/ChangePassword.action'
-import { showPasswordRecoveryView } from '../PasswordRecovery/PasswordRecovery.action'
-import { userLogin } from '../Login/Login.action'
-
 import styles from './Home.webStyle'
 
 class Home extends Component {

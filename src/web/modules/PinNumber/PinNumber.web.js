@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Button from 'react-toolbox/lib/button'
 import Input from 'react-toolbox/lib/input'
-import t from '../../lib/web/LocaleStrings'
 import neutralButtonWithBlueTextTheme from 'theme/neutralButtonWithBlueText'
 
+import t from '../../lib/web/LocaleStrings'
 import { changeSignupPage } from '../Signup/Signup.action'
 import { changePinNumberValue } from './PinNumber.action'
 import { checkPIN } from './PinNumber.middleware'
-
 import styles from './PinNumber.webStyle'
 
 class PinComponent extends Component {

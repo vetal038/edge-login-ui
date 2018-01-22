@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import LinkedComponent from '../../../components/screens/newAccount/NewAccountUsernameScreenComponent'
+
 import * as loginAction from '../../../../common/actions'
+import LinkedComponent from '../../../components/screens/newAccount/NewAccountUsernameScreenComponent'
 
 export const mapStateToProps = (state, ownProps) => {
   return {
@@ -13,7 +14,8 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    checkUsernameForAvailabilty: (data) => dispatch(loginAction.checkUsernameForAvailabilty(data))
+    checkUsernameForAvailabilty: data =>
+      dispatch(loginAction.checkUsernameForAvailabilty(data))
   }
 }
 

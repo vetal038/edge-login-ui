@@ -1,20 +1,19 @@
+import abcctx from 'lib/web/abcContext'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Dialog } from 'react-toolbox/lib/dialog'
 import FontIcon from 'react-toolbox/lib/font_icon'
-import { selectUserToLogin, setCachedUsers, setCachedUsersWithPin } from './CachedUsers/CachedUsers.action'
-
-import Loader from './Loader/Loader.web'
-import ErrorModal from './ErrorModal/ErrorModal.web'
-import WarningModal from './WarningModal/WarningModal.web'
-import abcctx from 'lib/web/abcContext'
-import LayoutTemplate from './LayoutTemplate/LayoutTemplate.web'
-import layoutTheme from 'theme/layoutTheme'
-import { openLogin } from './Login/Login.action'
-import { hideContainerNotification } from './Container.action'
 import Snackbar from 'react-toolbox/lib/snackbar'
+import layoutTheme from 'theme/layoutTheme'
 
+import { selectUserToLogin, setCachedUsers, setCachedUsersWithPin } from './CachedUsers/CachedUsers.action'
+import { hideContainerNotification } from './Container.action'
 import styles from './Container.style.scss'
+import ErrorModal from './ErrorModal/ErrorModal.web'
+import LayoutTemplate from './LayoutTemplate/LayoutTemplate.web'
+import Loader from './Loader/Loader.web'
+import { openLogin } from './Login/Login.action'
+import WarningModal from './WarningModal/WarningModal.web'
 
 function findUsernamesWithPin (ctx, usernames) {
   const promises = usernames.map(username => ctx.pinLoginEnabled(username))

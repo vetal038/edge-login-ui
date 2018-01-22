@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import LinkedComponent from '../../../components/screens/newAccount/SetAccountPinScreenComponent'
+
 import * as loginAction from '../../../../common/actions'
+import LinkedComponent from '../../../components/screens/newAccount/SetAccountPinScreenComponent'
 
 export const mapStateToProps = (state, ownProps) => {
   return {
@@ -15,7 +16,7 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    createUser: (data) => dispatch(loginAction.createUser(data))
+    createUser: data => dispatch(loginAction.createUser(data))
   }
 }
 

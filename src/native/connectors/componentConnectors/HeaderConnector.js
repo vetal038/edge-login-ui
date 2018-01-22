@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import { Header } from '../../components/common/'
+
 import * as actions from '../../../common/actions'
+import { Header } from '../../components/common/'
 
 export const mapStateToProps = (state, ownProps) => {
   const workflow = state.workflow

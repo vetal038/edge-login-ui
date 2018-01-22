@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
 import { Input, InputGroup } from 'native-base'
+import React, { Component } from 'react'
 // import style from '../Style'
 
 class TemplateTextInput extends Component {

@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
-import {FormField} from '../../components/common'
+
 import * as actions from '../../../common/actions'
 import * as Constants from '../../../common/constants'
+import { FormField } from '../../components/common'
 
 export const mapStateToProps = (state, ownProps) => {
   return {
-   /*
+    /*
     value,
     error,
     secureTextEntry: true,
@@ -25,7 +26,10 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onChangeText: (data) => dispatch(actions.dispatchActionWithData(Constants.AUTH_UPDATE_USERNAME, data)),
+    onChangeText: data =>
+      dispatch(
+        actions.dispatchActionWithData(Constants.AUTH_UPDATE_USERNAME, data)
+      ),
     onSubmitEditing: ownProps.onSubmitEditing
   }
 }

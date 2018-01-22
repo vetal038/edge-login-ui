@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native'
+
 import appTheme from '../../../Themes/appTheme'
+
 const style = StyleSheet.create({
 
   inputView: {

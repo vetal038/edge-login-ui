@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
-import { BackgroundImage, Button } from '../common'
+import { Text, View } from 'react-native'
+
 import * as Constants from '../../../common/constants'
 import * as Assets from '../../assets/'
+import BetaWarningModalConnector from '../../connectors/abSpecific/BetaWarningModalConnector'
 import { LogoImageHeader } from '../abSpecific'
-import BetaWarningModalConnector
-  from '../../connectors/abSpecific/BetaWarningModalConnector'
+import { BackgroundImage, Button } from '../common'
+
 export default class LandingScreenComponent extends Component {
   renderModal () {
     if (this.props.showModal) {
@@ -40,7 +41,6 @@ export default class LandingScreenComponent extends Component {
                 }
               </Text>
             </View>
-
           </View>
           <View style={LandingScreenStyle.featureBoxButtons}>
             <Button

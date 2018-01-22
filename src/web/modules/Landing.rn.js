@@ -1,24 +1,24 @@
 import React from 'react'
-import * as Animatable from 'react-native-animatable'
 import { Image } from 'react-native'
-import { connect } from 'react-redux'
+import * as Animatable from 'react-native-animatable'
+import { setTheme } from 'react-native-material-kit'
 import { Actions } from 'react-native-router-flux'
+import { connect } from 'react-redux'
+
+import abcctx from '../lib/abcContext'
+import { selectUserToLogin, setCachedUsers } from './CachedUsers/CachedUsers.action'
+import { showDisclaimer } from './Disclaimer/Disclaimer.action'
 import Disclaimer from './Disclaimer/Disclaimer.ui'
-import Loader from './Loader/Loader.ui'
-import WarningModal from './WarningModal/WarningModal.ui'
 import ErrorModal from './ErrorModal/ErrorModal.ui'
+import { removeWhiteOverlay, showWhiteOverlayComplete } from './Landing.action'
+import Loader from './Loader/Loader.ui'
+import { closeUserList } from './Login/Login.action'
 import Login from './Login/Login.ui'
 import LoginWithPin from './Login/LoginWithPin.ui'
-import TemplateView from './tpl/View.ui'
-import abcctx from '../lib/abcContext'
-import { closeUserList } from './Login/Login.action'
-
-import { showDisclaimer } from './Disclaimer/Disclaimer.action'
-import { removeWhiteOverlay, showWhiteOverlayComplete } from './Landing.action'
-import { selectUserToLogin, setCachedUsers } from './CachedUsers/CachedUsers.action'
-
 import style from './Style'
-import { setTheme } from 'react-native-material-kit'
+import TemplateView from './tpl/View.ui'
+import WarningModal from './WarningModal/WarningModal.ui'
+
 // customize the material design theme
 setTheme({
   primaryColor: '#87CEEB',

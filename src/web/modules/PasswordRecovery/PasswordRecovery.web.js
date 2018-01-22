@@ -1,21 +1,19 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import t from '../../lib/web/LocaleStrings'
-import abcctx from '../../lib/web/abcContext'
-import Input from 'react-toolbox/lib/input'
 import Dialog from 'react-toolbox/lib/dialog'
 import Dropdown from 'react-toolbox/lib/dropdown'
-import _ from 'lodash'
-
-import * as action from './PasswordRecovery.action'
-import { openErrorModal } from '../ErrorModal/ErrorModal.action'
-import { checkPasswordRecovery } from './PasswordRecovery.middleware'
-
-import PasswordRecoveryToken from './PasswordRecoveryToken.web'
-
-import styles from './PasswordRecovery.webStyle.scss'
+import Input from 'react-toolbox/lib/input'
 import neutralButtons from 'theme/neutralButtons.scss'
 import primaryButtons from 'theme/primaryButtons.scss'
+
+import abcctx from '../../lib/web/abcContext'
+import t from '../../lib/web/LocaleStrings'
+import { openErrorModal } from '../ErrorModal/ErrorModal.action'
+import * as action from './PasswordRecovery.action'
+import { checkPasswordRecovery } from './PasswordRecovery.middleware'
+import styles from './PasswordRecovery.webStyle.scss'
+import PasswordRecoveryToken from './PasswordRecoveryToken.web'
 
 class PasswordRecovery extends Component {
   loadQuestions = () => {

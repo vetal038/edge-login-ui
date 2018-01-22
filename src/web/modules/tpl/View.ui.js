@@ -1,10 +1,12 @@
 const Device = require('../../lib/DeviceDetect')
 const Orientation = require('react-native-orientation')
+
+import { Container, Content } from 'native-base'
 import React, { Component } from 'react'
 import { LayoutAnimation, Text } from 'react-native'
-import { Container, Content } from 'native-base'
-import Loader from '../Loader/Loader.ui'
+
 import ErrorModal from '../ErrorModal/ErrorModal.ui'
+import Loader from '../Loader/Loader.ui'
 
 class TemplateView extends Component {
   componentWillMount () {

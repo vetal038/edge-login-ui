@@ -1,43 +1,47 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { Text, View } from 'react-native'
+
+import ChangePinModalConnector from '../../../connectors/abSpecific/ChangePinModalConnector'
+import CreateFourDigitPinConnector from '../../../connectors/abSpecific/CreateFourDigitPinConnector.js'
+import HeaderConnector from '../../../connectors/componentConnectors/HeaderConnectorChangeApps.js'
 import { Button, StaticModal } from '../../common'
-import HeaderConnector
-  from '../../../connectors/componentConnectors/HeaderConnectorChangeApps.js'
-import CreateFourDigitPinConnector
-  from '../../../connectors/abSpecific/CreateFourDigitPinConnector.js'
-import ChangePinModalConnector
-  from '../../../connectors/abSpecific/ChangePinModalConnector'
+
 // import * as Constants from '../../../common/constants'
 
 export default class ChangeAccountPinScreenComponent extends Component {
   constructor (props) {
     super(props)
-    this.renderHeader = (style) => {
+    this.renderHeader = style => {
       if (this.props.showHeader) {
         return <HeaderConnector style={style.header} />
       }
       return null
     }
 
-    this.renderModal = (style) => {
+    this.renderModal = style => {
       if (this.props.showModal) {
         if (this.props.forgotPasswordModal) {
-          const body = <View>
-            <Text style={style.staticModalText}>Password And Pin Successfully Changed.</Text>
-            <Text style={style.staticModalText}>Don't forget your password or recovery answers. You will permanently lose access to your funds if you lose your password and recovery answers</Text>
-          </View>
+          const body = (
+            <View>
+              <Text style={style.staticModalText}>
+                {'Password And Pin Successfully Changed.'}
+              </Text>
+              <Text style={style.staticModalText}>
+                {
+                  "Don't forget your password or recovery answers. You will permanently lose access to your funds if you lose your password and recovery answers"
+                }
+              </Text>
+            </View>
+          )
           return (
             <StaticModal
               cancel={this.props.login}
               body={body}
-              modalDismissTimerSeconds={3} />
+              modalDismissTimerSeconds={3}
+            />
           )
         }
-        return (
-          <ChangePinModalConnector
-            style={style.modal.skip}
-          />
-        )
+        return <ChangePinModalConnector style={style.modal.skip} />
       }
       return null
     }
@@ -70,10 +74,11 @@ export default class ChangeAccountPinScreenComponent extends Component {
     return (
       <View style={SetAccountPinScreenStyle.screen}>
         {this.renderHeader(SetAccountPinScreenStyle)}
-        <View style={SetAccountPinScreenStyle.pageContainer} >
+        <View style={SetAccountPinScreenStyle.pageContainer}>
           <View style={SetAccountPinScreenStyle.row1}>
             <Text style={SetAccountPinScreenStyle.instructions}>
-              Your PIN is a 4 digit code used to do quick re-logins into your account
+              Your PIN is a 4 digit code used to do quick re-logins into your
+              account
             </Text>
           </View>
           <View style={SetAccountPinScreenStyle.row2}>
@@ -93,7 +98,6 @@ export default class ChangeAccountPinScreenComponent extends Component {
               doesThink
             />
           </View>
-
         </View>
         {this.renderModal(SetAccountPinScreenStyle)}
       </View>

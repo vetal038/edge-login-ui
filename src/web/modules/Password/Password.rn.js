@@ -1,27 +1,26 @@
 import React, { Component } from 'react'
-import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
+import { Image, Text, TouchableWithoutFeedback, View } from 'react-native'
+import * as Animatable from 'react-native-animatable'
+import { MKTextField } from 'react-native-material-kit'
+import { Actions } from 'react-native-router-flux'
 import { connect } from 'react-redux'
 
-import { Actions } from 'react-native-router-flux'
-import * as Animatable from 'react-native-animatable'
-import Container from '../SignUp.ui'
-import Notification from './Notification.ui'
-import style from './Password.style'
-
-import { validate } from './PasswordValidation/PasswordValidation.middleware'
-import { checkPassword, skipPassword } from './Password.middleware'
-import NextButton from '../NextButton/NextButton.ui'
-import SkipButton from '../SkipButton/SkipButton.ui'
 import t from '../../lib/LocaleStrings'
+import NextButton from '../NextButton/NextButton.ui'
+import Container from '../SignUp.ui'
+import SkipButton from '../SkipButton/SkipButton.ui'
+import Notification from './Notification.ui'
 import {
-  passwordNotificationShow,
-  showPassword,
-  hidePassword,
+  changePasswordRepeatValue,
   changePasswordValue,
-  changePasswordRepeatValue
+  hidePassword,
+  passwordNotificationShow,
+  showPassword
 } from './Password.action'
+import { checkPassword, skipPassword } from './Password.middleware'
+import style from './Password.style'
+import { validate } from './PasswordValidation/PasswordValidation.middleware'
 
-import { MKTextField } from 'react-native-material-kit'
 const unselected = require('../../img/btn_unselected.png')
 const selected = require('../../img/Green-check.png')
 

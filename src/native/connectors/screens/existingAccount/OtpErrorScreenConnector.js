@@ -1,10 +1,14 @@
 import { connect } from 'react-redux'
-import LinkedComponent from '../../../components/screens/existingAccout/OtpErrorScreenComponent'
+
 import * as actions from '../../../../common/actions'
 import * as Constants from '../../../../common/constants'
+import LinkedComponent from '../../../components/screens/existingAccout/OtpErrorScreenComponent'
+
 export const mapStateToProps = (state, ownProps) => {
   const otpResetDate = state.login.otpResetDate
-  const screen = otpResetDate ? Constants.OTP_SCREEN_TWO : Constants.OTP_SCREEN_ONE
+  const screen = otpResetDate
+    ? Constants.OTP_SCREEN_TWO
+    : Constants.OTP_SCREEN_ONE
   return {
     styles: ownProps.styles,
     otpResetDate,

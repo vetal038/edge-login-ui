@@ -1,6 +1,7 @@
-import Header from '../Header/Header.web'
-import Footer from '../Footer/Footer.web'
 import React, {Component} from 'react'
+
+import Footer from '../Footer/Footer.web'
+import Header from '../Header/Header.web'
 
 class LayoutTemplate extends Component {
   render () {

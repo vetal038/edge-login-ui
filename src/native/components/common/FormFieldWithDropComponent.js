@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 // import * as Colors from '../../../common/constants/Colors'
 import { KeyboardAvoidingView } from 'react-native'
-import { DropDownList } from './DropDownList'
+
 import { Input } from '../materialWrappers/indexMaterial'
+import { DropDownList } from './DropDownList'
 
 /* type Props = {
   dataList: Array,
@@ -42,7 +43,7 @@ class FormFieldWithDropComponent extends Component {
       autoFocus: this.props.autoFocus,
       isFocused: this.props.isFocused
     })
-    this.onSubmitEditing = (event) => {
+    this.onSubmitEditing = event => {
       if (this.props.onSubmitEditing) {
         this.props.onSubmitEditing()
       }
@@ -55,7 +56,7 @@ class FormFieldWithDropComponent extends Component {
   }
 
   render () {
-    let Style = this.props.style
+    const Style = this.props.style
 
     /* return (
       <View style={Style.container}>

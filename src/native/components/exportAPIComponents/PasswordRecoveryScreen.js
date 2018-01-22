@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import reducers from '../../../common/reducers'
-import { createStore, applyMiddleware } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import thunk from 'redux-thunk'
+
+import { setLocal } from '../../../common/locale'
+import reducers from '../../../common/reducers'
 import PasswordRecoveryConnector from '../../connectors/PasswordRecoveryConnector'
 import * as Styles from '../../styles'
-import { setLocal } from '../../../common/locale'
 
 /* type Props = {
   account: any,

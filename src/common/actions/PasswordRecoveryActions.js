@@ -1,5 +1,5 @@
-import * as Constants from '../../common/constants'
 import * as actions from '../../common/actions'
+import * as Constants from '../../common/constants'
 
 export function recoverPasswordLogin () {
   return async (dispatch, getState, imports) => {
@@ -8,15 +8,25 @@ export function recoverPasswordLogin () {
     const username = state.login.username
     try {
       const recoveryKey = await context.getRecovery2Key(username)
-      const userQuestions = await context.fetchRecovery2Questions(recoveryKey, username)
+      const userQuestions = await context.fetchRecovery2Questions(
+        recoveryKey,
+        username
+      )
       const obj = {
         recoveryKey,
         userQuestions
       }
-      dispatch(actions.dispatchActionWithData(Constants.ON_RECOVERY_LOGIN_IS_ENABLED, obj))
+      dispatch(
+        actions.dispatchActionWithData(
+          Constants.ON_RECOVERY_LOGIN_IS_ENABLED,
+          obj
+        )
+      )
     } catch (e) {
       if (e.message === 'No recovery key stored locally.') {
-        dispatch(actions.dispatchAction(Constants.ON_RECOVERY_LOGIN_NOT_ENABLED))
+        dispatch(
+          actions.dispatchAction(Constants.ON_RECOVERY_LOGIN_NOT_ENABLED)
+        )
       }
 
       console.log(e)
@@ -32,15 +42,25 @@ export function getRecoveryQuestions () {
     const username = state.login.username
     const recoveryKey = imports.recoveryKey
     try {
-      const userQuestions = await context.fetchRecovery2Questions(recoveryKey, username)
+      const userQuestions = await context.fetchRecovery2Questions(
+        recoveryKey,
+        username
+      )
       const obj = {
         recoveryKey,
         userQuestions
       }
-      dispatch(actions.dispatchActionWithData(Constants.ON_RECOVERY_LOGIN_IS_ENABLED, obj))
+      dispatch(
+        actions.dispatchActionWithData(
+          Constants.ON_RECOVERY_LOGIN_IS_ENABLED,
+          obj
+        )
+      )
     } catch (e) {
       if (e.message === 'No recovery key stored locally.') {
-        dispatch(actions.dispatchAction(Constants.ON_RECOVERY_LOGIN_NOT_ENABLED))
+        dispatch(
+          actions.dispatchAction(Constants.ON_RECOVERY_LOGIN_NOT_ENABLED)
+        )
       }
       console.log(e)
       console.log(e.title)
@@ -59,14 +79,22 @@ export function initializePasswordRecovery (accountObj) {
       if (recoveryKey) {
         console.log('Recovery Key ')
       }
-      const userQuestions = await context.fetchRecovery2Questions(recoveryKey, account.username)
+      const userQuestions = await context.fetchRecovery2Questions(
+        recoveryKey,
+        account.username
+      )
       const obj = {
         questionsList,
         userQuestions,
         account,
         username: account.username
       }
-      dispatch(actions.dispatchActionWithData(Constants.PASSWORD_RECOVERY_INITIALIZED, obj))
+      dispatch(
+        actions.dispatchActionWithData(
+          Constants.PASSWORD_RECOVERY_INITIALIZED,
+          obj
+        )
+      )
       return
     } catch (e) {
       console.log(e)
@@ -82,7 +110,12 @@ export function initializePasswordRecovery (accountObj) {
       account: null,
       username: account.username
     }
-    dispatch(actions.dispatchActionWithData(Constants.PASSWORD_RECOVERY_INITIALIZED, obj))
+    dispatch(
+      actions.dispatchActionWithData(
+        Constants.PASSWORD_RECOVERY_INITIALIZED,
+        obj
+      )
+    )
   }
 }
 
@@ -111,7 +144,9 @@ export function changeRecoveryAnswers (questions, answers) {
     const account = imports.accountObject
     try {
       const recoveryKey = await account.changeRecovery(questions, answers)
-      dispatch(actions.dispatchActionWithData(Constants.ON_RECOVERY_KEY, recoveryKey))
+      dispatch(
+        actions.dispatchActionWithData(Constants.ON_RECOVERY_KEY, recoveryKey)
+      )
     } catch (e) {
       console.log(e)
       console.log(e.title)

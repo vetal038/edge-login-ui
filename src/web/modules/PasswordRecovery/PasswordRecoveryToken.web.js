@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-import t from '../../lib/web/LocaleStrings'
 import Button from 'react-toolbox/lib/button'
 import Input from 'react-toolbox/lib/input'
-
-import { showPasswordRecoveryFinishModal, passwordRecoveryDone } from './PasswordRecovery.action'
-import { checkEmail } from './PasswordRecovery.middleware'
-import passwordRecoveryStyles from './PasswordRecovery.webStyle.scss'
 
 import emailIcon from '../../img/email-icon-black.svg'
 import gmailIcon from '../../img/gmail-white.svg'
 import microsoftIcon from '../../img/microsoft-white.svg'
 import yahooIcon from '../../img/yahoo-white.svg'
+import t from '../../lib/web/LocaleStrings'
+import { passwordRecoveryDone, showPasswordRecoveryFinishModal } from './PasswordRecovery.action'
+import { checkEmail } from './PasswordRecovery.middleware'
+import passwordRecoveryStyles from './PasswordRecovery.webStyle.scss'
 
 export default class PasswordRecoveryToken extends Component {
   _handleSubmit = (address) => {

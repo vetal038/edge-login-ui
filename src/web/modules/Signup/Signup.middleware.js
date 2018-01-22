@@ -1,5 +1,5 @@
 import { openErrorModal } from '../ErrorModal/ErrorModal.action'
-import { openLoading, closeLoading } from '../Loader/Loader.action'
+import { closeLoading, openLoading } from '../Loader/Loader.action'
 import { getDetails } from '../ReviewDetails/ReviewDetails.action'
 
 export const signupUser = (username, password, pin, callback) => {

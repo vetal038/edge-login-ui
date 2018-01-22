@@ -1,13 +1,16 @@
 import { connect } from 'react-redux'
-import {MyModal} from '../../components/common/'
-import * as Constants from '../../../common/constants'
+
 import * as actions from '../../../common/actions/index'
+import * as Constants from '../../../common/constants'
+import { MyModal } from '../../components/common/'
+
 export const mapStateToProps = (state, ownProps) => {
   return {
     style: ownProps.style,
     headerText: 'Password Changed',
     headerSubtext: 'Password Successfully Changed',
-    middleText: 'DO NOT FORGET YOUR PASSWORD OR RECOVERY ANSWERS! THEY CANNOT BE RECOVERED!',
+    middleText:
+      'DO NOT FORGET YOUR PASSWORD OR RECOVERY ANSWERS! THEY CANNOT BE RECOVERED!',
     icon: Constants.EXCLAMATION,
     iconType: Constants.SIMPLE_ICONS,
     actionLabel: 'OK',

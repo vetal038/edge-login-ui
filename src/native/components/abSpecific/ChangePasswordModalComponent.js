@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text, Image } from 'react-native'
-import { Button } from '../common'
+import { Image, Text, View } from 'react-native'
+
 import { LOGO_DOT } from '../../../native/assets/'
+import { Button } from '../common'
 
 /* type Props = {
   style: any,
@@ -25,7 +26,8 @@ class ChangePasswordModalComponent extends Component {
           </View>
           <View style={Style.textContainer}>
             <Text style={Style.copyText}>
-              Password Successfully Changed. DO NOT FORGET YOUR PASSWORD OR RECOVERY ANSWERS! THEY CANNOT BE RECOVERED!
+              Password Successfully Changed. DO NOT FORGET YOUR PASSWORD OR
+              RECOVERY ANSWERS! THEY CANNOT BE RECOVERED!
             </Text>
           </View>
           <View style={Style.buttonsContainer}>

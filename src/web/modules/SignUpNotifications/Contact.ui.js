@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Image, View, Text, StyleSheet } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 
 import appTheme from '../../../Themes/appTheme'
-import Container from '../SignUp.ui'
-import NextButton from '../NextButton/NextButton.ui'
-import { readContactPermissions } from './Notifications.middleware'
 import t from '../../lib/LocaleStrings'
+import NextButton from '../NextButton/NextButton.ui'
+import Container from '../SignUp.ui'
+import { readContactPermissions } from './Notifications.middleware'
 
 export default class Contact extends Component {
   handleSubmit = () => {

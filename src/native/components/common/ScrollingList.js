@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, ListView } from 'react-native'
+import { ListView, View } from 'react-native'
 
 /* type Props = {
   style: any,

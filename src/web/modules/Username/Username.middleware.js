@@ -1,6 +1,6 @@
-import { openLoading, closeLoading } from '../Loader/Loader.action'
-import { openErrorModal } from '../ErrorModal/ErrorModal.action'
 import showCoreError from '../../services/errorHandler.js'
+import { openErrorModal } from '../ErrorModal/ErrorModal.action'
+import { closeLoading, openLoading } from '../Loader/Loader.action'
 
 export const checkUsername = (username, callback) => {
   return (dispatch, getState, imports) => {

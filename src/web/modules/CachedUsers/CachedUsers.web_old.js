@@ -1,15 +1,14 @@
+import t from 'lib/web/LocaleStrings'
+import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import _ from 'lodash'
 import Button from 'react-toolbox/lib/button'
-import t from 'lib/web/LocaleStrings'
-
-import { selectUserToLogin, selectUserToDeleteFromUserCache } from './CachedUsers.action'
-import { openWarningModal } from '../WarningModal/WarningModal.action'
-import { openUserList, closeUserList } from '../Login/Login.action'
-
-import cachedUserXButton from 'theme/cachedUserXButton.scss'
 import cachedUserButton from 'theme/cachedUserButton.scss'
+import cachedUserXButton from 'theme/cachedUserXButton.scss'
+
+import { closeUserList, openUserList } from '../Login/Login.action'
+import { openWarningModal } from '../WarningModal/WarningModal.action'
+import { selectUserToDeleteFromUserCache, selectUserToLogin } from './CachedUsers.action'
 
 class UserList extends Component {
   handleLoginUserPin = (user) => {

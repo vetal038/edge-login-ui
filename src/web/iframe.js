@@ -1,7 +1,9 @@
-import React from 'react'
 import 'react-toolbox/lib/commons.scss'
-import { Provider } from 'react-redux'
+
+import React from 'react'
 import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+
 import createStore from './lib/web/configureStore'
 import Router from './routes.js'
 

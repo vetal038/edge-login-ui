@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableHighlight } from 'react-native'
-import { connect } from 'react-redux'
+import { Text, TouchableHighlight, View } from 'react-native'
 import { Actions } from 'react-native-router-flux'
+import { connect } from 'react-redux'
 
-import Details from './UserDetails.ReviewDetails.ui'
+import t from '../../lib/LocaleStrings'
 import ErrorModal from '../ErrorModal/ErrorModal.ui'
 import Loader from '../Loader/Loader.ui'
-import { showSignInDetails, hideSignInDetails } from './ReviewDetails.action'
 import { loginWithPassword } from '../Login/Login.middleware'
-import t from '../../lib/LocaleStrings'
-import style from './ReviewDetails.style'
 import NextButton from '../NextButton/NextButton.ui'
+import { hideSignInDetails, showSignInDetails } from './ReviewDetails.action'
+import style from './ReviewDetails.style'
+import Details from './UserDetails.ReviewDetails.ui'
 
 class Review extends Component {
   handleHideDetails = () => {

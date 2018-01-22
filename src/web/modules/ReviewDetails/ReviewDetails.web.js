@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import t from '../../lib/web/LocaleStrings'
 import Button from 'react-toolbox/lib/button'
+import nextButton from 'theme/nextButton.scss'
 
-import { showSignInDetails, hideSignInDetails, showPasswordRecovery } from './ReviewDetails.action'
+import t from '../../lib/web/LocaleStrings'
 import { closeLoading } from '../Loader/Loader.action'
 import { loginWithPassword } from '../Login/Login.middleware'
-
-import AfterSignUpQuestion from './AfterSignUpQuestion.web'
 import PasswordRecovery from '../PasswordRecovery/PasswordRecovery.web'
 import PasswordRecoverySuccess from '../PasswordRecovery/PasswordRecoverySuccess.web'
-
-import nextButton from 'theme/nextButton.scss'
+import AfterSignUpQuestion from './AfterSignUpQuestion.web'
+import { hideSignInDetails, showPasswordRecovery, showSignInDetails } from './ReviewDetails.action'
 import styles from './ReviewDetails.webStyle'
 
 class Review extends Component {

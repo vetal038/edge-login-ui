@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import LoginAppComponent from '../components/LogInAppComponent'
+
 import * as loginAction from '../../common/actions/'
+import LoginAppComponent from '../components/LogInAppComponent'
 
 export const mapStateToProps = (state, ownProps) => {
   return {
@@ -13,7 +14,7 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    userLogin: (data) => dispatch(loginAction.userLogin(data)),
+    userLogin: data => dispatch(loginAction.userLogin(data)),
     getPreviousUsers: () => dispatch(loginAction.getPreviousUsers())
   }
 }

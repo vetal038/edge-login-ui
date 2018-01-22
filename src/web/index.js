@@ -1,5 +1,6 @@
-import { makeContext } from 'airbitz-core-js'
 import 'whatwg-fetch'
+
+import { makeContext } from 'airbitz-core-js'
 
 let DomWindow
 let DomDocument

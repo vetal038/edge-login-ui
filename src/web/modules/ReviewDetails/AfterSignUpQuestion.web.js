@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import t from '../../lib/web/LocaleStrings'
-import Dialog from 'react-toolbox/lib/dialog'
 import { withRouter } from 'react-router'
+import Dialog from 'react-toolbox/lib/dialog'
+import neutralButtons from 'theme/neutralButtons.scss'
+import primaryButtons from 'theme/primaryButtons.scss'
 
-import { hidePasswordRecovery } from './ReviewDetails.action'
-import { showPasswordRecoveryView } from '../PasswordRecovery/PasswordRecovery.action'
-import { loginWithPassword } from '../Login/Login.middleware'
+import t from '../../lib/web/LocaleStrings'
 import { closeLoading } from '../Loader/Loader.action'
+import { loginWithPassword } from '../Login/Login.middleware'
+import { showPasswordRecoveryView } from '../PasswordRecovery/PasswordRecovery.action'
+import { hidePasswordRecovery } from './ReviewDetails.action'
 
 const abcuiContext = window.parent.abcuiContext
 const vendorName = abcuiContext ? abcuiContext.vendorName : null
 
-import neutralButtons from 'theme/neutralButtons.scss'
-import primaryButtons from 'theme/primaryButtons.scss'
 
 class Review extends Component {
   _handleHideModal = () => {

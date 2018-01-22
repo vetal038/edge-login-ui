@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import LinkedComponent from '../../../components/screens/newAccount/CreatingAccountWaitScreenComponent'
+
 import * as actions from '../../../../common/actions'
+import LinkedComponent from '../../../components/screens/newAccount/CreatingAccountWaitScreenComponent'
 
 export const mapStateToProps = (state, ownProps) => {
   return {

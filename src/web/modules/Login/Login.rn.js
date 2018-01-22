@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import { Keyboard, Text, TouchableOpacity, View } from 'react-native'
 import * as Animatable from 'react-native-animatable'
-import { openLogin, loginUsername, loginPassword, openUserList, closeUserList } from './Login.action'
-import { loginWithPassword } from './Login.middleware'
+import { connect } from 'react-redux'
 
-import { View, Text, TouchableOpacity, Keyboard } from 'react-native'
-
-import TemplateTextInput from '../tpl/TextInput.ui'
 import t from '../../lib/LocaleStrings'
 import CachedUsers from '../CachedUsers/CachedUsers.ui'
-import style from '../Style'
 import { showWhiteOverlay } from '../Landing.action'
+import style from '../Style'
+import TemplateTextInput from '../tpl/TextInput.ui'
+import { closeUserList, loginPassword, loginUsername, openLogin, openUserList } from './Login.action'
+import { loginWithPassword } from './Login.middleware'
 
 class Login extends Component {
   submit = () => {

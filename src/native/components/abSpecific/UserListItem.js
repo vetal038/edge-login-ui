@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, Text } from 'react-native'
-import { IconButton } from '../common'
+import { Text, TouchableOpacity, View } from 'react-native'
+
 import * as Constants from '../../../common/constants'
+import { IconButton } from '../common'
+
 /* type Props= {
   data: any,
   style: any,
@@ -30,14 +32,15 @@ class UserListItem extends Component {
     if (this.props.onDelete) {
       return (
         <View style={Style.container}>
-          <View style={Style.textComtainer} >
+          <View style={Style.textComtainer}>
             <Text style={Style.text}>{this.props.data}</Text>
           </View>
           <IconButton
             style={Style.iconButton}
             icon={Constants.CLOSE_ICON}
             iconType={Constants.MATERIAL_ICONS}
-            onPress={this.deleteThis} />
+            onPress={this.deleteThis}
+          />
         </View>
       )
     }

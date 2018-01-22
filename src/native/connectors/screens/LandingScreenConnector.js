@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
-import LandingScreenComponent from '../../components/screens/LandingScreenComponent'
+
 import * as actions from '../../../common/actions'
+import LandingScreenComponent from '../../components/screens/LandingScreenComponent'
+
 export const mapStateToProps = (state, ownProps) => {
   return {
     styles: ownProps.styles,
@@ -10,8 +12,10 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    startFlow: (data) => dispatch(actions.startWorkflow(data))
+    startFlow: data => dispatch(actions.startWorkflow(data))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LandingScreenComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(
+  LandingScreenComponent
+)

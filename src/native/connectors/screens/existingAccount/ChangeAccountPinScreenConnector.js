@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
-import LinkedComponent from '../../../components/screens/existingAccout/ChangeAccountPinScreenComponent'
+
 import * as actions from '../../../../common/actions'
+import LinkedComponent from '../../../components/screens/existingAccout/ChangeAccountPinScreenComponent'
+
 // import * as Constants from '../../../../common/constants'
 export const mapStateToProps = (state, ownProps) => {
   return {
@@ -15,7 +17,7 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    changePin: (data) => dispatch(actions.changePIN(data))
+    changePin: data => dispatch(actions.changePIN(data))
   }
 }
 

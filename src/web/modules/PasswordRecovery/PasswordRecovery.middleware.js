@@ -1,8 +1,7 @@
-import { validateEmail, obfuscateUsername } from '../../lib/helper'
+import { obfuscateUsername, validateEmail } from '../../lib/helper'
 import t from '../../lib/web/LocaleStrings'
-
-import { setPasswordRecoveryToken, showPasswordRecoveryTokenView, showPasswordRecoveryTokenButton } from './PasswordRecovery.action'
 import { openErrorModal } from '../ErrorModal/ErrorModal.action'
+import { setPasswordRecoveryToken, showPasswordRecoveryTokenButton, showPasswordRecoveryTokenView } from './PasswordRecovery.action'
 
 export const checkPasswordRecovery = (payload, callback) => {
   const checkAnswersLength = (answers) => answers[0].length < 4 || answers[1].length < 4

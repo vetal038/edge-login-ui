@@ -1,6 +1,6 @@
-import { pinChanged } from './ChangePin.action'
 import { openErrorModal } from '../ErrorModal/ErrorModal.action'
-import { openLoading, closeLoading } from '../Loader/Loader.action'
+import { closeLoading, openLoading } from '../Loader/Loader.action'
+import { pinChanged } from './ChangePin.action'
 
 export const checkPin = (password, pin, account, callback) => {
   return (dispatch, getState, imports) => {

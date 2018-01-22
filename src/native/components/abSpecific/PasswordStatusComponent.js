@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
-import { Checkbox } from '../common/Checkbox'
+import { Text, View } from 'react-native'
+
 import {
   PASSWORD_REQ_CHECKED,
   PASSWORD_REQ_UNCHECKED
 } from '../../../native/assets'
+import { Checkbox } from '../common/Checkbox'
 
 /* type Props = {
   style: any,
@@ -28,7 +29,6 @@ export default class PaswordStatusComponent extends Component {
           disabled
         />
       </View>
-
     ))
   }
   renderInterior () {
@@ -36,9 +36,7 @@ export default class PaswordStatusComponent extends Component {
     if (this.props.status) {
       return (
         <View style={style.container}>
-          <View style={style.boxes}>
-            {this.renderStatusList(style)}
-          </View>
+          <View style={style.boxes}>{this.renderStatusList(style)}</View>
           <View style={style.shim} />
           <View style={style.textContainer}>
             <Text style={style.text}>{this.props.secondsToCrack} </Text>
@@ -55,4 +53,3 @@ export default class PaswordStatusComponent extends Component {
     )
   }
 }
-

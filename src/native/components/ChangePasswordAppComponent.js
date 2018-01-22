@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import ChangeAccountPasswordScreenConnector
-  from '../connectors/screens/existingAccount/ChangeAccountPasswordScreenConnector'
+
+import ChangeAccountPasswordScreenConnector from '../connectors/screens/existingAccount/ChangeAccountPasswordScreenConnector'
+
 export default class ChangePasswordAppComponent extends Component {
   componentWillMount () {
     this.props.setWorkflow()

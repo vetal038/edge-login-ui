@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import t from '../../lib/web/LocaleStrings'
-import { passwordNotificationHide } from './Password.action'
 import Dialog from 'react-toolbox/lib/dialog'
 import neutralButtonWithBlueTextTheme from 'theme/neutralButtonWithBlueText.scss'
 import nextButton from 'theme/nextButton.scss'
+
+import t from '../../lib/web/LocaleStrings'
+import { passwordNotificationHide } from './Password.action'
 
 class NotificationModal extends Component {
   _handleClose = () => {

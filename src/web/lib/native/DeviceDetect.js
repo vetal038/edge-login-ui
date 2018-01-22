@@ -1,7 +1,7 @@
 import {
+  Dimensions,
   PixelRatio,
-  Platform,
-  Dimensions
+  Platform
 } from 'react-native'
 
 const windowSize = Dimensions.get('window')

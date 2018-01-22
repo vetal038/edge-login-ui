@@ -1,5 +1,13 @@
 import React, { Component } from 'react'
-import { View, Keyboard, TouchableWithoutFeedback, Text } from 'react-native'
+import { Keyboard, Text, TouchableWithoutFeedback, View } from 'react-native'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
+import * as Constants from '../../../common/constants'
+import { KEYS, localize } from '../../../common/locale'
+import DeleteUserConnector from '../../../native/connectors/abSpecific/DeleteUserConnector'
+import ForgotPasswordModalConnector from '../../../native/connectors/abSpecific/ForgotPasswordModalConnector'
+import RecoverPasswordUsernameModalConnector from '../../../native/connectors/componentConnectors/RecoverPasswordUsernameModalConnector'
+import * as Assets from '../../assets/'
 import {
   BackgroundImage,
   Button,
@@ -7,22 +15,10 @@ import {
   FormFieldWithDropComponent,
   StaticModal
 } from '../../components/common'
+import * as Offsets from '../../constants'
 /* import UsernameDropConnector
   from '../../connectors/componentConnectors/UsernameDropConnector' */
 import { LogoImageHeader, UserListItem } from '../abSpecific'
-import * as Constants from '../../../common/constants'
-import * as Assets from '../../assets/'
-import * as Offsets from '../../constants'
-import DeleteUserConnector
-  from '../../../native/connectors/abSpecific/DeleteUserConnector'
-import ForgotPasswordModalConnector
-  from '../../../native/connectors/abSpecific/ForgotPasswordModalConnector'
-import { localize, KEYS } from '../../../common/locale'
-import RecoverPasswordUsernameModalConnector from '../../../native/connectors/componentConnectors/RecoverPasswordUsernameModalConnector'
-
-import {
-  KeyboardAwareScrollView
-} from 'react-native-keyboard-aware-scroll-view'
 
 export default class LandingScreenComponent extends Component {
   componentWillMount () {
@@ -30,7 +26,7 @@ export default class LandingScreenComponent extends Component {
     this.style = LoginPasswordScreenStyle
     this.keyboardDidHideListener = null
 
-    this.renderModal = (style) => {
+    this.renderModal = style => {
       if (this.props.showModal) {
         return (
           <DeleteUserConnector
@@ -40,15 +36,17 @@ export default class LandingScreenComponent extends Component {
         )
       }
       if (this.state.showRecoveryModal) {
-        const middle = <View style={this.style.modalMiddle}>
-          <Text style={this.style.staticModalText}>
-            Please enter the username of the account you want to recover.
-          </Text>
-          <RecoverPasswordUsernameModalConnector
-            style={this.style.inputModal}
-            onSubmitEditing={this.recoverPasswordLogin}
-          />
-        </View>
+        const middle = (
+          <View style={this.style.modalMiddle}>
+            <Text style={this.style.staticModalText}>
+              Please enter the username of the account you want to recover.
+            </Text>
+            <RecoverPasswordUsernameModalConnector
+              style={this.style.inputModal}
+              onSubmitEditing={this.recoverPasswordLogin}
+            />
+          </View>
+        )
 
         return (
           <ForgotPasswordModalConnector
@@ -59,11 +57,20 @@ export default class LandingScreenComponent extends Component {
         )
       }
       if (this.props.recoveryLoginEnabledError) {
-        const body = <Text style={style.staticModalText}>{'Recovery was not setup or was done on another device. \n\nIf recovery was setup you should have emailed yourself a recovery token with a link. \n\nPlease find the email and click on the link using this device initiate recovery.'}</Text>
-        return <StaticModal
-          cancel={this.props.dismissRecoveryError}
-          body={body}
-          modalDismissTimerSeconds={5} />
+        const body = (
+          <Text style={style.staticModalText}>
+            {
+              'Recovery was not setup or was done on another device. \n\nIf recovery was setup you should have emailed yourself a recovery token with a link. \n\nPlease find the email and click on the link using this device initiate recovery.'
+            }
+          </Text>
+        )
+        return (
+          <StaticModal
+            cancel={this.props.dismissRecoveryError}
+            body={body}
+            modalDismissTimerSeconds={5}
+          />
+        )
       }
       return null
     }
@@ -87,7 +94,7 @@ export default class LandingScreenComponent extends Component {
         offset: Offsets.LOGIN_SCREEN_NO_OFFSET
       })
     }
-    this.onDelete = (user) => {
+    this.onDelete = user => {
       //
       // this.props.deleteUserFromDevice(user) TODO
       this.setState({
@@ -131,14 +138,20 @@ export default class LandingScreenComponent extends Component {
     }
   }
   componentWillReceiveProps (nextProps) {
-    if ((nextProps.error && this.state.loggingIn) || (this.state.loggingIn && nextProps.loginSuccess)) {
+    if (
+      (nextProps.error && this.state.loggingIn) ||
+      (this.state.loggingIn && nextProps.loginSuccess)
+    ) {
       this.setState({
         loggingIn: false
       })
     }
   }
   shouldComponentUpdate (nextProps, nextState) {
-    if (nextProps.username !== this.props.username && this.state.showRecoveryModal) {
+    if (
+      nextProps.username !== this.props.username &&
+      this.state.showRecoveryModal
+    ) {
       return false
     }
     // return a boolean value
@@ -313,7 +326,7 @@ export default class LandingScreenComponent extends Component {
 
   checkPinEnabled (user) {
     for (let i = 0; i < this.props.previousUsers.length; i++) {
-      let obj = this.props.previousUsers[i]
+      const obj = this.props.previousUsers[i]
       if (user === obj.username && obj.pinEnabled) {
         return true
       }

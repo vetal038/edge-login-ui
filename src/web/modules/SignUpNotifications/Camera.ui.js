@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { Image, View, Text, StyleSheet } from 'react-native'
-
-import Container from '../SignUp.ui'
+import { Image, StyleSheet, Text, View } from 'react-native'
 
 import appTheme from '../../../Themes/appTheme'
-import { cameraPermissions } from './Notifications.middleware'
-import NextButton from '../NextButton/NextButton.ui'
 import t from '../../lib/LocaleStrings'
+import NextButton from '../NextButton/NextButton.ui'
+import Container from '../SignUp.ui'
+import { cameraPermissions } from './Notifications.middleware'
 
 export default class Camera extends Component {
   handleSubmit = () => {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import { BackAndroid, Button, Text, View } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-import { BackAndroid, View, Text, Button } from 'react-native'
-import style from '../Style'
+import { connect } from 'react-redux'
 
 import { fadeWhiteOverlay } from '../Landing.action'
+import style from '../Style'
 
 class Home extends Component {
   componentDidMount = () => {

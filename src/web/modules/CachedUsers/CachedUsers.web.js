@@ -1,14 +1,14 @@
+import classnames from 'classnames'
+import t from 'lib/web/LocaleStrings'
+import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import _ from 'lodash'
 import FontIcon from 'react-toolbox/lib/font_icon'
-import t from 'lib/web/LocaleStrings'
-import styles from './CachedUsers.webStyle'
-import classnames from 'classnames'
-import {loginUsername} from '../Login/Login.action'
 
-import { selectUserToLogin, selectUserToDeleteFromUserCache } from './CachedUsers.action'
+import {loginUsername} from '../Login/Login.action'
 import { openWarningModal } from '../WarningModal/WarningModal.action'
+import { selectUserToDeleteFromUserCache, selectUserToLogin } from './CachedUsers.action'
+import styles from './CachedUsers.webStyle'
 
 class UserList extends Component {
   _handleLoginUser = (user) => {

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import { FormField } from '../../components/common/'
+
 import * as loginAction from '../../../common/actions'
+import { FormField } from '../../components/common/'
 
 export const mapStateToProps = (state, ownProps) => {
   return {

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import LinkedComponent from '../../../components/screens/newAccount/TermsAndConditionsScreenComponent'
+
 import * as actions from '../../../../common/actions/'
+import LinkedComponent from '../../../components/screens/newAccount/TermsAndConditionsScreenComponent'
 
 export const mapStateToProps = (state, ownProps) => {
   return {
@@ -13,7 +14,7 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    agreeToCondition: (data) => dispatch(actions.agreeToConditions(data))
+    agreeToCondition: data => dispatch(actions.agreeToConditions(data))
   }
 }
 

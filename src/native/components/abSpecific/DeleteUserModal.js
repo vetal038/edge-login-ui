@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text, Image } from 'react-native'
-import { Button } from '../common'
+import { Image, Text, View } from 'react-native'
+
 import { LOGO_DOT } from '../../../native/assets/'
+import { Button } from '../common'
 
 /*
 type Props = {
@@ -32,11 +33,9 @@ class DeleteUserModal extends Component {
           </View>
           <View style={Style.textContainer}>
             <Text style={Style.copyText}>
-              Delete
-              {' '}
-              {this.props.username}
-              {' '}
-              on this device. this will sizable access via PIN if 2FA is enabled on the account., this device will not be able to login without a 2FA reset which takes 7 days.
+              Delete {this.props.username} on this device. this will sizable
+              access via PIN if 2FA is enabled on the account., this device will
+              not be able to login without a 2FA reset which takes 7 days.
             </Text>
           </View>
           <View style={Style.buttonsContainer}>

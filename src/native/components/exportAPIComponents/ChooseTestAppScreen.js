@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import { Button } from '../common/Button'
+
 import * as Styles from '../../styles'
+import { Button } from '../common/Button'
 
 /* type Props = {
   onChangePassword(): void,
@@ -29,7 +30,7 @@ class ChooseTestAppScreen extends Component {
         }}
       >
         <Button
-          label='Change Password'
+          label="Change Password"
           onPress={this.onPasswordPress.bind(this)}
           downStyle={Styles.PrimaryButtonDownStyle}
           upStyle={Styles.PrimaryButtonUpStyle}
@@ -37,7 +38,7 @@ class ChooseTestAppScreen extends Component {
           upTextStyle={Styles.PrimaryButtonUpTextStyle}
         />
         <Button
-          label='Change PIN'
+          label="Change PIN"
           onPress={this.onPinPress.bind(this)}
           downStyle={Styles.PrimaryButtonDownStyle}
           upStyle={Styles.PrimaryButtonUpStyle}
@@ -45,7 +46,7 @@ class ChooseTestAppScreen extends Component {
           upTextStyle={Styles.PrimaryButtonUpTextStyle}
         />
         <Button
-          label='Password Recovery'
+          label="Password Recovery"
           onPress={this.onRecoverPress.bind(this)}
           downStyle={Styles.PrimaryButtonDownStyle}
           upStyle={Styles.PrimaryButtonUpStyle}

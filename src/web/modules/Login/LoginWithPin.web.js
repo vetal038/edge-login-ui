@@ -1,18 +1,17 @@
+import t from 'lib/web/LocaleStrings'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import t from 'lib/web/LocaleStrings'
-import { sprintf } from 'sprintf-js'
-
-import { openLogin, loginPIN, openUserList, closeUserList } from './Login.action'
-import { loginWithPin } from './Login.middleware'
-import CachedUsers from '../CachedUsers/CachedUsers.web'
-import { closeLoading } from '../Loader/Loader.action'
-
 import { Button } from 'react-toolbox/lib/button'
 import Input from 'react-toolbox/lib/input'
-import styles from './LoginWithPin.style.scss'
+import { sprintf } from 'sprintf-js'
 import neutral from 'theme/neutralButtonWithBlueText.scss'
+
+import CachedUsers from '../CachedUsers/CachedUsers.web'
+import { closeLoading } from '../Loader/Loader.action'
+import { closeUserList, loginPIN, openLogin, openUserList } from './Login.action'
+import { loginWithPin } from './Login.middleware'
+import styles from './LoginWithPin.style.scss'
 
 class LoginWithPin extends Component {
   _handleSubmit = () => {

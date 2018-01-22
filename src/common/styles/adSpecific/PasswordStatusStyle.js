@@ -1,6 +1,6 @@
+import * as Constants from '../../constants/'
 import { vs } from '../../util'
 import { BasicCheckBoxWithLabel } from '../'
-import * as Constants from '../../constants/'
 
 const PasswordStatusStyle = {
   container: {
@@ -20,7 +20,6 @@ const PasswordStatusStyle = {
     flex: 5,
     flexDirection: 'column',
     top: 5
-
   },
   checkboxContainer: {
     height: vs(20),
@@ -48,7 +47,6 @@ const PasswordStatusStyle = {
     marginRight: '10%',
     marginBottom: 6,
     fontSize: 11
-
   }
 }
 

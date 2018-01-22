@@ -1,6 +1,6 @@
-import * as Styles from '../'
-import * as Colors from '../../../common/constants/Colors'
 import * as Constants from '../../../common/constants/'
+import * as Colors from '../../../common/constants/Colors'
+import * as Styles from '../'
 
 const CreatingAccountWaitScreenStyle = {
   screen: { ...Styles.ScreenStyle },

@@ -1,12 +1,14 @@
+import t from 'lib/web/LocaleStrings'
 import React, { Component } from 'react'
-const QRCode = require('qrcode.react')
+import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
-import { connect } from 'react-redux'
-import t from 'lib/web/LocaleStrings'
-
-import { edgeLogin } from './Login.middleware'
 import { closeLoading } from '../Loader/Loader.action'
+import { edgeLogin } from './Login.middleware'
+
+const QRCode = require('qrcode.react')
+
+
 
 class LoginEdge extends Component {
   componentWillUnmount () {

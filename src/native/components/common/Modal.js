@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { ModalStyle } from '../../../common/styles/'
-import { View, Text /* TouchableOpacity,
-  Platform */ } from 'react-native'
-import { IconButton, Icon, Button } from './'
+import { Text, View } from 'react-native'
 import Modal from 'react-native-modal'
+
 import * as Constants from '../../../common/constants'
+import { ModalStyle } from '../../../common/styles/'
+import { Button, Icon, IconButton } from './'
+
 /* type Props = {
   styles
 headerText
@@ -33,7 +34,9 @@ class MyModal extends Component {
   constructor (props) {
     super(props)
     this.renderMiddle = styles => {
-      if (this.props.modalMiddleComponent) { return this.props.modalMiddleComponent }
+      if (this.props.modalMiddleComponent) {
+        return this.props.modalMiddleComponent
+      }
 
       return <Text style={styles.modalMiddleText}>{this.props.middleText}</Text>
     }
@@ -95,16 +98,18 @@ class MyModal extends Component {
         </View>
       )
     }
-    this.renderCloseX = (styles) => {
+    this.renderCloseX = styles => {
       if (this.props.hideCancelX) {
         return null
       }
-      return <IconButton
-        style={styles.closeIconButton}
-        icon={Constants.CLOSE_ICON}
-        iconType={Constants.MATERIAL_ICONS}
-        onPress={this.props.cancel}
-      />
+      return (
+        <IconButton
+          style={styles.closeIconButton}
+          icon={Constants.CLOSE_ICON}
+          iconType={Constants.MATERIAL_ICONS}
+          onPress={this.props.cancel}
+        />
+      )
     }
   }
   componentWillMount () {
@@ -137,9 +142,7 @@ class MyModal extends Component {
         visible
       >
         <View style={styles.modalBox}>
-          <View style={styles.exitRow}>
-            {this.renderCloseX(styles)}
-          </View>
+          <View style={styles.exitRow}>{this.renderCloseX(styles)}</View>
           <View style={styles.modalBody}>
             <View style={styles.modalTopTextWrap}>
               <Text style={styles.modalTopText}>{headerText}</Text>

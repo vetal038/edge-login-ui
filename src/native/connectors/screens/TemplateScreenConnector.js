@@ -1,5 +1,7 @@
 import { connect } from 'react-redux'
+
 import LinkedComponent from '../../components/screens/TemplateScreenComponent'
+
 // import * as loginAction from '../../common/actions/'
 
 export const mapStateToProps = (state, ownProps) => {

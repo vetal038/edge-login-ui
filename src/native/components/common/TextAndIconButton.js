@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableHighlight } from 'react-native'
+import { Text, TouchableHighlight, View } from 'react-native'
 import FAIcon from 'react-native-vector-icons/MaterialIcons'
-
 /* type Props = {
   icon: string,
   style: any,
@@ -12,9 +11,7 @@ import FAIcon from 'react-native-vector-icons/MaterialIcons'
 type State = {
   pressed: boolean
 } */
-
 class TextAndIconButton extends Component /* <Props, State> */ {
-
   componentWillMount () {
     this.setState({
       pressed: false
@@ -75,7 +72,7 @@ class TextAndIconButton extends Component /* <Props, State> */ {
       >
         <View style={centeredContent}>
           <View style={inner}>
-            <View style={textContainer} >
+            <View style={textContainer}>
               <Text
                 style={[text, this.state.pressed && textPressed]}
                 ellipsizeMode={'middle'}

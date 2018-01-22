@@ -24,12 +24,12 @@
   "module": "lib/abcui.es6.js",
   "scripts": {
     "build": "rimraf assets lib && rollup -c && webpack -p --color --progress",
-    "fix": "standard --parser babel-eslint --fix",
-    "lint": "standard --parser babel-eslint",
+    "format": "import-sort -l --write '*.js' 'src/**/*.js'; prettier-eslint --write '*.js' 'src/**/*.js'",
+    "lint": "eslint '*.js' 'src/**/*.js'",
     "flow:0": "flow; exit 0",
     "flow": "flow",
     "test": "npm run lint && npm run flow",
-    "precommit": "npm test",
+    "precommit": "lint-staged && npm test",
     "prepare": "npm run build",
     "start": "webpack-dev-server --open"
   },
@@ -38,7 +38,6 @@
     "async": "~2.0.1",
     "babel-preset-stage-2": "^6.24.1",
     "classnames": "^2.2.5",
-    "eslint-plugin-react-native": "^3.1.0",
     "file-loader": "~0.9.0",
     "joi-browser": "~9.0.1",
     "jsbarcode": "~3.5.8",
@@ -47,7 +46,7 @@
     "moment-duration-format": "^1.3.0",
     "normalize.css": "v4.2.0",
     "qrcode.react": "~0.6.1",
-    "react": "^16.0.0",
+    "react": "~15.4.2",
     "react-addons-update": "v15.3.0",
     "react-css-themr": "v1.7.1",
     "react-dom": "^15.4.2",
@@ -83,15 +82,29 @@
     "css-loader": "^0.28.4",
     "encoding": "^0.1.12",
     "enzyme": "^2.8.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react-native": "^3.0.1",
+    "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^3.0.0",
+    "eslint": "^3.11.1",
     "flow-bin": "^0.63.1",
     "html-webpack-plugin": "^2.30.1",
     "husky": "^0.14.3",
+    "import-sort-cli": "^4.2.0",
+    "import-sort-parser-babylon": "^3.2.0",
+    "import-sort-style-module": "^3.0.0",
+    "lint-staged": "^5.0.0",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
+    "prettier-eslint-cli": "^4.4.0",
+    "react-native": "^0.47.0",
     "react-addons-test-utils": "^15.4.2",
     "react-hot-loader": "^1.3.1",
-    "react-native": "^0.51.0",
     "react-test-renderer": "^15.4.2",
     "redux-devtools-extension": "^2.10.2",
     "redux-mock-store": "^1.2.2",
@@ -113,6 +126,18 @@
   "rnpm": {
     "assets": [
       "./src/assets/fonts"
+    ]
+  },
+  "importSort": {
+    ".js, .es": {
+      "parser": "babylon",
+      "style": "module"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "import-sort --list-different",
+      "prettier-eslint --list-different"
     ]
   },
   "jest": {

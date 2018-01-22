@@ -1,6 +1,6 @@
-import { passwordNotificationHide, changePasswordValue } from './Password.action'
 import { openErrorModal } from '../ErrorModal/ErrorModal.action'
 import { signupUser } from '../Signup/Signup.middleware'
+import { changePasswordValue, passwordNotificationHide } from './Password.action'
 
 export const checkPassword = (password, passwordRepeat, validation, username, pinNumber, callback) => {
   return (dispatch, getState, imports) => {
