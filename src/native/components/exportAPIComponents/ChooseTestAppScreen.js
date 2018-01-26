@@ -21,16 +21,15 @@ class ChooseTestAppScreen extends Component {
   onRecoverPress () {}
   render () {
     // const { ScreenStyle } = this.props.styles
+    const quickStyle = {
+      ...Styles.ScreenStyle,
+      justifyContent: 'space-around',
+      alignItems: 'center'
+    }
     return (
-      <View
-        style={{
-          ...Styles.ScreenStyle,
-          justifyContent: 'space-around',
-          alignItems: 'center'
-        }}
-      >
+      <View style={quickStyle}>
         <Button
-          label="Change Password"
+          label='Change Password'
           onPress={this.onPasswordPress.bind(this)}
           downStyle={Styles.PrimaryButtonDownStyle}
           upStyle={Styles.PrimaryButtonUpStyle}
@@ -38,7 +37,7 @@ class ChooseTestAppScreen extends Component {
           upTextStyle={Styles.PrimaryButtonUpTextStyle}
         />
         <Button
-          label="Change PIN"
+          label='Change PIN'
           onPress={this.onPinPress.bind(this)}
           downStyle={Styles.PrimaryButtonDownStyle}
           upStyle={Styles.PrimaryButtonUpStyle}
@@ -46,7 +45,7 @@ class ChooseTestAppScreen extends Component {
           upTextStyle={Styles.PrimaryButtonUpTextStyle}
         />
         <Button
-          label="Password Recovery"
+          label='Password Recovery'
           onPress={this.onRecoverPress.bind(this)}
           downStyle={Styles.PrimaryButtonDownStyle}
           upStyle={Styles.PrimaryButtonUpStyle}

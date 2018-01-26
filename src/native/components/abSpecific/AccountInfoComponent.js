@@ -140,15 +140,15 @@ class AccountInfoComponent extends Component {
   }
   render () {
     const Style = this.props.style
+    const altStyle = {...Style.container,
+      borderWidth: 0,
+      borderColor: Constants.GRAY_3
+    }
     return (
       <View
         style={[
           Style.container,
-          !this.state.collapsed && {
-            ...Style.container,
-            borderWidth: 0,
-            borderColor: Constants.GRAY_3
-          }
+          !this.state.collapsed && altStyle
         ]}
       >
         {this.renderTop(Style)}
