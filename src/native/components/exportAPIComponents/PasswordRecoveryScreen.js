@@ -27,6 +27,8 @@ class PasswordRecoveryScreen extends Component {
   } */
 
   componentWillMount () {
+    const locale = this.props.locale || 'US'
+    const language = this.props.language || 'en_us'
     setLocal(this.props.locale, this.props.language)
     this.store = createStore(
       reducers,
@@ -37,8 +39,8 @@ class PasswordRecoveryScreen extends Component {
           context: this.props.context,
           onComplete: this.props.onComplete,
           onCancel: this.props.onComplete,
-          locale: this.props.local,
-          language: this.props.language
+          locale,
+          language
         })
       )
     )

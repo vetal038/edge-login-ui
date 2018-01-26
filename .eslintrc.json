@@ -4,12 +4,19 @@
     "commonjs": true,
     "es6": true
   },
-  "extends": ["standard", "plugin:react/recommended"],
+  "extends": [
+    "standard",
+    "plugin:react/recommended",
+    "plugin:react-native/all",
+    "plugin:flowtype/recommended"
+  ],
   "parser": "babel-eslint",
   "plugins": [
+    "flowtype",
     "standard",
     "promise",
-    "react"
+    "react",
+    "react-native"
   ],
   "rules": {
     "flowtype/generic-spacing": "off",

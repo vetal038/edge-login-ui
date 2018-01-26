@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import reducers from '../../../common/reducers'
-import { createStore, applyMiddleware } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import thunk from 'redux-thunk'
-import ChangePasswordAppConnector
-  from '../../connectors/ChangePasswordAppConnector'
-import * as Styles from '../../styles'
+
 import { setLocal } from '../../../common/locale'
+import reducers from '../../../common/reducers'
+import ChangePasswordAppConnector from '../../connectors/ChangePasswordAppConnector'
+import * as Styles from '../../styles'
 
 /* type Props = {
   account: any,
@@ -19,14 +19,16 @@ import { setLocal } from '../../../common/locale'
 } */
 
 class ChangePasswordScreen extends Component {
-  static defaultProps = {
+  /* static defaultProps = {
     locale: 'US',
     language: 'en_us',
     accountObject: null,
     showHeader: true
   }
-
+ */
   componentWillMount () {
+    const locale = this.props.locale || 'US'
+    const language = this.props.language || 'en_us'
     setLocal(this.props.locale, this.props.language)
     this.store = createStore(
       reducers,
@@ -37,8 +39,8 @@ class ChangePasswordScreen extends Component {
           context: this.props.context,
           onComplete: this.props.onComplete,
           onCancel: this.props.onComplete,
-          locale: this.props.local,
-          language: this.props.language
+          locale,
+          language
         })
       )
     )

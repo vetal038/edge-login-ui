@@ -112,6 +112,7 @@ class MyModal extends Component {
       )
     }
   }
+
   componentWillMount () {
     this.setState({
       showButtons: !this.props.buttonTimerSeconds

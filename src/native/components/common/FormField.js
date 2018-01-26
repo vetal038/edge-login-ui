@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+
 // import * as Constants from '../../../common/constants'
 import { Input } from '../materialWrappers/indexMaterial'
+
 /* import { Checkbox } from './Checkbox'
 import { STANDARD_CHECKED, STANDARD_UNCHECKED } from '../../../native/assets'
  */
@@ -50,7 +52,6 @@ class FormField extends Component {
       textColor,
       errorColor,
       titleTextStyle
-
     } = this.props.style
     return (
       <Input
@@ -73,7 +74,7 @@ class FormField extends Component {
         autoCapitalize={'none'}
         autoCorrect={this.props.autoCorrect}
         onSubmitEditing={this.onSubmitEditing.bind(this)}
-        />
+      />
     )
   }
   /* renderHelperBox (Style) {

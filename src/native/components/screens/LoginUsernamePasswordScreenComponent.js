@@ -254,6 +254,7 @@ export default class LandingScreenComponent extends Component {
   }
 
   renderButtons (style) {
+    const buttonLabel = localize(KEYS.BUTTONS.LOGIN)
     return (
       <View style={style.buttonsBox}>
         <View style={style.shimTiny} />
@@ -269,7 +270,7 @@ export default class LandingScreenComponent extends Component {
         <Button
           testID={'loginButton'}
           onPress={this.onStartLogin.bind(this)}
-          label={localize(KEYS.BUTTONS.LOGIN)}
+          label={buttonLabel}
           downStyle={style.loginButton.downStyle}
           downTextStyle={style.loginButton.downTextStyle}
           upStyle={style.loginButton.upStyle}
