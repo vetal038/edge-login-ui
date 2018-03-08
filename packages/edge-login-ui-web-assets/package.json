@@ -1,7 +1,8 @@
 {
-  "name": "edge-login-ui-web",
+  "name": "edge-login-ui-web-assets",
   "version": "0.2.0",
-  "description": "Edge login UI components, as a library for the web",
+  "private": true,
+  "description": "Edge login UI iframe assets",
   "keywords": [
     "Airbitz",
     "Edge",
