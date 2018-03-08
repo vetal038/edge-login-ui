@@ -57,13 +57,13 @@ const UIContext = args => {
 
   const getAssetPath = args => {
     if (args.assetPath) {
-      return args.assetsPath
+      return args.assetPath
     }
     if (args.bundlePath) {
-      return args.bundlePath + '/dist'
+      return args.bundlePath
     }
     if (!args.assetPath && !args.bundlePath) {
-      return './dist'
+      return '.'
     }
   }
 
@@ -87,7 +87,7 @@ const UIContext = args => {
     }
 
     const openLoginWindow = callback => {
-      const frame = createIFrame(getAssetPath(args) + '/index.html')
+      const frame = createIFrame(getAssetPath(args) + '/frame.html')
       const removeCallbacks = () => {
         DomWindow.abcui.loginCallback = null
         DomWindow.abcui.loginWithoutClosingCallback = null
@@ -120,7 +120,7 @@ const UIContext = args => {
     }
 
     const openManageWindow = (account, callback) => {
-      const frame = createIFrame(getAssetPath(args) + '/index.html#/account')
+      const frame = createIFrame(getAssetPath(args) + '/frame.html#/account')
       DomWindow.abcui.abcAccount = account
       DomWindow.abcui.exitCallback = () => {
         removeIFrame(frame)

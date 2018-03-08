@@ -36,7 +36,7 @@ module.exports = {
     port: 8002
   },
 
-  entry: './src/index.js',
+  entry: './src/frame.js',
 
   output: {
     path: path.join(__dirname, 'dist'),
@@ -57,8 +57,8 @@ module.exports = {
     new ExtractTextPlugin('bundle.css', { allChunks: true }),
     ...productionPlugins,
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'src/index.html'
+      filename: 'frame.html',
+      template: 'src/frame.html'
     })
   ],
 

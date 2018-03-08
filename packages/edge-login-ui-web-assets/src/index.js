@@ -1,25 +1,63 @@
-import 'react-toolbox/lib/commons.scss'
+// @flow
+/** @jsx h */
 
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
+import { makeABCUIContext } from './abcui.js'
+import type {
+  EdgeLoginWindowOptions,
+  EdgeUiContextOptions
+} from 'edge-login-ui-web'
+import postRobot from 'post-robot'
 
-import createStore from './lib/web/configureStore'
-import Router from './routes.js'
-
-const store = createStore()
-const rootElement = document.getElementById('app')
-
-String.format = function (format) {
-  const args = Array.prototype.slice.call(arguments, 1)
-  return format.replace(/{(\d+)}/g, function (match, number) {
-    return typeof args[number] !== 'undefined' ? args[number] : match
-  })
+type PostRobotEvent<Data> = {
+  source: string,
+  origin: string,
+  data: Data
 }
 
-render(
-  <Provider store={store}>
-    <Router />
-  </Provider>,
-  rootElement
+let context = null
+let account = null
+
+postRobot.on('make-context', (event: PostRobotEvent<EdgeUiContextOptions>) => {
+  context = makeABCUIContext(
+    Object.assign({}, event.data, {
+      assetPath: '.',
+      vendorImageUrl: './blah.png',
+      vendorName: 'blah'
+    })
+  )
+})
+
+postRobot.on(
+  'open-login-window',
+  (event: PostRobotEvent<EdgeLoginWindowOptions>) => {
+    const { onClose = () => {}, onLogin = account => {} } = event.data
+
+    if (!context) {
+      throw new Error('No context!')
+    }
+
+    context.openLoginWindow((e, newAccount) => {
+      if (e) onClose()
+      account = newAccount
+      onLogin(account)
+    })
+  }
 )
+
+postRobot.on('logout', (event: PostRobotEvent<{}>) => {
+  account = null
+})
+
+// import { h, render } from 'preact'
+
+// function Screen (props: {}) {
+//   return (
+//     <div id="foo">
+//       <span>Hello, world!</span>
+//       <button onClick={e => onClose()}>Click Me</button>
+//     </div>
+//   )
+// }
+
+// const body = document.body
+// if (body !== null) render(<Screen />, body)
