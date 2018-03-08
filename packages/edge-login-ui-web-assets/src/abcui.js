@@ -61,10 +61,10 @@ const UIContext = args => {
       return args.assetsPath
     }
     if (args.bundlePath) {
-      return args.bundlePath + '/assets'
+      return args.bundlePath + '/dist'
     }
     if (!args.assetPath && !args.bundlePath) {
-      return './assets'
+      return './dist'
     }
   }
 

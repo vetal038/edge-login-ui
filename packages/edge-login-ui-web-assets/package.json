@@ -16,13 +16,13 @@
   "author": "Airbitz, Inc.",
   "files": [
     "LICENSE",
-    "assets/**",
+    "dist/**",
     "lib/**"
   ],
   "main": "lib/abcui.cjs.js",
   "module": "lib/abcui.es6.js",
   "scripts": {
-    "build": "rimraf assets lib && rollup -c && webpack -p --color --progress",
+    "build": "rimraf dist lib && rollup -c && webpack -p --color --progress",
     "prepare": "npm run build",
     "start": "webpack-dev-server --open",
     "updot": "updot"
