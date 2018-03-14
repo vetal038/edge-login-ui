@@ -13,16 +13,17 @@ export default class NewAccountWelcomeScreenComponent extends Component {
     return (
       <SafeAreaView>
         <View style={NewAccountWelcomeScreenStyle.screen}>
-          <View style={NewAccountWelcomeScreenStyle.row1}>
+          <View style={[NewAccountWelcomeScreenStyle.row1, NewAccountWelcomeScreenStyle.welcomeScreen.screenHeader]}>
             <HeaderBackButton
               onPress={this.props.exitScreen}
               styles={NewAccountWelcomeScreenStyle.exitBackButtonStyle}
               label={'Exit'}
             />
+            <View style={NewAccountWelcomeScreenStyle.welcomeScreen.center}>
+              <Text style={NewAccountWelcomeScreenStyle.welcomeScreen.headlineText}>Let's get started</Text>
+            </View>
           </View>
-          <View style={NewAccountWelcomeScreenStyle.row2}>
-            <ImageHeaderComponent style={NewAccountWelcomeScreenStyle.logoHeader} src={Assets.WELCOME} />
-          </View>
+          <View style={NewAccountWelcomeScreenStyle.row2}></View>
           <View style={NewAccountWelcomeScreenStyle.row3}>
             <Text style={NewAccountWelcomeScreenStyle.instructionsText}>
               Let’s get started by creating your account login. You’ll choose a username and password, which we’ll use to encrypt your account. Not even Edge has access to your information, so you have full and complete control over your digital assets.

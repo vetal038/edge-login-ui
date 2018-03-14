@@ -18,6 +18,25 @@ const NewAccountWelcomeScreenStyle = {
     flex: 3,
     alignItems: 'center'
   },
+  welcomeScreen: {
+    screenHeader: {
+      backgroundColor: '#604dd4',
+      flex: 1.2
+    },
+    headlineText: {
+      fontSize: 20,
+      width: '100%',
+      textAlign: 'center',
+      color: Constants.WHITE,
+      fontWeight: '700',
+      fontFamily: 'Gotham'
+    },
+    center: {
+      flex: 3,
+      justifyContent: 'flex-end',
+      paddingBottom: 10
+    },
+  },
   logoHeader: Styles.LogoHeaderStyle,
   instructionsText: {
     fontSize: Constants.FONTS.defaultFontSize,
@@ -54,7 +73,7 @@ const NewAccountWelcomeScreenStyle = {
       paddingLeft: 10,
       paddingRight: 5,
       paddingTop: 3,
-      color: Constants.SECONDARY
+      color: Constants.WHITE
     },
     sideText: {
       color: Constants.SECONDARY,

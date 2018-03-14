@@ -7,7 +7,7 @@ const isIos = Platform.OS === 'ios'
 class HeaderBackButton extends Component {
   render () {
     const withArrow = true
-    const icon = isIos ? 'ios-arrow-back-outline' : 'md-arrow-back'
+    const icon = isIos ? 'ios-arrow-back-outline' : 'ios-arrow-back-outline'
     const styles = this.props.styles
     return (
       <TouchableOpacity style={styles.backButton} onPress={this.props.onPress}>
