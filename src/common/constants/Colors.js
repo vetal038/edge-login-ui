@@ -13,9 +13,9 @@ export const GRAY_4 = '#F4F5F6'
 export const BLACK = '#25292C'
 export const WHITE = '#FFFFFF'
 
-export const BUTTON_PRIMARY_UP = '#0E4B75'
+export const BUTTON_PRIMARY_UP = '#6856d6'
 export const BUTTON_PRIMARY_UP_TEXT = '#FFFFFF'
-export const BUTTON_PRIMARY_DOWN = '#0D2145'
+export const BUTTON_PRIMARY_DOWN = '#6a6ada'
 export const BUTTON_SECONDARY_UP = '#87939E'
 export const BUTTON_SECONDARY_DOWN = '#4A5157'
 // TODO - need colors for tertiary update Allen

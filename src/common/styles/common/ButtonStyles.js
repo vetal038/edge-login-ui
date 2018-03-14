@@ -7,7 +7,8 @@ const PrimaryButtonUpStyle = {
   height: Constants.BUTTON_HEIGHT,
   alignItems: 'center',
   justifyContent: 'space-around',
-  borderRadius: Constants.BUTTON_BORDER_RADIUS
+  borderRadius: Constants.BUTTON_BORDER_RADIUS,
+  fontWeight: '700'
 }
 const PrimaryButtonUpTextStyle = {
   position: 'relative',
@@ -33,7 +34,8 @@ const PrimaryButtonDownStyle = {
   height: Constants.BUTTON_HEIGHT,
   alignItems: 'center',
   justifyContent: 'space-around',
-  borderRadius: Constants.BUTTON_BORDER_RADIUS
+  borderRadius: Constants.BUTTON_BORDER_RADIUS,
+  fontWeight: '700'
 }
 
 const SecondaryButtonUpStyle = {

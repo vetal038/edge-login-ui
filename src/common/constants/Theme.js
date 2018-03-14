@@ -4,11 +4,11 @@ import {Platform} from 'react-native'
 export const HEADER_HEIGHT = Platform.OS === 'ios' ? 42 : 60
 export const STATIC_MODAL_HEADER_HEIGHT = 62
 
-export const BUTTON_HEIGHT = 44
-export const BUTTON_WIDTH_1 = '70%'
+export const BUTTON_HEIGHT = 60
+export const BUTTON_WIDTH_1 = '40%'
 export const BUTTON_100_PERCENT = '100%'
 export const BUTTON_BORDER_STROKE = 1
-export const BUTTON_BORDER_RADIUS = 3
+export const BUTTON_BORDER_RADIUS = 100
 
 // Login Screen
 export const LOGIN_LABEL_WIDTH = '70%'
