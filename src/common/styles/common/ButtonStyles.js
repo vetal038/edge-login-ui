@@ -7,8 +7,7 @@ const PrimaryButtonUpStyle = {
   height: Constants.BUTTON_HEIGHT,
   alignItems: 'center',
   justifyContent: 'space-around',
-  borderRadius: Constants.BUTTON_BORDER_RADIUS,
-  fontWeight: '700'
+  borderRadius: Constants.BUTTON_BORDER_RADIUS
 }
 const PrimaryButtonUpTextStyle = {
   position: 'relative',
@@ -16,7 +15,8 @@ const PrimaryButtonUpTextStyle = {
   fontSize: Constants.FONTS.defaultButtonTextSize,
   fontFamily: Constants.FONTS.fontFamilyRegular,
   width: '100%',
-  textAlign: 'center'
+  textAlign: 'center',
+  fontWeight: '700'
 }
 const PrimaryButtonDownTextStyle = {
   position: 'relative',
@@ -24,7 +24,8 @@ const PrimaryButtonDownTextStyle = {
   fontSize: Constants.FONTS.defaultButtonTextSize,
   fontFamily: Constants.FONTS.fontFamilyRegular,
   width: '100%',
-  textAlign: 'center'
+  textAlign: 'center',
+  fontWeight: '700'
 }
 
 const PrimaryButtonDownStyle = {
@@ -34,8 +35,7 @@ const PrimaryButtonDownStyle = {
   height: Constants.BUTTON_HEIGHT,
   alignItems: 'center',
   justifyContent: 'space-around',
-  borderRadius: Constants.BUTTON_BORDER_RADIUS,
-  fontWeight: '700'
+  borderRadius: Constants.BUTTON_BORDER_RADIUS
 }
 
 const SecondaryButtonUpStyle = {

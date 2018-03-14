@@ -34,7 +34,8 @@ const NewAccountWelcomeScreenStyle = {
     center: {
       flex: 3,
       justifyContent: 'flex-end',
-      paddingBottom: 10
+      paddingBottom: 10,
+      marginLeft: -20
     },
   },
   logoHeader: Styles.LogoHeaderStyle,

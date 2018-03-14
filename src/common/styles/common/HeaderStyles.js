@@ -50,10 +50,12 @@ const HeaderContainerStyle = {
     // alignItems: 'center'
   },
   headlineText: {
-    fontSize: 17,
+    fontSize: 20,
     width: '100%',
     textAlign: 'center',
-    color: Constants.WHITE
+    color: Constants.WHITE,
+    fontWeight: '700',
+    fontFamily: 'gotham'
   },
   subHeadText: {
     fontSize: 11,

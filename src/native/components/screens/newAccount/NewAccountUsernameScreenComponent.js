@@ -30,10 +30,13 @@ export default class LandingScreenComponent extends Component {
         <View style={NewAccountUsernameScreenStyle.screen}>
           <HeaderConnector style={NewAccountUsernameScreenStyle.header} />
           <View style={NewAccountUsernameScreenStyle.pageContainer}>
+            <View>
+              <Text>Step 1/3</Text>
+            </View>
             <View style={NewAccountUsernameScreenStyle.instructions}>
               <Text style={NewAccountUsernameScreenStyle.instructionsText}>
-              Your username will be required to sign in to your Edge account on this and other devices.
-            </Text>
+                Your username will be required to sign in to your Edge account on this and other devices.
+              </Text>
             </View>
             <UsernameConnector
               style={NewAccountUsernameScreenStyle.inputBox}
@@ -48,7 +51,7 @@ export default class LandingScreenComponent extends Component {
             }
               upStyle={NewAccountUsernameScreenStyle.nextButton.upStyle}
               upTextStyle={NewAccountUsernameScreenStyle.nextButton.upTextStyle}
-              label={'NEXT'}
+              label={'Next'}
               isThinking={this.state.isProcessing}
               doesThink
           />

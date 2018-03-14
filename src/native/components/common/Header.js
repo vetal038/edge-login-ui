@@ -9,12 +9,7 @@ class Header extends Component {
   render () {
     const Style = this.props.style
     return (
-      <LinearGradient
-        style={Style.container}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 0 }}
-        colors={Colors.GRADIENT}
-      >
+      <View style={[Style.container, {backgroundColor: Colors.HEADER_BG}]}>
         <View style={Style.left}>
           {this.renderBack(Style)}
         </View>
@@ -22,7 +17,7 @@ class Header extends Component {
         <View style={Style.right}>
           {this.renderSkip(Style)}
         </View>
-      </LinearGradient>
+      </View>
     )
   }
   renderBack (style) {
@@ -44,7 +39,7 @@ class Header extends Component {
   renderText (style) {
     return (
       <View style={style.center}>
-        <Text style={style.subHeadText}>{this.props.subTitle}</Text>
+        {/*<Text style={style.subHeadText}>{this.props.subTitle}</Text>*/}
         <Text style={style.headlineText}>{this.props.title}</Text>
       </View>
     )
