@@ -44,7 +44,8 @@ const NewAccountWelcomeScreenStyle = {
     color: Constants.GRAY_2,
     textAlign: 'center',
     paddingLeft: 20,
-    paddingRight: 20
+    paddingRight: 20,
+    lineHeight: 20
   },
   callToAction: {
     fontSize: Constants.FONTS.defaultFontSize,

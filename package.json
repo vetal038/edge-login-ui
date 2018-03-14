@@ -109,7 +109,7 @@
   },
   "rnpm": {
     "assets": [
-      "./src/assets/fonts"
+      "fonts"
     ]
   },
   "jest": {
