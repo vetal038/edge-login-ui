@@ -40,16 +40,16 @@ const FourDotInputStyle = {
     borderWidth: 2,
     borderColor: Colors.WHITE,
     borderRadius: 15,
-    height: 30,
-    width: 30
+    height: 25,
+    width: 25
   },
   circleSected: {
     backgroundColor: Colors.ACCENT_MINT,
     borderWidth: 2,
     borderColor: Colors.WHITE,
     borderRadius: 15,
-    height: 30,
-    width: 30
+    height: 25,
+    width: 25
   }
 }
 const FourDotInputDarkStyle = {
@@ -62,6 +62,7 @@ const FourDotInputDarkStyle = {
     width: '100%'
   },
   errorContainer: {
+    marginTop: 20,
     flex: 1,
     width: '100%'
   },
@@ -87,19 +88,22 @@ const FourDotInputDarkStyle = {
     opacity: 0
   },
   circle: {
-    borderWidth: 2,
-    borderColor: Colors.PRIMARY,
+    // borderWidth: 2,
+    // borderColor: Colors.PRIMARY,
+    opacity: 0.4,
+    backgroundColor: Colors.PURPLE,
     borderRadius: 15,
-    height: 30,
-    width: 30
+    height: 25,
+    width: 25
   },
   circleSected: {
-    backgroundColor: Colors.SECONDARY,
-    borderWidth: 2,
-    borderColor: Colors.PRIMARY,
+    opacity: 1,
+    backgroundColor: Colors.PURPLE,
+    // borderWidth: 2,
+    // borderColor: Colors.PRIMARY,
     borderRadius: 15,
-    height: 30,
-    width: 30
+    height: 25,
+    width: 25
   }
 }
 

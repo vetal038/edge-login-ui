@@ -8,7 +8,7 @@ const PasswordStatusStyle = {
     width: '100%',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: Constants.GRAY_4
+    backgroundColor: Constants.TRANSPARENT
   },
   containerWhite: {
     height: vs(129),
@@ -18,10 +18,14 @@ const PasswordStatusStyle = {
     backgroundColor: Constants.WHITE
   },
   instructions: {
-    fontSize: 14,
-    textAlign: 'center',
+    fontSize: Constants.FONTS.defaultFontSize,
+    fontFamily: Constants.FONTS.fontFamilyRegular,
+    color: Constants.GRAY_1,
     width: '80%',
-    fontFamily: Constants.FONTS.fontFamilyRegular
+    textAlign: 'center',
+    paddingTop: 20,
+    paddingBottom: 20,
+    lineHeight: 20
   },
   boxes: {
     flex: 5,

@@ -87,8 +87,8 @@ const MaterialInputOnWhite = {
     width: Constants.LOGIN_LABEL_WIDTH,
     height: Constants.LOGIN_LABEL_HEIGHT
   },
-  baseColor: Constants.PRIMARY,
-  tintColor: Constants.SECONDARY,
+  baseColor: Constants.PURPLE,
+  tintColor: Constants.PURPLE,
   errorColor: Constants.ACCENT_RED,
   textColor: Constants.BLACK,
   affixTextStyle: {

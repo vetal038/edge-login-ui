@@ -30,8 +30,8 @@ export default class LandingScreenComponent extends Component {
         <View style={NewAccountUsernameScreenStyle.screen}>
           <HeaderConnector style={NewAccountUsernameScreenStyle.header} />
           <View style={NewAccountUsernameScreenStyle.pageContainer}>
-            <View>
-              <Text>Step 1/3</Text>
+            <View style={NewAccountUsernameScreenStyle.subtitleContainer}>
+              <Text style={NewAccountUsernameScreenStyle.subtitleText}>Step 1/3</Text>
             </View>
             <View style={NewAccountUsernameScreenStyle.instructions}>
               <Text style={NewAccountUsernameScreenStyle.instructionsText}>

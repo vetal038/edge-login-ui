@@ -24,6 +24,9 @@ export default class SetAccountPinScreenComponent extends Component {
         <View style={SetAccountPinScreenStyle.screen}>
           <HeaderConnector style={SetAccountPinScreenStyle.header} />
           <View style={SetAccountPinScreenStyle.pageContainer}>
+            <View style={SetAccountPinScreenStyle.subtitleContainer}>
+              <Text style={SetAccountPinScreenStyle.subtitleText}>Step 3/3</Text>
+            </View>
             <View style={SetAccountPinScreenStyle.row1}>
               <Text style={SetAccountPinScreenStyle.instructions}>
                 Your PIN is a 4 digit code used to do quick re-logins into your account

@@ -1,4 +1,5 @@
 import * as Styles from '../'
+import * as Constants from '../../../common/constants'
 // import * as Colors from '../../../common/constants/Colors'
 
 const NewAccountPasswordScreenStyle = {
@@ -16,6 +17,14 @@ const NewAccountPasswordScreenStyle = {
     ...Styles.PageContainerWithHeaderStyle,
     alignItems: 'center',
     flex: 1
+  },
+  subtitleContainer: {
+    alignItems: 'center',
+    marginTop: 30
+  },
+  subtitleText: {
+    color: Constants.PURPLE,
+    fontWeight: '700'
   },
   innerView: {...Styles.InnerView, alignItems: 'center'},
   status: Styles.PasswordStatusStyle,

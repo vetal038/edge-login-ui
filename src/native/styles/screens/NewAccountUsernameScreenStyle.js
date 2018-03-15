@@ -7,6 +7,13 @@ const NewAccountUsernameScreenStyle = {
     ...Styles.PageContainerWithHeaderStyle,
     alignItems: 'center'
   },
+  subtitleContainer: {
+    marginTop: 30
+  },
+  subtitleText: {
+    color: Constants.PURPLE,
+    fontWeight: '700'
+  },
   nextButton: {
     upStyle: Styles.PrimaryButtonUpStyle,
     upTextStyle: Styles.PrimaryButtonUpTextStyle,
@@ -26,7 +33,8 @@ const NewAccountUsernameScreenStyle = {
     color: Constants.GRAY_1,
     textAlign: 'center',
     paddingTop: 20,
-    paddingBottom: 20
+    paddingBottom: 20,
+    lineHeight: 20
   },
   inputBox: Styles.MaterialInputOnWhite
 }

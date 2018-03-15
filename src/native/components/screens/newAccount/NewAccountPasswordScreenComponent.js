@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, KeyboardAvoidingView } from 'react-native'
+import { View, KeyboardAvoidingView, Text } from 'react-native'
 import { Button } from '../../common'
 import HeaderConnector
   from '../../../connectors/componentConnectors/HeaderConnector'
@@ -42,6 +42,9 @@ export default class NewAccountPasswordScreenComponent extends Component {
           contentContainerStyle={NewAccountPasswordScreenStyle.mainScrollView}
         >
           <HeaderConnector style={NewAccountPasswordScreenStyle.header} />
+          <View style={NewAccountPasswordScreenStyle.subtitleContainer}>
+            <Text style={NewAccountPasswordScreenStyle.subtitleText}>Step 2/3</Text>
+          </View>
           {this.renderMain(NewAccountPasswordScreenStyle)}
           {this.renderModal(NewAccountPasswordScreenStyle)}
         </KeyboardAwareScrollView>

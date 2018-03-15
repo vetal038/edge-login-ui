@@ -5,6 +5,14 @@ const SetAccountPinScreenStyle = {
   screen: { ...Styles.ScreenStyle },
   header: { ...Styles.HeaderContainerStyle, backgroundColor: Constants.PRIMARY },
   pageContainer: Styles.PageContainerWithHeaderStyle,
+  subtitleContainer: {
+    alignItems: 'center',
+    marginTop: 30
+  },
+  subtitleText: {
+    color: Constants.PURPLE,
+    fontWeight: '700'
+  },
   row1: {
     ...Styles.ScreenRow,
     flex: 1,
@@ -14,12 +22,14 @@ const SetAccountPinScreenStyle = {
   row2: { ...Styles.ScreenRow, flex: 1, alignItems: 'center' },
   row3: { ...Styles.ScreenRow, flex: 3, alignItems: 'center' },
   instructions: {
-    position: 'relative',
-    width: '80%',
     fontSize: Constants.FONTS.defaultFontSize,
     fontFamily: Constants.FONTS.fontFamilyRegular,
-    color: Constants.GRAY_2,
-    textAlign: 'center'
+    color: Constants.GRAY_1,
+    position: 'relative',
+    width: '80%',
+    textAlign: 'center',
+    paddingBottom: 20,
+    lineHeight: 20
   },
   fourPin: Styles.FourDotInputDarkStyle,
   nextButton: {
