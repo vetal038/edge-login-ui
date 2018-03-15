@@ -1,4 +1,5 @@
 import * as Constants from '../constants'
+import req from '../http/user'
 import { dispatchAction, dispatchActionWithData } from './'
 import { enableTouchId, loginWithTouchId, isTouchEnabled, supportsTouchId, isTouchDisabled } from '../../native/keychain.js'
 
@@ -198,7 +199,10 @@ export function userLogin (data, backupKey = null) {
     // the timeout is a hack until we put in interaction manager.
     setTimeout(async() => {
       try {
+        const movies = await req.getMoviesFromApiAsync()
+        console.log('movies', movies);
         const abcAccount = await context.loginWithPassword(data.username, data.password, myAccountOptions)
+        console.log('abcAccount', abcAccount);
         const touchDisabled = await isTouchDisabled(context, abcAccount.username)
         if (!touchDisabled) {
           await enableTouchId(context, abcAccount)

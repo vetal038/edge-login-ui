@@ -129,6 +129,7 @@ export function validatePassword (data) {
 }
 
 export function createUser (data) {
+  console.log('createUser data', data);
   return (dispatch, getState, imports) => {
     const context = imports.context
     const myAccountOptions = {
@@ -140,6 +141,7 @@ export function createUser (data) {
         }
       }
     }
+    console.log('myAccountOptions', myAccountOptions);
     dispatch(WorkflowActions.nextScreen())
     setTimeout(async () => {
       try {
