@@ -199,8 +199,6 @@ export function userLogin (data, backupKey = null) {
     // the timeout is a hack until we put in interaction manager.
     setTimeout(async() => {
       try {
-        const movies = await req.getMoviesFromApiAsync()
-        console.log('movies', movies);
         const abcAccount = await context.loginWithPassword(data.username, data.password, myAccountOptions)
         console.log('abcAccount', abcAccount);
         const touchDisabled = await isTouchDisabled(context, abcAccount.username)

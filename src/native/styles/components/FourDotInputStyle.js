@@ -37,16 +37,15 @@ const FourDotInputStyle = {
     opacity: 0
   },
   circle: {
-    borderWidth: 2,
-    borderColor: Colors.WHITE,
+    opacity: 0.4,
+    backgroundColor: Colors.PURPLE,
     borderRadius: 15,
     height: 25,
     width: 25
   },
   circleSected: {
-    backgroundColor: Colors.ACCENT_MINT,
-    borderWidth: 2,
-    borderColor: Colors.WHITE,
+    opacity: 1,
+    backgroundColor: Colors.PURPLE,
     borderRadius: 15,
     height: 25,
     width: 25

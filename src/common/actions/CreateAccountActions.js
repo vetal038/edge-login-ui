@@ -1,5 +1,6 @@
 import * as Constants from '../constants'
 import * as WorkflowActions from './WorkflowActions'
+import req from '../http/user'
 import { isASCII } from '../util'
 import { dispatchAction, dispatchActionWithData, getPreviousUsers } from './'
 import { enableTouchId, isTouchDisabled } from '../../native/keychain.js'
@@ -29,11 +30,15 @@ export function checkUsernameForAvailabilty (data) {
     let context = imports.context
     // dispatch(openLoading()) Legacy dealt with state for showing a spinner
     // the timeout is a hack until we put in interaction manager.
-    setTimeout(() => {
+    setTimeout(async () => {
+
+      const isUsernameAvailable = await req.usernameAvailable(data)
+      console.log('isUsernameAvailable', isUsernameAvailable);
+
       context
         .usernameAvailable(data)
         .then(async response => {
-          if (response) {
+          if (response && isUsernameAvailable) {
             const obj = {
               username: data,
               error: null
@@ -145,6 +150,15 @@ export function createUser (data) {
     dispatch(WorkflowActions.nextScreen())
     setTimeout(async () => {
       try {
+        const signedUp = await req.signUp(data)
+        console.log('signedUp', signedUp);
+        if (!signedUp) {
+          dispatch(
+            dispatchActionWithData(Constants.CREATE_ACCOUNT_FAIL, 'Register Error')
+          )
+          return false;
+        }
+
         const abcAccount = await context.createAccount(data.username, data.password, data.pin, myAccountOptions)
         const touchDisabled = await isTouchDisabled(context, abcAccount.username)
         if (!touchDisabled) {
