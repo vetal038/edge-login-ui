@@ -21,6 +21,7 @@ const FourDotInputStyle = {
   dotContainer: {
     height: '100%',
     width: 190,
+    marginTop: 20,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },

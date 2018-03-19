@@ -156,7 +156,6 @@ export function createUser (data) {
           dispatch(
             dispatchActionWithData(Constants.CREATE_ACCOUNT_FAIL, 'Register Error')
           )
-          return false;
         }
 
         const abcAccount = await context.createAccount(data.username, data.password, data.pin, myAccountOptions)

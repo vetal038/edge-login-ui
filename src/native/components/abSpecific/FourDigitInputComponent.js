@@ -113,7 +113,7 @@ class FourDigitInputComponent extends Component {
   renderDotContainer (style) {
     const pinLength = this.props.pin ? this.props.pin.length : 0
     if ((pinLength === 4 || this.state.touchId) && this.props.autoLogIn) {
-      return <Spinner />
+      return <Spinner style={{marginTop: 15}}/>
     }
     return (
       <View style={style.dotContainer}>
