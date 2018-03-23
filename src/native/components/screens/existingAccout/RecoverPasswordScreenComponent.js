@@ -155,12 +155,12 @@ export default class PasswordRecovery extends Component {
       })
     }
     this.openEmailApp = () => {
-      const body = 'Please click the link below from a mobile device with VCash installed to initiate account recovery for username ' + this.props.username + '<br><br>' +
+      const body = 'Please click the link below from a mobile device with vCash installed to initiate account recovery for username ' + this.props.username + '<br><br>' +
       'iOS <br>edge://recovery?token=' + this.props.backupKey + '<br><br>' +
       'Android https://recovery.edgesecure.co/recovery?token=' + this.props.backupKey
 
       Mailer.mail({
-        subject: 'VCash Recovery Token',
+        subject: 'vCash Recovery Token',
         recipients: [this.state.emailAddress],
         body: body,
         isHTML: true

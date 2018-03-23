@@ -35,7 +35,7 @@ export default class LandingScreenComponent extends Component {
             </View>
             <View style={NewAccountUsernameScreenStyle.instructions}>
               <Text style={NewAccountUsernameScreenStyle.instructionsText}>
-                Your username will be required to sign in to your VCash account on this and other devices.
+                Your username will be required to sign in to your vCash account on this and other devices.
               </Text>
             </View>
             <UsernameConnector

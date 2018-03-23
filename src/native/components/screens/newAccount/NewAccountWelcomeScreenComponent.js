@@ -26,7 +26,7 @@ export default class NewAccountWelcomeScreenComponent extends Component {
           <View style={NewAccountWelcomeScreenStyle.row2}></View>
           <View style={NewAccountWelcomeScreenStyle.row3}>
             <Text style={NewAccountWelcomeScreenStyle.instructionsText}>
-              Let’s get started by creating your account login. You’ll choose a username and password, which we’ll use to encrypt your account. Not even VCash has access to your information, so you have full and complete control over your digital assets.
+              Let’s get started by creating your account login. You’ll choose a username and password, which we’ll use to encrypt your account. Not even vCash has access to your information, so you have full and complete control over your digital assets.
             </Text>
           </View>
           <View style={NewAccountWelcomeScreenStyle.row4} />
