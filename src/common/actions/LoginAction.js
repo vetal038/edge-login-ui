@@ -255,7 +255,7 @@ export function getEdgeLoginQrCode () {
         }
       },
       displayImageUrl: 'https://github.com/Airbitz/edge-brand-guide/blob/master/Logo/Mark/Edge-Final-Logo_Mark-Green.png',
-      displayName: 'vCash Wallet',
+      displayName: 'vCASH Wallet',
       onProcessLogin: (username) => {
         // throw spinner
       },
