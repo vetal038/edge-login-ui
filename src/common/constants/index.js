@@ -77,3 +77,5 @@ export const RESET_APP = 'resetApplication'
 
 export const SET_RECOVERY_KEY = 'resetRecoveryKey'
 export const CANCEL_RECOVERY_KEY = 'cancelRecoveryKey'
+
+export const DEFAULT_MODE = false // true - `dev`, false - `prod`

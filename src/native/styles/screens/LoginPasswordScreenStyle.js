@@ -25,7 +25,7 @@ const LoginPasswordScreenStyle = {
     alignItems: 'center',
     justifyContent: 'space-around'
   },
-  logoHeader: {...Styles.LogoHeaderStyle, container: {...Styles.LogoHeaderStyle.container, height: 90}},
+  logoHeader: {...Styles.LogoHeaderStyle, container: {...Styles.LogoHeaderStyle.container, height: 96}},
   shimTiny: {...Styles.Shim, height: 10},
   shimSmall: {...Styles.Shim, height: 25},
   shim: Styles.Shim,

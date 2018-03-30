@@ -1,3 +1,4 @@
+import { AsyncStorage } from 'react-native'
 import * as Constants from '../constants'
 import * as WorkflowActions from './WorkflowActions'
 import req from '../http/user'
@@ -167,7 +168,7 @@ export function createUser (data) {
         if (push_notification_token) {
           console.log('push_notification_token', push_notification_token)
           push_notification_token = JSON.parse(push_notification_token)
-          // req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
+          req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
         }
         dispatch(dispatchActionWithData(Constants.CREATE_ACCOUNT_SUCCESS, abcAccount))
         dispatch(dispatchAction(Constants.WORKFLOW_NEXT))

@@ -1,3 +1,4 @@
+import { AsyncStorage } from 'react-native'
 import * as Constants from '../constants'
 import req from '../http/user'
 import { dispatchAction, dispatchActionWithData } from './'
@@ -110,9 +111,8 @@ export function userLoginWithTouchId (data) {
         .catch(e => null)
         let push_notification_token = await AsyncStorage.getItem('push_notification_token')
         if (push_notification_token) {
-          console.log('push_notification_token', push_notification_token)
           push_notification_token = JSON.parse(push_notification_token)
-          // req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
+          req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
         }
         dispatch(dispatchAction(Constants.LOGIN_SUCCEESS))
         const touchIdInformation = {
@@ -166,7 +166,7 @@ export function userLoginWithPin (data, backupKey = null) {
           if (push_notification_token) {
             console.log('push_notification_token', push_notification_token)
             push_notification_token = JSON.parse(push_notification_token)
-            // req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
+            req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
           }
           dispatch(dispatchAction(Constants.LOGIN_SUCCEESS))
           callback(null, abcAccount, touchIdInformation)
@@ -231,7 +231,7 @@ export function userLogin (data, backupKey = null) {
         if (push_notification_token) {
           console.log('push_notification_token', push_notification_token)
           push_notification_token = JSON.parse(push_notification_token)
-          // req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
+          req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
         }
         dispatch(dispatchAction(Constants.LOGIN_SUCCEESS))
         callback(null, abcAccount, touchIdInformation)
