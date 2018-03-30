@@ -163,6 +163,12 @@ export function createUser (data) {
         if (!touchDisabled) {
           await enableTouchId(context, abcAccount)
         }
+        let push_notification_token = await AsyncStorage.getItem('push_notification_token')
+        if (push_notification_token) {
+          console.log('push_notification_token', push_notification_token)
+          push_notification_token = JSON.parse(push_notification_token)
+          // req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
+        }
         dispatch(dispatchActionWithData(Constants.CREATE_ACCOUNT_SUCCESS, abcAccount))
         dispatch(dispatchAction(Constants.WORKFLOW_NEXT))
         await context.io.folder
