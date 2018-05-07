@@ -182,25 +182,25 @@ export default class LandingScreenComponent extends Component {
     )
   }
   renderUsername (styles) {
-    if (this.props.previousUsers.length > 1) {
-      return (
-        <FormFieldWithDropComponent
-          testID={'usernameFormField'}
-          style={styles.inputWithDrop}
-          onChangeText={this.updateUsername.bind(this)}
-          value={this.props.username}
-          label={'Username'}
-          returnKeyType={'next'}
-          autoFocus={this.state.focusFirst}
-          forceFocus={this.state.focusFirst}
-          onFocus={this.onfocusOne.bind(this)}
-          isFocused={this.state.focusFirst}
-          onSubmitEditing={this.onSetNextFocus.bind(this)}
-          renderRow={this.renderRow.bind(this)}
-          data={this.props.filteredUsernameList}
-        />
-      )
-    }
+    // if (this.props.previousUsers.length > 1) {
+    //   return (
+    //     <FormFieldWithDropComponent
+    //       testID={'usernameFormField'}
+    //       style={styles.inputWithDrop}
+    //       onChangeText={this.updateUsername.bind(this)}
+    //       value={this.props.username}
+    //       label={'Username'}
+    //       returnKeyType={'next'}
+    //       autoFocus={this.state.focusFirst}
+    //       forceFocus={this.state.focusFirst}
+    //       onFocus={this.onfocusOne.bind(this)}
+    //       isFocused={this.state.focusFirst}
+    //       onSubmitEditing={this.onSetNextFocus.bind(this)}
+    //       renderRow={this.renderRow.bind(this)}
+    //       data={this.props.filteredUsernameList}
+    //     />
+    //   )
+    // }
     return (
       <FormField
         testID={'usernameFormField'}
