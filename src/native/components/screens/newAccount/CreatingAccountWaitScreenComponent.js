@@ -22,9 +22,7 @@ export default class CreatingAccountWaitScreenComponent extends Component {
           <HeaderConnector style={CreatingAccountWaitScreenStyle.header} />
           <View style={CreatingAccountWaitScreenStyle.pageContainer}>
             <View style={CreatingAccountWaitScreenStyle.topPad} />
-            <View style={CreatingAccountWaitScreenStyle.iconContianer}>
-              <Spinner />
-            </View>
+            {!this.props.createErrorMessage && (<View style={CreatingAccountWaitScreenStyle.iconContianer}><Spinner /></View>)}
             <View style={CreatingAccountWaitScreenStyle.headlineConainer}>
               <Text style={CreatingAccountWaitScreenStyle.headlineText}>Good job!</Text>
             </View>
@@ -35,6 +33,11 @@ export default class CreatingAccountWaitScreenComponent extends Component {
             <View style={CreatingAccountWaitScreenStyle.encriptingContainer}>
               <Text style={CreatingAccountWaitScreenStyle.bodyText}>Encrypting wallet...</Text>
             </View>
+            {this.props.createErrorMessage &&
+            (<View style={CreatingAccountWaitScreenStyle.encriptingContainer}>
+              <Text style={CreatingAccountWaitScreenStyle.errorText}>{this.props.createErrorMessage}</Text>
+            </View>)
+            }
           </View>
         </View>
       </SafeAreaView>

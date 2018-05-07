@@ -105,15 +105,21 @@ export function userLoginWithTouchId (data) {
       startFunction
     ).then(async response => {
       if (response) {
+        const vc_username = await AsyncStorage.getItem('vc_username')
+        const vc_password = await AsyncStorage.getItem('vc_password')
+        const vc_token = await req.getToken(vc_username, vc_password)
+        if (vc_token && vc_token.access_token) {
+          await AsyncStorage.setItem('vc_token', vc_token.access_token)
+        }
         context.io.folder
         .file('lastuser.json')
         .setText(JSON.stringify({ username: data.username }))
         .catch(e => null)
-        let push_notification_token = await AsyncStorage.getItem('push_notification_token')
-        if (push_notification_token) {
-          push_notification_token = JSON.parse(push_notification_token)
-          req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
-        }
+        // let push_notification_token = await AsyncStorage.getItem('push_notification_token')
+        // if (push_notification_token) {
+        //   push_notification_token = JSON.parse(push_notification_token)
+        //   req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
+        // }
         dispatch(dispatchAction(Constants.LOGIN_SUCCEESS))
         const touchIdInformation = {
           isTouchSupported: true,
@@ -152,6 +158,12 @@ export function userLoginWithPin (data, backupKey = null) {
           if (!touchDisabled) {
             await enableTouchId(context, abcAccount)
           }
+          const vc_username = await AsyncStorage.getItem('vc_username')
+          const vc_password = await AsyncStorage.getItem('vc_password')
+          const vc_token = await req.getToken(vc_username, vc_password)
+          if (vc_token && vc_token.access_token) {
+            await AsyncStorage.setItem('vc_token', vc_token.access_token)
+          }
           await context.io.folder
               .file('lastuser.json')
               .setText(JSON.stringify({ username: abcAccount.username }))
@@ -162,12 +174,12 @@ export function userLoginWithPin (data, backupKey = null) {
             isTouchSupported,
             isTouchEnabled: touchEnabled
           }
-          let push_notification_token = await AsyncStorage.getItem('push_notification_token')
-          if (push_notification_token) {
-            console.log('push_notification_token', push_notification_token)
-            push_notification_token = JSON.parse(push_notification_token)
-            req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
-          }
+          // let push_notification_token = await AsyncStorage.getItem('push_notification_token')
+          // if (push_notification_token) {
+          //   console.log('push_notification_token', push_notification_token)
+          //   push_notification_token = JSON.parse(push_notification_token)
+          //   req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
+          // }
           dispatch(dispatchAction(Constants.LOGIN_SUCCEESS))
           callback(null, abcAccount, touchIdInformation)
         } catch (e) {
@@ -217,6 +229,12 @@ export function userLogin (data, backupKey = null) {
         if (!touchDisabled) {
           await enableTouchId(context, abcAccount)
         }
+        const vc_username = await AsyncStorage.setItem('vc_username', data.username)
+        const vc_password = await AsyncStorage.setItem('vc_password', data.password)
+        const vc_token = await req.getToken(data.username, data.password)
+        if (vc_token && vc_token.access_token) {
+          await AsyncStorage.setItem('vc_token', vc_token.access_token)
+        }
         await context.io.folder
           .file('lastuser.json')
           .setText(JSON.stringify({ username: abcAccount.username }))
@@ -227,12 +245,12 @@ export function userLogin (data, backupKey = null) {
           isTouchSupported,
           isTouchEnabled: touchEnabled
         }
-        let push_notification_token = await AsyncStorage.getItem('push_notification_token')
-        if (push_notification_token) {
-          console.log('push_notification_token', push_notification_token)
-          push_notification_token = JSON.parse(push_notification_token)
-          req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
-        }
+        // let push_notification_token = await AsyncStorage.getItem('push_notification_token')
+        // if (push_notification_token) {
+        //   console.log('push_notification_token', push_notification_token)
+        //   push_notification_token = JSON.parse(push_notification_token)
+        //   req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
+        // }
         dispatch(dispatchAction(Constants.LOGIN_SUCCEESS))
         callback(null, abcAccount, touchIdInformation)
       } catch (e) {

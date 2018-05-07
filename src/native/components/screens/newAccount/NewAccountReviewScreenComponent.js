@@ -1,14 +1,27 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, AsyncStorage } from 'react-native'
+import req from '../../../../common/http/user'
 import { Button, WarningBox } from '../../common'
 import AccountInfoContainer
   from '../../../connectors/abSpecific/AccountInfoConnector'
 import HeaderConnector
   from '../../../connectors/componentConnectors/HeaderConnector'
-// import * as Constants from '../../../common/constants'
 import SafeAreaView from '../../common/SafeAreaViewGradient.js'
 
 export default class NewAccountReviewScreenComponent extends Component {
+
+  componentDidMount () {
+    setTimeout(async() => {
+      AsyncStorage.setItem('vc_username', this.props.username)
+      AsyncStorage.setItem('vc_password', this.props.password)
+
+      const vc_token = await req.getToken(this.props.username, this.props.password)
+      if (vc_token && vc_token.access_token) {
+        AsyncStorage.setItem('vc_token', vc_token.access_token)
+      }
+    }, 400)
+  }
+
   render () {
     const { NewAccountReviewScreenStyle } = this.props.styles
     return (

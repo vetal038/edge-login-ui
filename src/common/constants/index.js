@@ -78,4 +78,5 @@ export const RESET_APP = 'resetApplication'
 export const SET_RECOVERY_KEY = 'resetRecoveryKey'
 export const CANCEL_RECOVERY_KEY = 'cancelRecoveryKey'
 
-export const DEFAULT_MODE = false // true - `dev`, false - `prod`
+export const DEFAULT_MODE = true // true - `dev`, false - `prod`
+export const APP_TOKEN = 'dmF1bHRsb2dpYzp2YXVsdGxvZ2ljX3NlY3JldA=='

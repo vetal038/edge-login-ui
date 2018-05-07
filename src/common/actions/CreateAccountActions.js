@@ -154,9 +154,8 @@ export function createUser (data) {
         const signedUp = await req.signUp(data)
         console.log('signedUp', signedUp);
         if (!signedUp) {
-          dispatch(
-            dispatchActionWithData(Constants.CREATE_ACCOUNT_FAIL, 'Register Error')
-          )
+          dispatch(dispatchActionWithData(Constants.CREATE_ACCOUNT_FAIL, 'Register Error'))
+          return false
         }
 
         const abcAccount = await context.createAccount(data.username, data.password, data.pin, myAccountOptions)
@@ -164,12 +163,12 @@ export function createUser (data) {
         if (!touchDisabled) {
           await enableTouchId(context, abcAccount)
         }
-        let push_notification_token = await AsyncStorage.getItem('push_notification_token')
-        if (push_notification_token) {
-          console.log('push_notification_token', push_notification_token)
-          push_notification_token = JSON.parse(push_notification_token)
-          req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
-        }
+        // let push_notification_token = await AsyncStorage.getItem('push_notification_token')
+        // if (push_notification_token) {
+        //   console.log('push_notification_token', push_notification_token)
+        //   push_notification_token = JSON.parse(push_notification_token)
+        //   req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
+        // }
         dispatch(dispatchActionWithData(Constants.CREATE_ACCOUNT_SUCCESS, abcAccount))
         dispatch(dispatchAction(Constants.WORKFLOW_NEXT))
         await context.io.folder

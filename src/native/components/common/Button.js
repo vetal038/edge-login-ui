@@ -55,7 +55,7 @@ class Button extends Component {
         </Text>
       )
     }
-    return <View><Spinner /></View>
+    return <View><Spinner color="#FFFFFF"/></View>
   }
   onPress () {
     this.props.onPress()

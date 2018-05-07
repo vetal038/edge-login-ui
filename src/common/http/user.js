@@ -4,16 +4,15 @@ import * as Constants from '../constants'
 const baseUrl = async function () {
   let value = await AsyncStorage.getItem('isDevMode')
   value = (value && value.length) ? value === 'dev' : Constants.DEFAULT_MODE
-  return value ? 'http://35.193.78.240' : 'http://vaultlogic.com'
+  return value ? 'http://35.193.161.72' : 'http://vaultlogic.com'
 }
-const appToken = 'dmF1bHQtd2FsbGV0LWFwcDp2YXVsdC13YWxsZXQtYXBw'
 
-async function getToken (username) {
+async function getToken (username, password) {
   const url = await baseUrl()
-  return fetch(url + '/oauth/token?grant_type=password&username=' + username + '&password=password', {
+  return fetch(url + '/api/accounts/oauth/token?grant_type=password&scope=web_client&username=' + username + '&password=' + password, {
     method: 'POST',
     headers: {
-      'Authorization': 'Basic ' + appToken
+      'Authorization': 'Basic ' + Constants.APP_TOKEN
     }
   })
     .then((response) => {
@@ -21,6 +20,7 @@ async function getToken (username) {
       return response.json()
     })
     .then((responseJson) => {
+      console.log('getToken responseJson', responseJson)
       return responseJson
     })
     .catch((error) => {
@@ -31,12 +31,16 @@ async function getToken (username) {
 
 async function usernameAvailable(username) {
   const url = await baseUrl()
-  return fetch(url + '/wallet?username=' + username, {
+  return fetch(url + '/api/accounts/available?username=' + username, {
     method: 'GET'
   })
     .then((response) => {
       console.log('usernameAvailable', response)
-      return response.status == 200 ? true : false;
+      return response.json()
+    })
+    .then((responseJson) => {
+      console.log('usernameAvailable responseJson', responseJson)
+      return responseJson.available
     })
     .catch((error) => {
       console.error(error);
@@ -46,7 +50,7 @@ async function usernameAvailable(username) {
 
 async function signUp(data) {
   const url = await baseUrl()
-  return fetch(url + '/wallet/register', {
+  return fetch(url + '/api/accounts/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -54,7 +58,7 @@ async function signUp(data) {
     body: JSON.stringify({
       "username": data.username,
       "password": data.password,
-      "pin":      data.pin
+      "pin_code": data.pin
     }),
   })
     .then((response) => {
@@ -87,4 +91,4 @@ async function updatePushNotificationToken(token, data) {
     });
 }
 
-export default { usernameAvailable, signUp, updatePushNotificationToken };
+export default { usernameAvailable, signUp, updatePushNotificationToken, getToken };
