@@ -115,11 +115,11 @@ export function userLoginWithTouchId (data) {
         .file('lastuser.json')
         .setText(JSON.stringify({ username: data.username }))
         .catch(e => null)
-        // let push_notification_token = await AsyncStorage.getItem('push_notification_token')
-        // if (push_notification_token) {
-        //   push_notification_token = JSON.parse(push_notification_token)
-        //   req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
-        // }
+        let push_notification_token = await AsyncStorage.getItem('push_notification_token')
+        if (push_notification_token) {
+          push_notification_token = JSON.parse(push_notification_token)
+          req.updatePushNotificationToken(push_notification_token, { username: vc_username, password: vc_password }, 'PUT')//const updatePushNotificationToken = await
+        }
         dispatch(dispatchAction(Constants.LOGIN_SUCCEESS))
         const touchIdInformation = {
           isTouchSupported: true,
@@ -174,12 +174,12 @@ export function userLoginWithPin (data, backupKey = null) {
             isTouchSupported,
             isTouchEnabled: touchEnabled
           }
-          // let push_notification_token = await AsyncStorage.getItem('push_notification_token')
-          // if (push_notification_token) {
-          //   console.log('push_notification_token', push_notification_token)
-          //   push_notification_token = JSON.parse(push_notification_token)
-          //   req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
-          // }
+          let push_notification_token = await AsyncStorage.getItem('push_notification_token')
+          if (push_notification_token) {
+            console.log('push_notification_token', push_notification_token)
+            push_notification_token = JSON.parse(push_notification_token)
+            req.updatePushNotificationToken(push_notification_token, { username: vc_username, password: vc_password }, 'PUT')//const updatePushNotificationToken = await
+          }
           dispatch(dispatchAction(Constants.LOGIN_SUCCEESS))
           callback(null, abcAccount, touchIdInformation)
         } catch (e) {
@@ -245,12 +245,12 @@ export function userLogin (data, backupKey = null) {
           isTouchSupported,
           isTouchEnabled: touchEnabled
         }
-        // let push_notification_token = await AsyncStorage.getItem('push_notification_token')
-        // if (push_notification_token) {
-        //   console.log('push_notification_token', push_notification_token)
-        //   push_notification_token = JSON.parse(push_notification_token)
-        //   req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
-        // }
+        let push_notification_token = await AsyncStorage.getItem('push_notification_token')
+        if (push_notification_token) {
+          console.log('push_notification_token', push_notification_token)
+          push_notification_token = JSON.parse(push_notification_token)
+          req.updatePushNotificationToken(push_notification_token, data, 'PUT')//const updatePushNotificationToken = await
+        }
         dispatch(dispatchAction(Constants.LOGIN_SUCCEESS))
         callback(null, abcAccount, touchIdInformation)
       } catch (e) {

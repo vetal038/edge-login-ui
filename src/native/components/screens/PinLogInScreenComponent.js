@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, AsyncStorage } from 'react-native'
 import { BackgroundImage, Button, DropDownList, ImageButton } from '../../components/common'
 import { LogoImageHeader, UserListItem } from '../../components/abSpecific'
 import FourDigitInputConnector
@@ -8,6 +8,7 @@ import FourDigitInputConnector
 import * as Assets from '../../assets/'
 import DeleteUserConnector
 from '../../../native/connectors/abSpecific/DeleteUserConnector'
+import req from '../../../common/http/user'
 
 export default class PinLogInScreenComponent extends Component {
   componentWillMount () {
@@ -114,8 +115,11 @@ export default class PinLogInScreenComponent extends Component {
       </View>
     )
   }
-  exitPin () {
+  async exitPin () {
     this.props.gotoLoginPage()
+    const vc_username = await AsyncStorage.getItem('vc_username')
+    const vc_password = await AsyncStorage.getItem('vc_password')
+    req.deletePushNotificationToken({username: vc_username, password: vc_password})
   }
 
   renderItems (item) {

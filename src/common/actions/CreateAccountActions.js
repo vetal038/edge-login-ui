@@ -163,12 +163,18 @@ export function createUser (data) {
         if (!touchDisabled) {
           await enableTouchId(context, abcAccount)
         }
-        // let push_notification_token = await AsyncStorage.getItem('push_notification_token')
-        // if (push_notification_token) {
-        //   console.log('push_notification_token', push_notification_token)
-        //   push_notification_token = JSON.parse(push_notification_token)
-        //   req.updatePushNotificationToken(push_notification_token, data)//const updatePushNotificationToken = await
-        // }
+        const vc_username = await AsyncStorage.setItem('vc_username', data.username)
+        const vc_password = await AsyncStorage.setItem('vc_password', data.password)
+        const vc_token = await req.getToken(data.username, data.password)
+        if (vc_token && vc_token.access_token) {
+          await AsyncStorage.setItem('vc_token', vc_token.access_token)
+        }
+        let push_notification_token = await AsyncStorage.getItem('push_notification_token')
+        if (push_notification_token) {
+          console.log('push_notification_token', push_notification_token)
+          push_notification_token = JSON.parse(push_notification_token)
+          req.updatePushNotificationToken(push_notification_token, data, 'POST')//const updatePushNotificationToken = await
+        }
         dispatch(dispatchActionWithData(Constants.CREATE_ACCOUNT_SUCCESS, abcAccount))
         dispatch(dispatchAction(Constants.WORKFLOW_NEXT))
         await context.io.folder

@@ -16,7 +16,7 @@ async function getToken (username, password) {
     }
   })
     .then((response) => {
-      console.log('getToken', response)
+      console.log('getToken username', username, password, response)
       return response.json()
     })
     .then((responseJson) => {
@@ -71,24 +71,82 @@ async function signUp(data) {
     });
 }
 
-async function updatePushNotificationToken(token, data) {
+async function updatePushNotificationToken(token, data, method) {
   const url = await baseUrl()
-  const access_token = await getToken(data.username)
-  return fetch(url + '/wallet/device?key=' + token.token, {
-    method: 'PUT',
+  const accessToken = await getToken(data.username, data.password)
+
+  return fetch(url + '/api/accounts/device', {
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'bearer ' + access_token.access_token
+      'Authorization': 'bearer ' + accessToken.access_token
     }
   })
     .then((response) => {
-      console.log('updatePushNotificationToken', response)
-      return response.status == 200 ? true : false;
+      console.log('updatePushNotificationToken get', response)
+      const detectedMethod = response.status === 200 ? 'PUT' : 'POST'
+      return fetch(url + '/api/accounts/device', {
+        method: detectedMethod || 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'bearer ' + accessToken.access_token
+        },
+        body: JSON.stringify({token: token.token})
+      })
+        .then((response) => {
+          console.log('updatePushNotificationToken response', response)
+          return response.status === 200
+        })
+        .catch((error) => {
+          console.error(error)
+          return error
+        })
     })
     .catch((error) => {
-      console.error(error);
-      return error;
-    });
+      console.error(error)
+      return error
+    })
 }
 
-export default { usernameAvailable, signUp, updatePushNotificationToken, getToken };
+async function deletePushNotificationToken (data) {
+  const url = await baseUrl()
+  const accessToken = await getToken(data.username, data.password)
+
+  return fetch(url + '/api/accounts/device', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'bearer ' + accessToken.access_token
+    }
+  })
+    .then((response) => {
+      console.log('deletePushNotificationToken get', response)
+      if (response.status === 200) {
+        return fetch(url + '/api/accounts/device', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'bearer ' + accessToken.access_token
+          }
+        })
+          .then((response) => {
+            console.log('deletePushNotificationToken delete', response)
+            return response.status === 200
+          })
+          .catch((error) => {
+            console.error(error)
+            return error
+          })
+      }
+      else {
+        return response.status === 200
+      }
+    })
+    .catch((error) => {
+      console.error(error)
+      return error
+    })
+}
+
+
+export default { usernameAvailable, signUp, updatePushNotificationToken, deletePushNotificationToken, getToken };
