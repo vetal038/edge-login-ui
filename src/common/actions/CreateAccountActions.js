@@ -3,6 +3,7 @@ import * as WorkflowActions from './WorkflowActions'
 import { isASCII } from '../util'
 import { dispatchAction, dispatchActionWithData, getPreviousUsers } from './'
 import { enableTouchId, isTouchDisabled } from '../../native/keychain.js'
+import req from '../http/user'
 import passwordCheck from 'zxcvbn'
 import { sprintf } from 'sprintf-js'
 
@@ -29,11 +30,15 @@ export function checkUsernameForAvailabilty (data) {
     let context = imports.context
     // dispatch(openLoading()) Legacy dealt with state for showing a spinner
     // the timeout is a hack until we put in interaction manager.
-    setTimeout(() => {
+    setTimeout(async () => {
+
+      const isUsernameAvailable = await req.isUsernameAvailable(data)
+      console.log('isUsernameAvailable', isUsernameAvailable);
+
       context
         .usernameAvailable(data)
         .then(async response => {
-          if (response) {
+          if (response && isUsernameAvailable) {
             const obj = {
               username: data,
               error: null
@@ -71,6 +76,95 @@ export function validateUsername (data) {
       error: error
     }
     dispatch(dispatchActionWithData(Constants.CREATE_UPDATE_USERNAME, obj))
+  }
+}
+export function validateFirstName (data) {
+  return (dispatch, getState, imports) => {
+    // TODO evaluate client side evaluations.
+    let error = (data && data.length)
+      ? null
+      : Constants.NOT_EMPTY_ERROR // TODO: Localize string
+    error = isASCII(data) ? error : Constants.USERNAME_ASCII_ERROR // TODO: localize
+    const obj = {
+      firstName: data,
+      error: error
+    }
+    dispatch(dispatchActionWithData(Constants.CREATE_UPDATE_FIRSTNAME, obj))
+  }
+}
+
+export function validateLastName (data) {
+  return (dispatch, getState, imports) => {
+    // TODO evaluate client side evaluations.
+    let error = (data && data.length)
+      ? null
+      : Constants.NOT_EMPTY_ERROR // TODO: Localize string
+    error = isASCII(data) ? error : Constants.USERNAME_ASCII_ERROR // TODO: localize
+    const obj = {
+      lastName: data,
+      error: error
+    }
+    dispatch(dispatchActionWithData(Constants.CREATE_UPDATE_LASTNAME, obj))
+  }
+}
+
+export function validateAddress (data) {
+  return (dispatch, getState, imports) => {
+    // TODO evaluate client side evaluations.
+    let error = (data && data.length)
+      ? null
+      : Constants.NOT_EMPTY_ERROR // TODO: Localize string
+    error = isASCII(data) ? error : Constants.USERNAME_ASCII_ERROR // TODO: localize
+    const obj = {
+      address: data,
+      error: error
+    }
+    dispatch(dispatchActionWithData(Constants.CREATE_UPDATE_ADDRESS, obj))
+  }
+}
+
+export function validateCity (data) {
+  return (dispatch, getState, imports) => {
+    // TODO evaluate client side evaluations.
+    let error = (data && data.length)
+      ? null
+      : Constants.NOT_EMPTY_ERROR // TODO: Localize string
+    error = isASCII(data) ? error : Constants.USERNAME_ASCII_ERROR // TODO: localize
+    const obj = {
+      city: data,
+      error: error
+    }
+    dispatch(dispatchActionWithData(Constants.CREATE_UPDATE_CITY, obj))
+  }
+}
+
+export function validateState (data) {
+  return (dispatch, getState, imports) => {
+    // TODO evaluate client side evaluations.
+    let error = (data && data.length)
+      ? null
+      : Constants.NOT_EMPTY_ERROR // TODO: Localize string
+    error = isASCII(data) ? error : Constants.USERNAME_ASCII_ERROR // TODO: localize
+    const obj = {
+      state: data,
+      error: error
+    }
+    dispatch(dispatchActionWithData(Constants.CREATE_UPDATE_STATE, obj))
+  }
+}
+
+export function validateZip (data) {
+  return (dispatch, getState, imports) => {
+    // TODO evaluate client side evaluations.
+    let error = (data && data.length)
+      ? null
+      : Constants.NOT_EMPTY_ERROR // TODO: Localize string
+    error = isASCII(data) ? error : Constants.USERNAME_ASCII_ERROR // TODO: localize
+    const obj = {
+      zip: data,
+      error: error
+    }
+    dispatch(dispatchActionWithData(Constants.CREATE_UPDATE_ZIP, obj))
   }
 }
 export function validateConfirmPassword (data = null) {
@@ -143,6 +237,13 @@ export function createUser (data) {
     dispatch(WorkflowActions.nextScreen())
     setTimeout(async () => {
       try {
+        const signedUp = await req.signUp(data)
+        console.log('signedUp', signedUp);
+        if (!signedUp) {
+          dispatch(dispatchActionWithData(Constants.CREATE_ACCOUNT_FAIL, 'Register Error'))
+          return false;
+        }
+
         const abcAccount = await context.createAccount(data.username, data.password, data.pin, myAccountOptions)
         const touchDisabled = await isTouchDisabled(context, abcAccount.username)
         if (!touchDisabled) {

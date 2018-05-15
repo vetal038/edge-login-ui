@@ -67,7 +67,13 @@ export default class SetAccountPinScreenComponent extends Component {
     this.props.createUser({
       username: this.props.username,
       password: this.props.password,
-      pin: this.props.pin
+      pin: this.props.pin,
+      firstName: this.props.firstName,
+      lastName: this.props.lastName,
+      address: this.props.address,
+      city: this.props.city,
+      state: this.props.state,
+      zip: this.props.zip
     })
   }
 }

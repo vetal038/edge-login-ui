@@ -8,6 +8,12 @@ export const mapStateToProps = (state, ownProps) => {
     username: state.create.username,
     password: state.create.password,
     pin: state.create.pin,
+    firstName: state.create.firstName,
+    lastName: state.create.lastName,
+    address: state.create.address,
+    city: state.create.city,
+    state: state.create.state,
+    zip: state.create.zip,
     pinError: state.create.pinError,
     workflow: state.workflow
   }

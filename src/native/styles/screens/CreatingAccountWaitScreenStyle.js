@@ -45,6 +45,11 @@ const CreatingAccountWaitScreenStyle = {
     fontSize: 14,
     fontFamily: Constants.FONTS.fontFamilyRegular,
     color: Colors.GRAY_2
+  },
+  errorText: {
+    fontSize: 14,
+    fontFamily: Constants.FONTS.fontFamilyRegular,
+    color: Colors.ACCENT_RED
   }
 }
 

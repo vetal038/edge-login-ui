@@ -1,4 +1,6 @@
+import { AsyncStorage } from 'react-native'
 import * as Constants from '../constants'
+import req from '../http/user'
 import { dispatchAction, dispatchActionWithData } from './'
 import { enableTouchId, loginWithTouchId, isTouchEnabled, supportsTouchId, isTouchDisabled } from '../../native/keychain.js'
 
@@ -103,6 +105,12 @@ export function userLoginWithTouchId (data) {
       startFunction
     ).then(async response => {
       if (response) {
+        const gpm_username = await AsyncStorage.getItem('gpm_username')
+        const gpm_password = await AsyncStorage.getItem('gpm_password')
+        const gpm_token = await req.getToken(gpm_username, gpm_password)
+        if (gpm_token && gpm_token.access_token) {
+          await AsyncStorage.setItem('gpm_token', gpm_token.access_token)
+        }
         context.io.folder
         .file('lastuser.json')
         .setText(JSON.stringify({ username: data.username }))
@@ -144,6 +152,12 @@ export function userLoginWithPin (data, backupKey = null) {
           const touchDisabled = await isTouchDisabled(context, abcAccount.username)
           if (!touchDisabled) {
             await enableTouchId(context, abcAccount)
+          }
+          const gpm_username = await AsyncStorage.getItem('gpm_username')
+          const gpm_password = await AsyncStorage.getItem('gpm_password')
+          const gpm_token = await req.getToken(gpm_username, gpm_password)
+          if (gpm_token && gpm_token.access_token) {
+            await AsyncStorage.setItem('gpm_token', gpm_token.access_token)
           }
           await context.io.folder
               .file('lastuser.json')
@@ -202,6 +216,12 @@ export function userLogin (data, backupKey = null) {
         const touchDisabled = await isTouchDisabled(context, abcAccount.username)
         if (!touchDisabled) {
           await enableTouchId(context, abcAccount)
+        }
+        const gpm_username = await AsyncStorage.setItem('gpm_username', data.username)
+        const gpm_password = await AsyncStorage.setItem('gpm_password', data.password)
+        const gpm_token = await req.getToken(data.username, data.password)
+        if (gpm_token && gpm_token.access_token) {
+          await AsyncStorage.setItem('gpm_token', gpm_token.access_token)
         }
         await context.io.folder
           .file('lastuser.json')

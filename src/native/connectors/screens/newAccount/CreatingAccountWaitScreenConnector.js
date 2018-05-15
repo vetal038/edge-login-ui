@@ -5,8 +5,10 @@ import * as actions from '../../../../common/actions'
 export const mapStateToProps = (state, ownProps) => {
   return {
     styles: ownProps.styles,
+    username: state.create.username,
+    password: state.create.password,
     createSuccess: state.login.creationSuccess,
-    createErrorMessage: state.login.createErrorMessage
+    createErrorMessage: state.create.createErrorMessage
   }
 }
 

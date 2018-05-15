@@ -2,6 +2,18 @@ import * as Constants from '../../common/constants'
 
 const initialState = {
   username: null,
+  firstName: null,
+  firstNameErrorMessage: null,
+  lastName: null,
+  lastNameErrorMessage: null,
+  address: null,
+  addressErrorMessage: null,
+  city: null,
+  cityErrorMessage: null,
+  state: null,
+  stateErrorMessage: null,
+  zip: null,
+  zipErrorMessage: null,
   password: null,
   confirmPassword: null,
   pin: '',
@@ -30,6 +42,42 @@ export default function (state = initialState, action) {
         ...state,
         username: action.data.username,
         usernameErrorMessage: action.data.error
+      }
+    case Constants.CREATE_UPDATE_FIRSTNAME:
+      return {
+        ...state,
+        firstName: action.data.firstName,
+        firstNameErrorMessage: action.data.error
+      }
+    case Constants.CREATE_UPDATE_LASTNAME:
+      return {
+        ...state,
+        lastName: action.data.lastName,
+        lastNameErrorMessage: action.data.error
+      }
+    case Constants.CREATE_UPDATE_ADDRESS:
+      return {
+        ...state,
+        address: action.data.address,
+        addressErrorMessage: action.data.error
+      }
+    case Constants.CREATE_UPDATE_CITY:
+      return {
+        ...state,
+        city: action.data.city,
+        cityErrorMessage: action.data.error
+      }
+    case Constants.CREATE_UPDATE_STATE:
+      return {
+        ...state,
+        state: action.data.state,
+        stateErrorMessage: action.data.error
+      }
+    case Constants.CREATE_UPDATE_ZIP:
+      return {
+        ...state,
+        zip: action.data.zip,
+        zipErrorMessage: action.data.error
       }
     case Constants.CREATE_UPDATE_PIN:
       return {

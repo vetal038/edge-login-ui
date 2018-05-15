@@ -14,21 +14,22 @@ const initialState = {
     details: [{ back: false, skip: false, title: 'initialize', subTitle: '' }]
   },
   createWF: {
-    scenes: 7,
+    scenes: 8,
     details: [
       { back: false, skip: false, title: '', subTitle: '' },
       {
         back: true,
         skip: false,
         title: 'Choose a username',
-        subTitle: 'step 1/3'
+        subTitle: 'step 1/4'
       },
-      { back: true, skip: false, title: 'Set a password', subTitle: 'step 2/3' },
+      { back: true, skip: false, title: 'Add an address', subTitle: 'step 2/4' },
+      { back: true, skip: false, title: 'Set a password', subTitle: 'step 3/4' },
       {
         back: true,
         skip: false,
         title: 'Set a 4-digit PIN ',
-        subTitle: 'step 3/3'
+        subTitle: 'step 4/4'
       },
       {
         back: false,

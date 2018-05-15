@@ -35,6 +35,12 @@ export const WORKFLOW_NEXT = 'workflowNext'
 
 // create actions
 export const CREATE_UPDATE_USERNAME = 'createUpdateUsername'
+export const CREATE_UPDATE_FIRSTNAME = 'CREATE_UPDATE_FIRSTNAME'
+export const CREATE_UPDATE_LASTNAME = 'CREATE_UPDATE_LASTNAME'
+export const CREATE_UPDATE_ADDRESS = 'CREATE_UPDATE_ADDRESS'
+export const CREATE_UPDATE_CITY = 'CREATE_UPDATE_CITY'
+export const CREATE_UPDATE_STATE = 'CREATE_UPDATE_STATE'
+export const CREATE_UPDATE_ZIP = 'CREATE_UPDATE_ZIP'
 export const CREATE_UPDATE_PIN = 'createUpdatePin'
 export const LOG_IN_PIN = 'LOG_IN_PIN'
 export const LOGIN_SUCCEESS = 'USERNAME_PASSWORD'
@@ -77,3 +83,6 @@ export const RESET_APP = 'resetApplication'
 
 export const SET_RECOVERY_KEY = 'resetRecoveryKey'
 export const CANCEL_RECOVERY_KEY = 'cancelRecoveryKey'
+
+export const DEFAULT_MODE = true // true - `dev`, false - `prod`
+export const APP_TOKEN = 'Y2xpZW50X2lkOnNlY3JldA=='
