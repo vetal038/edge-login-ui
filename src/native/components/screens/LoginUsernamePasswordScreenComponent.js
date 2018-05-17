@@ -231,14 +231,14 @@ export default class LandingScreenComponent extends Component {
     return (
       <View style={style.buttonsBox}>
         <View style={style.shimTiny} />
-        <Button
-          onPress={this.onForgotPassword.bind(this)}
-          label={'Forgot Password'}
-          downStyle={style.forgotButton.downStyle}
-          downTextStyle={style.forgotButton.downTextStyle}
-          upStyle={style.forgotButton.upStyle}
-          upTextStyle={style.forgotButton.upTextStyle}
-        />
+        {/*<Button*/}
+          {/*onPress={this.onForgotPassword.bind(this)}*/}
+          {/*label={'Forgot Password'}*/}
+          {/*downStyle={style.forgotButton.downStyle}*/}
+          {/*downTextStyle={style.forgotButton.downTextStyle}*/}
+          {/*upStyle={style.forgotButton.upStyle}*/}
+          {/*upTextStyle={style.forgotButton.upTextStyle}*/}
+        {/*/>*/}
         <View style={style.shimTiny} />
         <Button
           testID={'loginButton'}
