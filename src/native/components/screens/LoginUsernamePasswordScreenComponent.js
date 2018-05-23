@@ -112,9 +112,9 @@ export default class LandingScreenComponent extends Component {
       offset: Offsets.USERNAME_OFFSET_LOGIN_SCREEN
     })
     if (this.props.previousUsers.lastUser) {
-      this.props.launchUserLoginWithTouchId({
-        username: this.props.previousUsers.lastUser.username
-      })
+      // this.props.launchUserLoginWithTouchId({
+      //   username: this.props.previousUsers.lastUser.username
+      // })
     }
   }
   componentWillReceiveProps (nextProps) {
@@ -294,7 +294,7 @@ export default class LandingScreenComponent extends Component {
       this.props.gotoPinLoginPage()
       return
     }
-    this.props.launchUserLoginWithTouchId({ username: user })
+    //this.props.launchUserLoginWithTouchId({ username: user })
     this.onSetNextFocus()
   }
 

@@ -58,11 +58,16 @@ class FourDigitInputComponent extends Component {
   }
   render () {
     const Style = this.props.style
+
+    const pinLength = this.props.pin ? this.props.pin.length : 0
+
     return (
       <TouchableWithoutFeedback onPress={this.refocus.bind(this)} >
         <View style={Style.container}>
           <View style={Style.interactiveContainer}>
-            {this.renderDotContainer(Style)}
+            {
+              ((pinLength === 4 || this.state.touchId) && this.props.autoLogIn) ? (<Spinner style={{marginTop: 0}}/>) : this.renderDotContainer(Style)
+            }
             <TextInput
               ref={this.loadedInput}
               style={Style.input}
@@ -76,9 +81,17 @@ class FourDigitInputComponent extends Component {
               keyboardShouldPersistTaps
             />
           </View>
-          <View style={Style.errorContainer}>
-            <Text style={Style.errorText}>{this.props.error}</Text>
-          </View>
+          {
+            ((pinLength === 4 || this.state.touchId) && this.props.autoLogIn)
+              ? null
+              : (this.props.error &&
+                  (
+                    <View style={Style.errorContainer}>
+                      <Text style={Style.errorText}>{this.props.error}</Text>
+                    </View>
+                  )
+                )
+          }
         </View>
       </TouchableWithoutFeedback>
     )
@@ -112,9 +125,6 @@ class FourDigitInputComponent extends Component {
   }
   renderDotContainer (style) {
     const pinLength = this.props.pin ? this.props.pin.length : 0
-    if ((pinLength === 4 || this.state.touchId) && this.props.autoLogIn) {
-      return <Spinner style={{marginTop: 15}}/>
-    }
     return (
       <View style={style.dotContainer}>
         <View style={[this.renderCircleTest(style.circle), pinLength > 0 && style.circleSected]} />

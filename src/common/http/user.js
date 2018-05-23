@@ -1,18 +1,22 @@
 import { AsyncStorage } from 'react-native'
+import DeviceInfo from 'react-native-device-info'
 import * as Constants from '../constants'
 
 const baseUrl = async function () {
   let value = await AsyncStorage.getItem('isDevMode')
   value = (value && value.length) ? value === 'dev' : Constants.DEFAULT_MODE
-  return value ? 'http://35.193.161.72' : 'http://vaultlogic.com'
+  return value ? 'http://35.193.161.72' : 'http://35.224.177.227'//'http://vaultlogic.com'
 }
 
 async function getToken (username, password) {
+  const version = DeviceInfo.getVersion()
+  console.log('DeviceInfo.getVersion', version)
   const url = await baseUrl()
   return fetch(url + '/api/accounts/oauth/token?grant_type=password&scope=web_client&username=' + username + '&password=' + password, {
     method: 'POST',
     headers: {
-      'Authorization': 'Basic ' + Constants.APP_TOKEN
+      'Authorization': 'Basic ' + Constants.APP_TOKEN,
+      'version': version
     }
   })
     .then((response) => {

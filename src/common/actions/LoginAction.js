@@ -164,6 +164,9 @@ export function userLoginWithPin (data, backupKey = null) {
           if (vc_token && vc_token.access_token) {
             await AsyncStorage.setItem('vc_token', vc_token.access_token)
           }
+          else if (vc_token && vc_token.error) {
+            throw new Error(vc_token.error_description || vc_token.error)
+          }
           await context.io.folder
               .file('lastuser.json')
               .setText(JSON.stringify({ username: abcAccount.username }))
@@ -234,6 +237,9 @@ export function userLogin (data, backupKey = null) {
         const vc_token = await req.getToken(data.username, data.password)
         if (vc_token && vc_token.access_token) {
           await AsyncStorage.setItem('vc_token', vc_token.access_token)
+        }
+        else if (vc_token && vc_token.error) {
+          throw new Error(vc_token.error_description || vc_token.error)
         }
         await context.io.folder
           .file('lastuser.json')

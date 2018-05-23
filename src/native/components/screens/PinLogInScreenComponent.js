@@ -18,7 +18,7 @@ export default class PinLogInScreenComponent extends Component {
       focusOn: 'pin'
     })
     this.relaunchTouchId = () => {
-      this.props.launchUserLoginWithTouchId({username: this.props.username})
+      //this.props.launchUserLoginWithTouchId({username: this.props.username})
     }
     this.renderTouchButton = (style) => {
       if (this.props.username) {
@@ -42,7 +42,7 @@ export default class PinLogInScreenComponent extends Component {
   }
   componentDidMount () {
     if (this.props.username) {
-      this.props.launchUserLoginWithTouchId({username: this.props.username})
+      //this.props.launchUserLoginWithTouchId({username: this.props.username})
     }
   }
   render () {
@@ -75,7 +75,7 @@ export default class PinLogInScreenComponent extends Component {
         <View style={PinLoginScreenStyle.featureBoxBody}>
           {this.renderBottomHalf(PinLoginScreenStyle)}
         </View>
-        {this.renderTouchButton(PinLoginScreenStyle)}
+        {/*{this.renderTouchButton(PinLoginScreenStyle)}*/}
         {this.renderModal(PinLoginScreenStyle)}
       </View>
     )
@@ -141,7 +141,7 @@ export default class PinLogInScreenComponent extends Component {
     this.props.launchDeleteModal()
   }
   selectUser (arg) {
-    this.props.launchUserLoginWithTouchId({username: arg})
+    //this.props.launchUserLoginWithTouchId({username: arg})
     this.props.changeUser(arg)
     this.setState({
       focusOn: 'pin'
