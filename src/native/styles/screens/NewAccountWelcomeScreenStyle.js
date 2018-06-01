@@ -29,7 +29,7 @@ const NewAccountWelcomeScreenStyle = {
       textAlign: 'center',
       color: Constants.WHITE,
       fontWeight: '700',
-      fontFamily: 'gotham'
+      fontFamily: Constants.FONTS.fontFamilyRegular
     },
     center: {
       flex: 3,

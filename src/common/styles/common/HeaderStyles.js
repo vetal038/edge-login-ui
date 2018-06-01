@@ -55,7 +55,7 @@ const HeaderContainerStyle = {
     textAlign: 'center',
     color: Constants.WHITE,
     fontWeight: '700',
-    fontFamily: 'gotham'
+    fontFamily: Constants.FONTS.fontFamilyRegular
   },
   subHeadText: {
     fontSize: 11,

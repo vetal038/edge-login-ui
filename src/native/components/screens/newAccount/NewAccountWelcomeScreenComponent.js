@@ -17,7 +17,7 @@ export default class NewAccountWelcomeScreenComponent extends Component {
             <HeaderBackButton
               onPress={this.props.exitScreen}
               styles={NewAccountWelcomeScreenStyle.exitBackButtonStyle}
-              label={'Exit'}
+              // label={'Exit'}
             />
             <View style={NewAccountWelcomeScreenStyle.welcomeScreen.center}>
               <Text style={NewAccountWelcomeScreenStyle.welcomeScreen.headlineText}>Let's get started</Text>
