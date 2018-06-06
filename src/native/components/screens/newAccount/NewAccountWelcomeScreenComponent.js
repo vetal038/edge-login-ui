@@ -14,14 +14,17 @@ export default class NewAccountWelcomeScreenComponent extends Component {
       <SafeAreaView>
         <View style={NewAccountWelcomeScreenStyle.screen}>
           <View style={[NewAccountWelcomeScreenStyle.row1, NewAccountWelcomeScreenStyle.welcomeScreen.screenHeader]}>
-            <HeaderBackButton
-              onPress={this.props.exitScreen}
-              styles={NewAccountWelcomeScreenStyle.exitBackButtonStyle}
-              // label={'Exit'}
-            />
+            <View style={NewAccountWelcomeScreenStyle.left}>
+              <HeaderBackButton
+                onPress={this.onExit.bind(this)}
+                styles={NewAccountWelcomeScreenStyle.exitBackButtonStyle}
+                label={'Exit'}
+              />
+            </View>
             <View style={NewAccountWelcomeScreenStyle.welcomeScreen.center}>
               <Text style={NewAccountWelcomeScreenStyle.welcomeScreen.headlineText}>Let's get started</Text>
             </View>
+            <View style={NewAccountWelcomeScreenStyle.right}></View>
           </View>
           <View style={NewAccountWelcomeScreenStyle.row2}></View>
           <View style={NewAccountWelcomeScreenStyle.row3}>
@@ -50,6 +53,10 @@ export default class NewAccountWelcomeScreenComponent extends Component {
         </View>
       </SafeAreaView>
     )
+  }
+
+  onExit () {
+    this.props.exitScreen()
   }
   /* onNextPress () {
     this.props.nextScreen()

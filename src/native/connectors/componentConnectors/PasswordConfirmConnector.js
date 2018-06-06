@@ -7,10 +7,10 @@ export const mapStateToProps = (state, ownProps) => {
   const value = state.create.confirmPassword ? state.create.confirmPassword : ''
   const error = state.create.confirmPasswordErrorMessage ? state.create.confirmPasswordErrorMessage : ''
   return {
-    style: ownProps.style,
+    style: {...ownProps.style, container: {...ownProps.style.container, width: '100%'}},
     value,
     error,
-    secureTextEntry: true,
+    secureTextEntry: ownProps.secureTextEntry,
     showSecureCheckbox: true,
     showSecureCheckboxLabel: 'Show Password',
     label: label,

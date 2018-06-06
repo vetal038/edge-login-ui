@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, KeyboardAvoidingView, Text } from 'react-native'
-import { Button } from '../../common'
+import { View, KeyboardAvoidingView, Text, TouchableOpacity } from 'react-native'
+import { Button, Icon } from '../../common'
 import HeaderConnector
   from '../../../connectors/componentConnectors/HeaderConnector'
 import PasswordConnector
@@ -29,7 +29,9 @@ export default class NewAccountPasswordScreenComponent extends Component {
     this.setState({
       isProcessing: false,
       focusFirst: true,
-      focusSecond: false
+      focusSecond: false,
+      passwordHidden: true,
+      confirmPasswordHidden: true
     })
   }
   render () {
@@ -74,17 +76,45 @@ export default class NewAccountPasswordScreenComponent extends Component {
     return (
       <View style={styles.innerView}>
         <PasswordStatusConnector style={styles.status} />
-        <PasswordConnector
-          style={styles.inputBox}
-          autoFocus={this.state.focusFirst}
-          onFinish={this.onSetNextFocus.bind(this)}
-        />
+        <View style={{position: 'relative', width: Constants.LOGIN_LABEL_WIDTH, height: Constants.LOGIN_LABEL_HEIGHT, marginBottom: 10}}>
+          <PasswordConnector
+            style={styles.inputBox}
+            secureTextEntry={this.state.passwordHidden}
+            autoFocus={this.state.focusFirst}
+            onFinish={this.onSetNextFocus.bind(this)}
+          />
+          <TouchableOpacity
+            style={[{position:'absolute', right: 0, bottom: 0, paddingHorizontal:5}]}
+            onPress={()=> this.onPasswordHidden('passwordHidden')}
+          >
+            <Icon
+              style={{color: Constants.PURPLE}}
+              name={this.state.passwordHidden ? Constants.EYE : Constants.EYE_SLASH}
+              size={24}
+              type={Constants.FONT_AWESOME}
+            />
+          </TouchableOpacity>
+        </View>
         <View style={styles.inputShim} />
-        <PasswordConfirmConnector
-          style={styles.inputBox}
-          autoFocus={this.state.focusSecond}
-          onFinish={this.onNextPress.bind(this)}
-        />
+        <View style={{position: 'relative', width: Constants.LOGIN_LABEL_WIDTH, height: Constants.LOGIN_LABEL_HEIGHT, marginBottom: 10}}>
+          <PasswordConfirmConnector
+            style={styles.inputBox}
+            secureTextEntry={this.state.confirmPasswordHidden}
+            autoFocus={this.state.focusSecond}
+            onFinish={this.onNextPress.bind(this)}
+          />
+          <TouchableOpacity
+            style={[{position:'absolute', right: 0, bottom: 0, paddingHorizontal:5}]}
+            onPress={()=> this.onPasswordHidden('confirmPasswordHidden')}
+          >
+            <Icon
+              style={{color: Constants.PURPLE}}
+              name={this.state.confirmPasswordHidden ? Constants.EYE : Constants.EYE_SLASH}
+              size={24}
+              type={Constants.FONT_AWESOME}
+            />
+          </TouchableOpacity>
+        </View>
         <View style={styles.inputShim} />
         <Button
           onPress={this.onNextPress.bind(this)}
@@ -105,6 +135,11 @@ export default class NewAccountPasswordScreenComponent extends Component {
     }
     return null
   }
+  onPasswordHidden = (password) => {
+    this.setState({
+      [password]: !this.state[password]
+    })
+  }
   onSetNextFocus () {
     this.setState({
       focusFirst: false,
@@ -115,6 +150,28 @@ export default class NewAccountPasswordScreenComponent extends Component {
     this.setState({
       isProcessing: true
     })
+    if (!this.props.password) {
+      const obj = {
+        password: '',
+        passwordStatus: {
+          noLowerCase: true,
+          noNumber: true,
+          noUpperCase: true,
+          passed: false,
+          secondsToCrack: 0,
+          tooShort: true
+        },
+        error: Constants.PASSWORD_REQUIRED_ERROR
+      }
+      this.props.updatePassword(obj)
+    }
+    if (!this.props.confirmPassword) {
+      var obj2 = {
+        password: '',
+        error: Constants.CONFIRM_PASSWORD_REQUIRED_ERROR
+      }
+      this.props.updateConfirmPassword(obj2)
+    }
     if (!this.props.passwordStatus) {
       // TODO Skip component
       this.setState({

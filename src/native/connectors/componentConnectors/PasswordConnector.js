@@ -7,10 +7,10 @@ export const mapStateToProps = (state, ownProps) => {
   const value = state.create.password ? state.create.password : ''
   const error = state.create.createPasswordErrorMessage ? state.create.createPasswordErrorMessage : ''
   return {
-    style: ownProps.style,
+    style: {...ownProps.style, container: {...ownProps.style.container, width: '100%'}},
     value,
     error,
-    secureTextEntry: true,
+    secureTextEntry: ownProps.secureTextEntry,
     showSecureCheckbox: true,
     showSecureCheckboxLabel: 'Show Password',
     label: label, // TODO localize

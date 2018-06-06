@@ -222,10 +222,22 @@ export function userLogin (data, backupKey = null) {
       }
     }
     if (backupKey) myAccountOptions.otp = backupKey
+
     // dispatch(openLoading()) Legacy dealt with state for showing a spinner
     // the timeout is a hack until we put in interaction manager.
     setTimeout(async() => {
       try {
+        if (!data.username || !data.password) {
+          dispatch(
+            dispatch(dispatchActionWithData(
+              Constants.LOGIN_USERNAME_PASSWORD_FAIL,
+              'Username and Password fields are required'
+            ))
+          )
+          callback('Username and Password fields are required', null)
+          return
+        }
+
         const abcAccount = await context.loginWithPassword(data.username, data.password, myAccountOptions)
         console.log('abcAccount', abcAccount);
         const touchDisabled = await isTouchDisabled(context, abcAccount.username)

@@ -42,6 +42,15 @@ class FormField extends Component {
       autoFocus: this.props.autoFocus
     })
   }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.secureTextEntry !== this.state.secure) {
+      this.setState({
+        secure: nextProps.secureTextEntry
+      })
+    }
+  }
+
   render () {
     const {
       container,

@@ -7,6 +7,7 @@ const NewAccountWelcomeScreenStyle = {
     ...Styles.ScreenRow,
     flex: 1,
     justifyContent: 'flex-start',
+    alignItems: 'center',
     flexDirection: 'row'
   },
   row2: { ...Styles.ScreenRow, flex: 4 },
@@ -21,7 +22,7 @@ const NewAccountWelcomeScreenStyle = {
   welcomeScreen: {
     screenHeader: {
       backgroundColor: '#604dd4',
-      flex: 1.2
+      flex: 1.3
     },
     headlineText: {
       fontSize: 20,
@@ -34,8 +35,8 @@ const NewAccountWelcomeScreenStyle = {
     center: {
       flex: 3,
       justifyContent: 'flex-end',
-      paddingBottom: 10,
-      marginLeft: -20
+      paddingBottom: 5,
+      // marginLeft: -20
     },
   },
   logoHeader: Styles.LogoHeaderStyle,
@@ -69,7 +70,8 @@ const NewAccountWelcomeScreenStyle = {
   exitBackButtonStyle: {
     backButton: {
       flexDirection: 'row',
-      alignItems: 'center'
+      alignItems: 'center',
+      // backgroundColor: 'red'
     },
     backIconStyle: {
       paddingLeft: 10,
@@ -89,6 +91,14 @@ const NewAccountWelcomeScreenStyle = {
       backgroundColor: Constants.TRANSPARENT,
       color: Constants.SECONDARY
     }
+  },
+  left: {
+    flex: 1,
+    justifyContent: 'flex-end'
+  },
+  right: {
+    flex: 1,
+    justifyContent: 'flex-end'
   }
 }
 

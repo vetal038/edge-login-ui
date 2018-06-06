@@ -33,6 +33,17 @@ export function checkUsernameForAvailabilty (data) {
     // the timeout is a hack until we put in interaction manager.
     setTimeout(async () => {
 
+      if (!data) {
+        const obj = {
+          username: data,
+          error: Constants.USERNAME_REQUIRED_ERROR
+        }
+        dispatch(
+          dispatchActionWithData(Constants.CREATE_UPDATE_USERNAME, obj)
+        )
+        return
+      }
+
       const isUsernameAvailable = await req.usernameAvailable(data)
       console.log('isUsernameAvailable', isUsernameAvailable);
 

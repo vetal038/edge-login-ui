@@ -74,7 +74,7 @@ const FourDotInputDarkStyle = {
   errorContainer: {
     marginTop: 20,
     flex: 1,
-    width: '100%'
+    width: '100%',
   },
   dotContainer: {
     height: '100%',
@@ -85,6 +85,7 @@ const FourDotInputDarkStyle = {
   errorText: {
     width: '100%',
     height: 40,
+    lineHeight: 10,
     textAlign: 'center',
     color: Colors.ACCENT_RED,
     padding: 5

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import LinkedComponent from '../../../components/screens/newAccount/NewAccountPasswordScreenComponent'
 import * as actions from '../../../../common/actions'
+import * as Constants from '../../../../common/constants'
 
 export const mapStateToProps = (state, ownProps) => {
   const error = state.create.confirmPasswordErrorMessage ? state.create.confirmPasswordErrorMessage : ''
@@ -21,7 +22,9 @@ export const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     checkTheConfirmPassword: () => dispatch(actions.validateConfirmPassword()),
     skipPassword: () => dispatch(actions.validateConfirmPassword()),
-    nextScreen: () => dispatch(actions.nextScreen())
+    nextScreen: () => dispatch(actions.nextScreen()),
+    updatePassword: (obj) => dispatch(actions.dispatchActionWithData(Constants.AUTH_UPDATE_PASSWORD, obj)),
+    updateConfirmPassword: (obj) => dispatch(actions.dispatchActionWithData(Constants.AUTH_UPDATE_CONFIRM_PASSWORD, obj))
   }
 }
 

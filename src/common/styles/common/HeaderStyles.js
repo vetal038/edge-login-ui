@@ -8,8 +8,7 @@ const HeaderContainerStyle = {
     height: Constants.HEADER_HEIGHT,
     width: '100%',
     backgroundColor: Constants.TRANSPARENT,
-    flexDirection: 'row',
-    paddingVertical: 6
+    flexDirection: 'row'
   },
   headerBackButtonStyle: {
     backButton: {
@@ -37,25 +36,32 @@ const HeaderContainerStyle = {
   },
   left: {
     flex: 1,
-    justifyContent: 'flex-end'
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    paddingVertical: 6
   },
   center: {
     flex: 3,
-    justifyContent: 'flex-end',
-    paddingBottom: 5
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 6
   },
   right: {
     flex: 1,
-    justifyContent: 'flex-end' // ,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    paddingVertical: 6,
     // alignItems: 'center'
   },
   headlineText: {
     fontSize: 20,
+    lineHeight: 20,
     width: '100%',
     textAlign: 'center',
     color: Constants.WHITE,
-    fontWeight: '700',
-    fontFamily: Constants.FONTS.fontFamilyRegular
+    fontWeight: '500',
+    fontFamily: Constants.FONTS.fontFamilyRegular,
+    paddingBottom: 5
   },
   subHeadText: {
     fontSize: 11,

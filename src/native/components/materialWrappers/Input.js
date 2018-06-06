@@ -13,7 +13,8 @@ class Input extends Component {
   componentWillMount () {
     this.setState({
       inputText: '',
-      autoFocus: this.props.autoFocus
+      autoFocus: this.props.autoFocus,
+      passwordHidden: this.props.secureTextEntry
     })
   }
   componentDidMount () {
@@ -35,6 +36,11 @@ class Input extends Component {
     if (nextProps.forceFocus) {
       this.textInput.focus()
     }
+    if (nextProps.secureTextEntry !== this.state.passwordHidden) {
+      this.setState({
+        passwordHidden: nextProps.secureTextEntry
+      })
+    }
   }
 
   render () {
@@ -51,6 +57,9 @@ class Input extends Component {
       secureTextEntry,
       returnKeyType
     } = this.props
+    const {
+      passwordHidden
+    } = this.state
     return (
       <TextField
         ref={this.addRef.bind(this)}
@@ -64,7 +73,7 @@ class Input extends Component {
         textColor={textColor}
         errorColor={errorColor}
         titleTextStyle={titleTextStyle}
-        secureTextEntry={secureTextEntry}
+        secureTextEntry={passwordHidden}
         autoCapitalize={this.props.autoCapitalize}
         returnKeyType={returnKeyType}
         onBlur={this.onBlur.bind(this)}

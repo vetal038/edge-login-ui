@@ -9,6 +9,8 @@ export const FONT_AWESOME = 'fontAwesome'
 export const ADDRESS_BOOK_O = 'address-book-o'
 export const USER_O = 'user-o'
 export const TRASH_O = 'trash-o'
+export const EYE = 'eye'
+export const EYE_SLASH = 'eye-slash'
 // Ionicons
 export const ION_ICONS = 'ionIcons'
 export const CLOSE_ICON = 'close'

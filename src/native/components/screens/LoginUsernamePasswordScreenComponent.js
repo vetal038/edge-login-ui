@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { View, Keyboard, TouchableWithoutFeedback, Text } from 'react-native'
+import { View, Keyboard, TouchableWithoutFeedback, Text, TouchableOpacity } from 'react-native'
 import {
   BackgroundImage,
   Button,
   FormField,
   FormFieldWithDropComponent,
-  StaticModal
+  StaticModal,
+  Icon
 } from '../../components/common'
 /* import UsernameDropConnector
   from '../../connectors/componentConnectors/UsernameDropConnector' */
@@ -87,6 +88,7 @@ export default class LandingScreenComponent extends Component {
       username: '',
       password: '',
       loggingIn: false,
+      passwordHidden: true,
       focusFirst: true,
       focusSecond: false,
       offset: Offsets.USERNAME_OFFSET_LOGIN_SCREEN,
@@ -107,6 +109,7 @@ export default class LandingScreenComponent extends Component {
       username: '',
       password: '',
       loggingIn: false,
+      passwordHidden: true,
       focusFirst: true,
       focusSecond: false,
       offset: Offsets.USERNAME_OFFSET_LOGIN_SCREEN
@@ -162,19 +165,32 @@ export default class LandingScreenComponent extends Component {
           <LogoImageHeader style={this.style.logoHeader} />
           {this.renderUsername(this.style)}
           <View style={this.style.shimTiny} />
-          <FormField
-            testID={'passwordFormField'}
-            style={this.style.input2}
-            onChangeText={this.updatePassword.bind(this)}
-            value={this.props.password}
-            label={'Password'}
-            error={this.props.error}
-            secureTextEntry
-            returnKeyType={'go'}
-            forceFocus={this.state.focusSecond}
-            onFocus={this.onfocusTwo.bind(this)}
-            onSubmitEditing={this.onStartLogin.bind(this)}
-          />
+          <View style={{position: 'relative', width: Constants.LOGIN_LABEL_WIDTH, height: Constants.LOGIN_LABEL_HEIGHT, marginBottom: 10}}>
+            <FormField
+              testID={'passwordFormField'}
+              style={{...this.style.input2, container: {...this.style.input2.container, width: '100%'}}}
+              onChangeText={this.updatePassword.bind(this)}
+              value={this.props.password}
+              label={'Password'}
+              error={this.props.error}
+              secureTextEntry={this.state.passwordHidden}
+              returnKeyType={'go'}
+              forceFocus={this.state.focusSecond}
+              onFocus={this.onfocusTwo.bind(this)}
+              onSubmitEditing={this.onStartLogin.bind(this)}
+            />
+            <TouchableOpacity
+              style={[{position:'absolute', right: 0, bottom: 0, paddingHorizontal:5}]}
+              onPress={()=> this.onPasswordHidden()}
+            >
+              <Icon
+                style={{color: Constants.PURPLE}}
+                name={this.state.passwordHidden ? Constants.EYE : Constants.EYE_SLASH}
+                size={24}
+                type={Constants.FONT_AWESOME}
+              />
+            </TouchableOpacity>
+          </View>
           {this.renderButtons(this.style)}
           {this.renderModal(this.style)}
         </View>
@@ -264,6 +280,13 @@ export default class LandingScreenComponent extends Component {
       </View>
     )
   }
+
+  onPasswordHidden = () => {
+    this.setState({
+      passwordHidden: !this.state.passwordHidden
+    })
+  }
+
   onfocusOne () {
     this.setState({
       focusFirst: true,
@@ -339,8 +362,8 @@ export default class LandingScreenComponent extends Component {
       loggingIn: true
     })
     this.props.userLogin({
-      username: this.props.username,
-      password: this.props.password
+      username: this.props.username || "",
+      password: this.props.password || ""
     })
   }
   onCreateAccount () {
