@@ -34,7 +34,7 @@ const PasswordStatusStyle = {
 
   },
   checkboxContainer: {
-    height: vs(20),
+    height: vs(16),
     marginTop: 4
   },
   textContainer: {

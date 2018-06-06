@@ -184,7 +184,7 @@ export default class LandingScreenComponent extends Component {
               onPress={()=> this.onPasswordHidden()}
             >
               <Icon
-                style={{color: Constants.PURPLE}}
+                style={{color: Constants.PURPLE, backgroundColor: Constants.TRANSPARENT}}
                 name={this.state.passwordHidden ? Constants.EYE : Constants.EYE_SLASH}
                 size={24}
                 type={Constants.FONT_AWESOME}
@@ -225,6 +225,7 @@ export default class LandingScreenComponent extends Component {
         value={this.props.username}
         label={'Username'}
         returnKeyType={'next'}
+        secureTextEntry={false}
         autoFocus={this.state.focusFirst}
         forceFocus={this.state.focusFirst}
         onFocus={this.onfocusOne.bind(this)}

@@ -88,7 +88,7 @@ export default class NewAccountPasswordScreenComponent extends Component {
             onPress={()=> this.onPasswordHidden('passwordHidden')}
           >
             <Icon
-              style={{color: Constants.PURPLE}}
+              style={{color: Constants.PURPLE, backgroundColor: Constants.TRANSPARENT}}
               name={this.state.passwordHidden ? Constants.EYE : Constants.EYE_SLASH}
               size={24}
               type={Constants.FONT_AWESOME}
@@ -108,7 +108,7 @@ export default class NewAccountPasswordScreenComponent extends Component {
             onPress={()=> this.onPasswordHidden('confirmPasswordHidden')}
           >
             <Icon
-              style={{color: Constants.PURPLE}}
+              style={{color: Constants.PURPLE, backgroundColor: Constants.TRANSPARENT}}
               name={this.state.confirmPasswordHidden ? Constants.EYE : Constants.EYE_SLASH}
               size={24}
               type={Constants.FONT_AWESOME}

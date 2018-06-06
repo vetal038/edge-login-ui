@@ -24,9 +24,9 @@ class Header extends Component {
     if (!this.props.showBackButton) {
       return
     }
-    let label = 'BACK'
+    let label = 'Back'
     if (this.props.useCancel) {
-      label = 'CANCEL' // TODO localize
+      label = 'Cancel' // TODO localize
     }
     return (
       <HeaderBackButton

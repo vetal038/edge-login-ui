@@ -9,6 +9,7 @@ export const mapStateToProps = (state, ownProps) => {
     error: state.create.usernameErrorMessage,
     label: 'Username',
     returnKeyType: 'go',
+    secureTextEntry: false,
     autoCorrect: false,
     autoFocus: true // ownProps.autoFocus,
   }

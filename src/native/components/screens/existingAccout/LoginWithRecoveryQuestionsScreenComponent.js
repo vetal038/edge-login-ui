@@ -139,6 +139,7 @@ export default class PasswordRecovery extends Component {
               value={this.state.answer1}
               label={'Your Answer'}
               error={'Answers are case sensitive'}
+              secureTextEntry={false}
             />
           </View>
           <View style={styles.shim} />
@@ -155,6 +156,7 @@ export default class PasswordRecovery extends Component {
               value={this.state.answer2}
               label={'Your Answer'}
               error={'Answers are case sensitive'}
+              secureTextEntry={false}
             />
           </View>
           <View style={styles.buttonContainer}>

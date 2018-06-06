@@ -9,6 +9,7 @@ export const mapStateToProps = (state, ownProps) => {
     value: state.login.username,
     label: 'Username', // TODO: Localization
     returnKeyType: 'next',
+    secureTextEntry:false,
     autoFocus: ownProps.autoFocus,
     forceFocus: ownProps.forceFocus,
     onFocus: ownProps.onFocus,

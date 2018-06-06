@@ -80,7 +80,7 @@ const NewAccountWelcomeScreenStyle = {
       color: Constants.WHITE
     },
     sideText: {
-      color: Constants.SECONDARY,
+      color: Constants.WHITE,
       fontSize: 18
     },
     icon: {

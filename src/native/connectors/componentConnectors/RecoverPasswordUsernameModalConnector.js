@@ -9,6 +9,7 @@ export const mapStateToProps = (state, ownProps) => {
     label: 'Username',
     error: state.passwordRecovery.recoveryErrorMessage,
     style: ownProps.style,
+    secureTextEntry:false,
     returnKeyType: 'go',
     forceFocus: true
   }

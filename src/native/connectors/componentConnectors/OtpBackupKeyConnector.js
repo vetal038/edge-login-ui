@@ -10,6 +10,7 @@ export const mapStateToProps = (state, ownProps) => {
     value,
     label: 'Backup Key',
     error,
+    secureTextEntry:false,
     returnKeyType: 'next',
     autoFocus: true
   }

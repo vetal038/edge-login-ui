@@ -215,6 +215,7 @@ export default class PasswordRecovery extends Component {
               value={this.state.answer1}
               label={'Your Answer'}
               error={errorMessageOne}
+              secureTextEntry={false}
             />
           </View>
           <View style={styles.shim} />
@@ -238,6 +239,7 @@ export default class PasswordRecovery extends Component {
               value={this.state.answer2}
               label={'Your Answer'}
               error={errorMessageTwo}
+              secureTextEntry={false}
             />
           </View>
           {this.renderButtons(styles)}
@@ -317,6 +319,7 @@ export default class PasswordRecovery extends Component {
         returnKeyType={'go'}
         forceFocus
         onSubmitEditing={this.openEmailApp}
+        secureTextEntry={false}
       />
     </View>
   }
@@ -344,6 +347,7 @@ export default class PasswordRecovery extends Component {
         returnKeyType={'go'}
         forceFocus
         onSubmitEditing={this.openEmailApp}
+        secureTextEntry={false}
       />
     </View>
     if (this.props.showEmailDialog) {

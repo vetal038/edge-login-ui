@@ -2,7 +2,7 @@ import * as Styles from '../'
 import * as Constants from '../../constants/'
 import { Dimensions } from 'react-native'
 
-const OFFSET_HACK = -19
+const OFFSET_HACK = -21
 
 const screenDimensions = {
   height: Dimensions.get('window').height,
@@ -14,8 +14,10 @@ const ModalStyle = {
     position: 'absolute',
     top: OFFSET_HACK,
     left: OFFSET_HACK,
-    width: '100%',
-    height: '100%',
+    right: OFFSET_HACK,
+    bottom: OFFSET_HACK,
+    // width: '100%',
+    // height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Constants.MODAL_BOX
